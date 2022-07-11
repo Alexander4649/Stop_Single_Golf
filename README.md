@@ -1,6 +1,7 @@
 # Stop! Single golf
 
 ## サイト概要
+![スクリーンショット 2022-07-11 15 37 44](https://user-images.githubusercontent.com/105344687/178203563-71b267fb-6a14-4c5c-a5ff-3b26e6fb2e15.png)
 ### ◆サイトテーマ
 シングルゴルフプレイヤーの架け橋となるSNSサイト
 
