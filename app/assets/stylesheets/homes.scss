@@ -1,3 +1,39 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.backgroud_image_top {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(top.jpeg);
+  background-size: cover;
+  background-position: center;
+  
+}
+
+.title {
+  text-align: center;
+  padding-top: 150px; 
+}
+
+.main-title {
+  font-size: 64px;
+}
+
+.sub-title{
+  font-size: 24px;
+}
+
+
+.information {
+  text-align: center;
+  padding-top: 150px; 
+  font-size: 200%;
+  
+}
+
+.about_link{
+  text-align: center;
+  
+}

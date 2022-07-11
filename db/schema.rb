@@ -105,10 +105,10 @@ ActiveRecord::Schema.define(version: 2022_07_11_055549) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer "post_id", null: false
     t.string "name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.integer "post_id"
     t.text "profile_image_url"
     t.string "round_area"
     t.integer "average_score"

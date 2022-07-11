@@ -83,4 +83,56 @@ rails db:migrate:status => rails db:migrate:down VERSION=20220711041906
 rails g controller homes top about
 rails g controller users/posts/post_omments/groups/group_comments/relationships/favorites/administrators/guest_users
 
+〜〜〜〜〜〜〜〜〜〜実装準備終了〜〜〜〜〜〜〜〜〜〜
 
+routes 設定
+❶
+  root :to => "homes#top"　=> Topページ
+  get "home/about" => "homes#about" =>aboutページ
+  get "home/logout" => "homes#logout" =>ログアウト後のページ
+  
+
+〜〜〜〜〜〜〜〜〜〜
+
+model 編集
+
+❶
+
+〜〜〜〜〜〜〜〜〜〜
+
+controller 編集
+❶application.controller.rbにサインイン後、サインアウト後の遷移先を指定する。
+また、
+
+before_action :configure_permitted_parameters, if: :devise_controller? …①
+
+  private
+
+  def after_sign_in_path_for(resource)
+
+  end
+
+  def after_sign_out_path_for(resource)
+
+  end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email]) …②
+  end
+
+※①
+:devise_contoller?とはdeviseを生成した際にできるヘルパーメソッドの一つで、deviseにまつわる画面に行った時に、という意味がある。こうすることで全ての画面でconfigure_permitted_parametersが起動する。
+つまりもしそれがdeviseのコントローラーだったら（devise_controller?というメソッドの返り値がtrueだったら）configure_permitted_parametersを呼ぶ。
+https://qiita.com/ohnitakahiro/items/4487aed43fa264ddcdee
+※②
+ここの記述ではデバイス版のストロングパラメーターだ。　デバイスでは初期設定でメールアドレスとパスワードしか許されていない。　ここを編集することでユーザーネームなどを入れることができる。
+https://qiita.com/kaito121855/items/e1a80da8557258c497dc
+〜〜〜〜〜〜〜〜〜〜
+
+view　編集
+❶
+application.html.erbに記述
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> =>FontAwsome適用
+
+
+href="/"><%= image_tag 'logo.png', size: "70x45" %>
