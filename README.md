@@ -59,6 +59,7 @@
 - UI Frows・ワイヤーフレーム・ER図
 
 > URLを記載(.drawio)
+[Stop! Single Golf(管理者).pdf](https://github.com/Alexander4649/Stop_Single_Golf/files/9081497/Stop.Single.Golf.pdf)
 
 - テーブル定義書
 
