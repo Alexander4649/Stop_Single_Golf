@@ -1,0 +1,75 @@
+・gemfileコメントアウト => gem 'image_processing', '~> 1.2'
+
+・gemfileにdevise追加 => gem 'devise'
+
+・bundle install
+
+・deviseのインストール => rails g devise:install
+
+・User model をdeviseを使って追加 => rails g devise User
+
+・migrationファイルにt.string:nameを追記
+
+・rails db:migrate => rails s
+
+・config.hostの設定 => rails s
+※devise機能の確認
+
+・Bootstrap追加 
+❶
+=>yarn add jquery bootstrap@4.5 popper.js
+❷
+config/webpack/environment.jsに追記
+〜〜〜
+const webpack = require('webpack')
+environment.plugins.prepend(
+  'Provide',
+  new webpack.ProvidePlugin({
+    $: 'jquery/src/jquery',
+    jQuery: 'jquery/src/jquery',
+    Popper: 'popper.js'
+  })
+)
+〜〜〜
+❸
+app/javascriptの配下にstylesheetsフォルダを作成
+作成したapp/javascript/stylesheetsフォルダの配下にapplication.scssファイルを作成
+application.scss => @import '~bootstrap/scss/bootstrap';
+
+❹
+app/javascript/packs/application.jsに追記
+〜〜〜
+import "jquery";
+import "popper.js";
+import "bootstrap";
+import "../stylesheets/application" 
+〜〜〜
+❺
+app/views/layouts/application.html.erbを書き換えます。
+[変更前]
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+[変更後]
+<%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+※❺
+stylesheet_link_tagの場合cssファイルは、app/assets 配下のファイルを参照します。
+stylesheet_pack_tagの場合は、app/javascript 配下のファイルを参照するようになります。
+例えばcssは、app/assets 配下で管理、JavaScriptはapp/javascript 配下で管理したいといった場合には次のようにします。
+
+
+・FontAwsomeの追加　=> インストール => yarn add @fortawesome/fontawesome-free@5.15.4
+app/javascript/packs/application.js に追記
+
+import '@fortawesome/fontawesome-free/js/all'
+
+app/javascript/stylesheets/application.scss　に追記
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+〜〜〜〜〜〜〜〜〜〜初期設定終了〜〜〜〜〜〜〜〜〜〜
+
+
+・dbカラムの追加
+
+modelの追加
+
+controllerの追加
