@@ -7,6 +7,7 @@
 ・deviseのインストール => rails g devise:install
 
 ・User model をdeviseを使って追加 => rails g devise User
+・deviseのviewを追加 => rails g devise:views
 
 ・migrationファイルにt.string:nameを追記
 
@@ -70,7 +71,7 @@ AcitveStorageの追加 => rails active_storage:install
 〜〜〜〜〜〜〜〜〜初期設定終了〜〜〜〜〜〜〜〜〜〜
 
 ・modelの追加
-rails g model User/Post/PostComment/Group/GroupComment/Relationship/favorite/administrator/guest_user
+rails g model User/Post/PostComment/Group/GroupComment/Relationship/Favorite/Administrator/Guest_User
 
 ・dbカラムの追加
 rails db:migrate:status => rails db:migrate:down VERSION=20220711041906
@@ -78,6 +79,8 @@ rails db:migrate:status => rails db:migrate:down VERSION=20220711041906
 
 〜〜〜〜〜〜〜〜〜〜DB実装終了〜〜〜〜〜〜〜〜〜〜
 
+・controllerの追加
+rails g controller homes top about
+rails g controller users/posts/post_omments/groups/group_comments/relationships/favorites/administrators/guest_users
 
 
-controllerの追加
