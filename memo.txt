@@ -65,11 +65,19 @@ import '@fortawesome/fontawesome-free/js/all'
 app/javascript/stylesheets/application.scss　に追記
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-〜〜〜〜〜〜〜〜〜〜初期設定終了〜〜〜〜〜〜〜〜〜〜
+AcitveStorageの追加 => rails active_storage:install
 
+〜〜〜〜〜〜〜〜〜初期設定終了〜〜〜〜〜〜〜〜〜〜
+
+・modelの追加
+rails g model User/Post/PostComment/Group/GroupComment/Relationship/favorite/administrator/guest_user
 
 ・dbカラムの追加
+rails db:migrate:status => rails db:migrate:down VERSION=20220711041906
+テーブル定義書のカラムを全て追加後 => rails db:migrate
 
-modelの追加
+〜〜〜〜〜〜〜〜〜〜DB実装終了〜〜〜〜〜〜〜〜〜〜
+
+
 
 controllerの追加
