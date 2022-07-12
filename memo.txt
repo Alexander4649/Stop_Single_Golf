@@ -1,3 +1,9 @@
+【&nbsp;】：半角スペースと同じサイズの空白
+【&thinsp;】：&nbsp;の空白より小さい空白
+【&ensp;】：半角スペースより間隔がやや広い空白
+【&emsp;】：全角スペースとほぼ同じサイズの空白
+
+
 ・gemfileコメントアウト => gem 'image_processing', '~> 1.2'
 
 ・gemfileにdevise追加 => gem 'devise'
@@ -133,6 +139,3 @@ view　編集
 ❶
 application.html.erbに記述
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> =>FontAwsome適用
-
-
-href="/"><%= image_tag 'logo.png', size: "70x45" %>

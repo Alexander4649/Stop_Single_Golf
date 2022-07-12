@@ -1,17 +1,20 @@
 <div class= "backgroud_image_top">
   
+  <%= render "logo" %>
+  
   <div class="title">
-    <h1 class="main-title"><strong>〜　Stop! Single Golf　〜</strong></h1>
+    <h1 class="main-title">〜　Stop! Single Golf　〜</h1>
     <p class="sub-title">一人でゴルフはもうやめよう</p>
   </div>
   
   <div class = "information">
-    <%= link_to "　登録　", new_user_registration_path, class: "btn btn-lg btn-success" %>
-    <%= link_to "ログイン", new_user_session_path, class: "btn btn-lg btn-success" %>
-    <%= link_to "閲覧のみ", root_path, class: "btn btn-lg btn-success" %>
+    <%= link_to "　登録　", new_user_registration_path, class: "btn btn-lg btn-success btn-outline-dark text-body mx-5" %>
+    <%= link_to "ログイン", new_user_session_path, class: "btn btn-lg btn-success btn-outline-dark text-body mx-5" %>
+    <%= link_to "閲覧のみ", root_path, class: "btn btn-lg btn-success btn-outline-dark text-body mx-5" %>
   </div>
   
-  <div class ="about">
-  <h2 class="about_link"><%= link_to "What is this?", home_about_path %></h2>
-  </div>
+  <h2 class="about_link">
+    <%= link_to "What is this?", home_about_path, class: "text-body"  %>
+  </h2>
+  
 </div>

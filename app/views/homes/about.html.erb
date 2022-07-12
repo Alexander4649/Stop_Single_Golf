@@ -1,2 +1,26 @@
-<h1>Homes#about</h1>
-<p>Find me in app/views/homes/about.html.erb</p>
+<div class= "backgroud_image_about">
+  
+  <%= render "logo" %>
+  
+  <div class="about-text">
+    <h1 class="main-text">About</h1>
+    <div class="sub-text">
+      <p>「Stop! Single Golf」は全国のゴルフシングルプレイヤーの方へお届けするSNSサイトです。</p>
+      
+      <p>
+        &emsp; ◎ゴルフが大好きな方!<br>
+        &emsp; ◎打ちっ放し練習場へ通われている方!<br>
+        &emsp; ◎ゴルフ仲間を探している方!<br>
+        &emsp; ◎ラウンドに行くウェアをお探しの方!<br>
+        &emsp; ◎ゴルフの投稿だけ見たい方!
+      </p>
+      <p>そんな中でも特に、「ラウンドに行きたいが、ゴルフ仲間がいない。。。」とゆう方へ!!!</p>
+      <p>同じ境遇の方が集まるSNSサイトで一緒にラウンドへ行くゴルフ仲間を作りましょう!</p>
+    </div>
+   </div>
+   
+   <div class= "root-back">
+    <%= link_to "　戻る　", root_path, class: "btn btn-lg btn-secondary btn-outline-dark text-white" %>
+   </div>
+   
+</div>

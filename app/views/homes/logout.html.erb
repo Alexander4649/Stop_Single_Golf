@@ -1,3 +1,16 @@
-<h1>logout</h1>
-
-<h2><%= link_to "Topへ", root_path %></h2>
+<div class= "backgroud_image_logout">
+  
+  <%= render "logo" %>
+  
+  <div class="logout-info">
+    <h1 class="logout-title">Log out</h1>
+    <div class="logout-text">
+      <p>ログアウトしました。</p>
+    </div>
+   </div>
+   
+   <div class= "top-back">
+    <%= link_to "　Topへ　", root_path, class: "btn btn-lg btn-warning btn-outline-dark text-body" %>
+   </div>
+   
+</div>
