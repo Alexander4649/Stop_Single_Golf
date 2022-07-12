@@ -11,10 +11,6 @@
         <li class="nav-item">
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
         </li>
-        <li>
-          <%= link_to user_path(current_user),class: 'nav-link text-light' do %>
-            <i class="fas fa-home"></i> Home
-          <% end %>
         </li>
         <% else %>
         <li class="nav-item">
