@@ -57,9 +57,8 @@
 > URLを記載(.pages)
 
 - UI Frows・ワイヤーフレーム・ER図
-![Golf-UI Forws(ユーザー側)](https://user-images.githubusercontent.com/105344687/178491203-79d18d9d-6e8f-43fc-a279-cc7c9d8ea96c.jpg)
-![Golf-UI Frows(管理側)](https://user-images.githubusercontent.com/105344687/178491108-10b42e8b-4566-4874-b5e1-db84b51acce2.jpg)
-![Golf-ER図](https://user-images.githubusercontent.com/105344687/178490750-efba785b-43e5-4331-a4a7-35c1bcf0c842.jpg)
+
+> https://docs.google.com/spreadsheets/d/1wB1LcZoWMiD2Op1-AkbEr9nqJqTVqRVrnEzuz_5xRsQ/edit#gid=1842528248
 
 - テーブル定義書
 
