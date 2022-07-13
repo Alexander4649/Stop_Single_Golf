@@ -7,19 +7,47 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-        <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
-        </li>
-        </li>
-        <% else %>
-        <li class="nav-item">
-          <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
-        </li>
-        <% end %>
+          
+          <% if user_signed_in? %>
+          <%= render "layouts/logo" %>
+          
+            <li class="nav-item">
+              <%= link_to user_path(current_user),class: 'nav-link text-dark' do %>
+                <i class="fas fa-golf-ball"></i> Home
+              <% end %>
+            </li>
+            
+            <li class="nav-item">
+              <%= link_to user_path(current_user),class: 'nav-link text-dark' do %>
+                <i class="fas fa-paper-plane"></i> Post
+              <% end %>
+            </li>
+            
+            <li class="nav-item">
+              <%= link_to user_path(current_user),class: 'nav-link text-dark' do %>
+                <i class="fas fa-list"></i> List
+              <% end %>
+            </li>
+            
+            <li class="nav-item">
+              <%= link_to user_path(current_user),class: 'nav-link text-dark' do %>
+                <i class="fas fa-user-friends"></i> Group
+              <% end %>
+            </li>
+            
+            <li class="nav-item">
+              <%= link_to user_path(current_user),class: 'nav-link text-dark' do %>
+                <i class="fas fa-search"></i> Search
+              <% end %>
+            </li>
+            
+            <li class="nav-item">
+              <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-dark' do %> 
+                <i class="fas fa-sign-out-alt"></i> Log out
+              <% end %>
+            </li>
+            
+          <% end %>
         </ul>
       </div>
     </div>
