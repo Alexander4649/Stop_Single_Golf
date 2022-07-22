@@ -2,41 +2,37 @@
   
   <%= render "homes/logo" %>
   
-  <div class="signup">
-    <h1 class="signup-text">Sign up</h1>
-    
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <div style="text-align: center; font-size: 64px; font-weight: 800;">Sign up</div>
   <%= render "devise/shared/error_messages", resource: resource %>
   
-  <div class="signup-name-field">
-    <%= f.label :ユーザーネーム %>
-    <%= f.text_field :name ,:size=>"20x10",class: "mx-5"%>
-  </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  
+    <div class="container" style="text-align: start; font-size:24px; font-weight: bold;">
+      <div class="row mt-5 ml-auto d-flex justify-content-center">
+        <div class="col-3 "><%= f.label :ユーザーネーム %></div>
+        <div class="mx-5"><%= f.text_field :name ,:size=>"30x10" %></div>
+      </div>
 
-  <div class="signup-email-field">
-    <%= f.label :メールアドレス %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email",:size=>"30x10",class: "mx-5" %>
-  </div>
+      <div class="row mt-4 ml-auto d-flex justify-content-center">
+        <div class="col-3"><%= f.label :メールアドレス %></div>
+        <div class="mx-5"><%= f.email_field :email, autofocus: true, autocomplete: "email",:size=>"30x10" %></div>
+      </div>
 
-  <div class="signup-password-field">
-    <%= f.label :"パスワード(6文字以上)" %>
-    <% if @minimum_password_length %>
-    <% end %>
-    <%= f.password_field :password, autocomplete: "new-password",:size=>"20x10",class: "mx-5" %>
-  </div>
-
-  <div class="signup-password-field">
-    <%= f.label :"パスワード(確認)" %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password",:size=>"20x10",class: "mx-5" %>
-  </div>
-
-  <div class="signup-actions">
-    <%= f.submit "登録" , class: "button"%>
-  </div>
-<% end %>
+        <div class="row mt-4 ml-auto d-flex justify-content-center">
+          <div class="col-3"><%= f.label :"パスワード" %></div>
+        <% if @minimum_password_length %><% end %>
+          <div class="mx-5"><%= f.password_field :password, autocomplete: "new-password",:size=>"30x10" %></div>
+        </div>
     
-    <div class="signup-render-actions">
-      <%= render "devise/shared/links" %>
-    </div>
- 
+        <div class="row mt-4 ml-auto d-flex justify-content-center">
+          <div class="col-3"><%= f.label :"パスワード(確認)" %></div>
+          <div class="mx-5"><%= f.password_field :password_confirmation, autocomplete: "new-password",:size=>"30x10" %></div>
+        </div>
+        
+        <div class="ml-5">
+            <div class="mt-4 col-9 ml-5 d-flex justify-content-end"><%= f.submit "登録" , class: "button"%></div>
+            <div class="mt-4 col-9 ml-5 d-flex justify-content-end" style="font-size:16px"><%= render "devise/shared/links" %></div>
+        </div>
+   </div>
+ <% end %>
 </div>

@@ -8,40 +8,6 @@
   letter-spacing: 0.05em;
 }
 
-.signup {
-  text-align: center;
-}
-
-.signup-text {
-  font-size: 64px;
-  font-weight: 800;
-}
-
-.signup-name-field {
-  font-size: 24px;
-  font-weight: 700;
-  padding-top: 60px;
-}
-
-.signup-email-field {
-  font-size: 24px;
-  font-weight: 700;
-  padding-top: 10px;
-  padding-right: 50px;
-}
-
-.signup-password-field {
-  font-size: 24px;
-  font-weight: 700;
-  padding-top: 10px;
-  padding-right: 115px;
-}
-
-.signup-actions {
-  padding-top: 20px;
-  padding-left: 270px;
-}
-
 .button {
   display       : inline-block;
   font-size     : 17pt;        /* 文字サイズ */
@@ -60,9 +26,4 @@
   color         : #66ff66;     /* 背景色     */
   background    : #000000;     /* 文字色     */
   text-decoration-line: none;
-}
-
-.signup-render-actions {
-  padding-top: 10px;
-  padding-left: 350px;
 }

@@ -21,8 +21,8 @@ Rails.application.routes.draw do
     #resources :group_comments,only[:create, :destroy]
   #end
   
-  devise_for :admins
-  devise_for :admin, controllers: {
+  #devise_for :admins
+  devise_for :admins, controllers: {
   sessions: "admin/sessions"
   }
 end
