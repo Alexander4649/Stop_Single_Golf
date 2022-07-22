@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   devise_for :users
   root :to => "homes#top"
   get "home/about" => "homes#about"
@@ -20,5 +21,8 @@ Rails.application.routes.draw do
     #resources :group_comments,only[:create, :destroy]
   #end
   
-  
+  devise_for :admins
+  devise_for :admin, controllers: {
+  sessions: "admin/sessions"
+  }
 end

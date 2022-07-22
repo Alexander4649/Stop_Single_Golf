@@ -1,5 +1,6 @@
 <header class="shadow-sm">
   <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="ml-auto"><%= render "layouts/logo" %></div>
     <div class='container px-5 px-sm-0'>
       <a class="navbar-brand"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,10 +10,9 @@
         <ul class="navbar-nav ml-auto">
           
           <% if user_signed_in? %>
-          <%= render "layouts/logo" %>
           
             <li class="nav-item">
-              <%= link_to user_path(current_user),class: 'nav-link text-dark' do %>
+              <%= link_to user_path(current_user),class: 'nav-link text-dark md-5' do %>
                 <i class="fas fa-golf-ball"></i> Home
               <% end %>
             </li>

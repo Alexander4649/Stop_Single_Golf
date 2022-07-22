@@ -56,13 +56,27 @@
 
 > URLを記載(.pages)
 
+- 機能一覧
+
+<img width="680" alt="スクリーンショット 2022-07-22 20 32 42" src="https://user-images.githubusercontent.com/105344687/180430818-d77841d4-4a7e-4545-8c97-a630b359da78.png">
+
 - UI Frows・ワイヤーフレーム・ER図
 
 > https://docs.google.com/spreadsheets/d/1wB1LcZoWMiD2Op1-AkbEr9nqJqTVqRVrnEzuz_5xRsQ/edit#gid=1842528248
 
+* ER図
+![Golf-ER図](https://user-images.githubusercontent.com/105344687/180429321-12d6eb74-2365-4596-9a1f-7de2164e1a3b.jpg)
+
+* ワイヤーフレーム(User)
+![Golf-UI Forws(ユーザー側)](https://user-images.githubusercontent.com/105344687/180429441-f5c54968-5a09-4460-b592-9ae41a1c4f70.jpg)
+
+* ワイヤーフレーム(admin)
+![Golf-UI Frows(管理側)](https://user-images.githubusercontent.com/105344687/180429524-b49087a1-a17a-4f83-a054-486d5d043a63.jpg)
+
+
 - テーブル定義書
 
-> URLを記載(スプレットシート)
+[テーブル提議書_Stop!_Single_golf.pdf](https://github.com/Alexander4649/Stop_Single_Golf/files/9167350/_Stop._Single_golf.pdf)
 
 - アプリケーション詳細設計
 
