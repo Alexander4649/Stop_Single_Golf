@@ -1,0 +1,75 @@
+<%= render "layouts/header" %>
+<div class="container">
+  <div class="mt-4" style="text-align:center; font-size:48px; font-weight:bold;">Posting Do!</div>
+</div>
+
+<%= form_with model: @post, url: posts_path, method: :post do |f| %>
+<div class="container">
+  
+  <div class="form-group">
+    <div class="row col-9 mt-4 mx-auto text-left">
+      <label for="image col-3"style="font-size:24px;">画像</label>
+      <div class="mt-1 ml-4"><%= f.file_field :image, accept: "image/*", id: "image", class: "form-control-file image md-5" %></div>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <div class="row col-9 mx-auto">
+      <label for="col-3"style="font-size:24px;">日付</label>
+      <div class="mt-1 ml-4"><%= f.date_field :day %></div>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <div class="col-9 mx-auto text-left">
+      <label for="col-3"style="font-size:24px;">ラウンド場所</label>
+      <div class=""><%= f.text_field :place ,size: "40×20" %></div>
+      </div>
+    </div>
+  
+  <div class="form-group">
+    <div class="row col-9 mt-4 mx-auto text-left">
+      <div class=""style="font-size:24px;">OUT： 55<%#= post.score %>&emsp; In： 45<%#= f.score %>&emsp; Total：<strong>100<%#= f.score %></strong></div>
+    </div>
+  </div>
+  
+      <table class="ml-3" style="background-color:gainsboro;">
+        <tr>
+          <th>No.</th> <th>1</th> <th>2</th> <th>3</th><th>4</th> <th>5</th> <th>6</th><th>7</th> <th>8</th> <th>9</th> <th>10</th> <th>11</th> <th>12</th><th>13</th> <th>14</th> <th>15</th><th>16</th> <th>17</th> <th>18</th>
+        </tr>
+        <tr>
+    	    <td></td>
+    	    <td><select><option></option> <option class="text-center">◎</option> <option class="text-center">◯</option> <option class="text-center">-</option> <option class="text-center">△</option> <option class="text-center">□</option> <option class="text-center">+3</option> <option class="text-center">+4</option> <option class="text-center">+5</option> <option class="text-center">+6</option> <option class="text-center">+7</option> <option class="text-center">+8</option> <option class="text-center">+9</option></select></td>
+          <td><select><option></option> <option class="text-center">◎</option> <option class="text-center">◯</option> <option class="text-center">-</option> <option class="text-center">△</option> <option class="text-center">□</option> <option class="text-center">+3</option> <option class="text-center">+4</option> <option class="text-center">+5</option> <option class="text-center">+6</option> <option class="text-center">+7</option> <option class="text-center">+8</option> <option class="text-center">+9</option></select></td>
+          <td><select><option></option> <option class="text-center">◎</option> <option class="text-center">◯</option> <option class="text-center">-</option> <option class="text-center">△</option> <option class="text-center">□</option> <option class="text-center">+3</option> <option class="text-center">+4</option> <option class="text-center">+5</option> <option class="text-center">+6</option> <option class="text-center">+7</option> <option class="text-center">+8</option> <option class="text-center">+9</option></select></td>
+          <td><select><option></option> <option class="text-center">◎</option> <option class="text-center">◯</option> <option class="text-center">-</option> <option class="text-center">△</option> <option class="text-center">□</option> <option class="text-center">+3</option> <option class="text-center">+4</option> <option class="text-center">+5</option> <option class="text-center">+6</option> <option class="text-center">+7</option> <option class="text-center">+8</option> <option class="text-center">+9</option></select></td>
+          <td><select><option></option> <option class="text-center">◎</option> <option class="text-center">◯</option> <option class="text-center">-</option> <option class="text-center">△</option> <option class="text-center">□</option> <option class="text-center">+3</option> <option class="text-center">+4</option> <option class="text-center">+5</option> <option class="text-center">+6</option> <option class="text-center">+7</option> <option class="text-center">+8</option> <option class="text-center">+9</option></select></td>
+          <td><select><option></option> <option class="text-center">◎</option> <option class="text-center">◯</option> <option class="text-center">-</option> <option class="text-center">△</option> <option class="text-center">□</option> <option class="text-center">+3</option> <option class="text-center">+4</option> <option class="text-center">+5</option> <option class="text-center">+6</option> <option class="text-center">+7</option> <option class="text-center">+8</option> <option class="text-center">+9</option></select></td>
+          <td><select><option></option> <option class="text-center">◎</option> <option class="text-center">◯</option> <option class="text-center">-</option> <option class="text-center">△</option> <option class="text-center">□</option> <option class="text-center">+3</option> <option class="text-center">+4</option> <option class="text-center">+5</option> <option class="text-center">+6</option> <option class="text-center">+7</option> <option class="text-center">+8</option> <option class="text-center">+9</option></select></td>
+          <td><select><option></option> <option class="text-center">◎</option> <option class="text-center">◯</option> <option class="text-center">-</option> <option class="text-center">△</option> <option class="text-center">□</option> <option class="text-center">+3</option> <option class="text-center">+4</option> <option class="text-center">+5</option> <option class="text-center">+6</option> <option class="text-center">+7</option> <option class="text-center">+8</option> <option class="text-center">+9</option></select></td>
+          <td><select><option></option> <option class="text-center">◎</option> <option class="text-center">◯</option> <option class="text-center">-</option> <option class="text-center">△</option> <option class="text-center">□</option> <option class="text-center">+3</option> <option class="text-center">+4</option> <option class="text-center">+5</option> <option class="text-center">+6</option> <option class="text-center">+7</option> <option class="text-center">+8</option> <option class="text-center">+9</option></select></td>
+          <td><select><option></option> <option class="text-center">◎</option> <option class="text-center">◯</option> <option class="text-center">-</option> <option class="text-center">△</option> <option class="text-center">□</option> <option class="text-center">+3</option> <option class="text-center">+4</option> <option class="text-center">+5</option> <option class="text-center">+6</option> <option class="text-center">+7</option> <option class="text-center">+8</option> <option class="text-center">+9</option></select></td>
+          <td><select><option></option> <option class="text-center">◎</option> <option class="text-center">◯</option> <option class="text-center">-</option> <option class="text-center">△</option> <option class="text-center">□</option> <option class="text-center">+3</option> <option class="text-center">+4</option> <option class="text-center">+5</option> <option class="text-center">+6</option> <option class="text-center">+7</option> <option class="text-center">+8</option> <option class="text-center">+9</option></select></td>
+          <td><select><option></option> <option class="text-center">◎</option> <option class="text-center">◯</option> <option class="text-center">-</option> <option class="text-center">△</option> <option class="text-center">□</option> <option class="text-center">+3</option> <option class="text-center">+4</option> <option class="text-center">+5</option> <option class="text-center">+6</option> <option class="text-center">+7</option> <option class="text-center">+8</option> <option class="text-center">+9</option></select></td>
+          <td><select><option></option> <option class="text-center">◎</option> <option class="text-center">◯</option> <option class="text-center">-</option> <option class="text-center">△</option> <option class="text-center">□</option> <option class="text-center">+3</option> <option class="text-center">+4</option> <option class="text-center">+5</option> <option class="text-center">+6</option> <option class="text-center">+7</option> <option class="text-center">+8</option> <option class="text-center">+9</option></select></td>
+          <td><select><option></option> <option class="text-center">◎</option> <option class="text-center">◯</option> <option class="text-center">-</option> <option class="text-center">△</option> <option class="text-center">□</option> <option class="text-center">+3</option> <option class="text-center">+4</option> <option class="text-center">+5</option> <option class="text-center">+6</option> <option class="text-center">+7</option> <option class="text-center">+8</option> <option class="text-center">+9</option></select></td>
+          <td><select><option></option> <option class="text-center">◎</option> <option class="text-center">◯</option> <option class="text-center">-</option> <option class="text-center">△</option> <option class="text-center">□</option> <option class="text-center">+3</option> <option class="text-center">+4</option> <option class="text-center">+5</option> <option class="text-center">+6</option> <option class="text-center">+7</option> <option class="text-center">+8</option> <option class="text-center">+9</option></select></td>
+          <td><select><option></option> <option class="text-center">◎</option> <option class="text-center">◯</option> <option class="text-center">-</option> <option class="text-center">△</option> <option class="text-center">□</option> <option class="text-center">+3</option> <option class="text-center">+4</option> <option class="text-center">+5</option> <option class="text-center">+6</option> <option class="text-center">+7</option> <option class="text-center">+8</option> <option class="text-center">+9</option></select></td>
+          <td><select><option></option> <option class="text-center">◎</option> <option class="text-center">◯</option> <option class="text-center">-</option> <option class="text-center">△</option> <option class="text-center">□</option> <option class="text-center">+3</option> <option class="text-center">+4</option> <option class="text-center">+5</option> <option class="text-center">+6</option> <option class="text-center">+7</option> <option class="text-center">+8</option> <option class="text-center">+9</option></select></td>
+          <td><select><option></option> <option class="text-center">◎</option> <option class="text-center">◯</option> <option class="text-center">-</option> <option class="text-center">△</option> <option class="text-center">□</option> <option class="text-center">+3</option> <option class="text-center">+4</option> <option class="text-center">+5</option> <option class="text-center">+6</option> <option class="text-center">+7</option> <option class="text-center">+8</option> <option class="text-center">+9</option></select></td>
+        </tr>
+      </table>
+    </div>
+
+
+
+
+
+      <lavel class="col-3" style="font-size:24px; text-align:end;">タイトル</lavel>
+        
+  <div class="col-11 ml-1" style="text-align:end;"><%= f.text_field :title ,size: "40×20" %></div>
+        <label for="" style="font-size:24px;">本文</lavel>
+              <div class="" style="text-align:end;"><%= f.text_area :title%></div>
+<% end %>
+

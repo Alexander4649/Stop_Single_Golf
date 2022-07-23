@@ -18,22 +18,30 @@
             </li>
             
             <li class="nav-item">
-              <%= link_to user_path(current_user),class: 'nav-link text-dark' do %>
+              <%= link_to new_post_path,class: 'nav-link text-dark' do %>
                 <i class="fas fa-paper-plane"></i> Post
               <% end %>
             </li>
             
             <li class="nav-item">
-              <%= link_to user_path(current_user),class: 'nav-link text-dark' do %>
+              <%= link_to posts_path,class: 'nav-link text-dark' do %>
                 <i class="fas fa-list"></i> List
               <% end %>
             </li>
             
             <li class="nav-item">
-              <%= link_to user_path(current_user),class: 'nav-link text-dark' do %>
+              <%= link_to groups_path,class: 'nav-link text-dark' do %>
                 <i class="fas fa-user-friends"></i> Group
               <% end %>
             </li>
+            
+            <!--<div class="open-btn"></div><!--開閉ボタン-->
+            <!--  <div id="search-wrap"><!--表示エリアのHTML開閉ボタンをクリックするたび、search-wrap に表示用のクラス名が付与・除去されて付与の場合出現します。-->
+            <!--  <form role="search" method="get" id="searchform" action="">-->
+            <!--  <input type="text" value="" name="" id="search-text" placeholder="search">-->
+            <!--  <input type="submit" id="searchsubmit" value="">-->
+            <!--  </form>-->
+              <!--/search-wrap--><!--</div>-->
             
             <li class="nav-item">
               <%= link_to user_path(current_user),class: 'nav-link text-dark' do %>

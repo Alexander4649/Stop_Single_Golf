@@ -4,18 +4,19 @@
     <title>Stop! Single Golf</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-    
+    <!-- jQuery適用と適用ファイル指定-->
+    <!--<script src="jquery.min.js"></script>-->
+    <!--<script src="/app/javascript/js/datetimes.js"></script>-->
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+    <!--<link rel="stylesheet" type="text/css" href="css/search.css">-->
   </head>
 
   <body>
-
-    <%#= render "layouts/logo" %>
     <main>
       <%= yield %>
     </main>
