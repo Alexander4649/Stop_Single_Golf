@@ -7,14 +7,19 @@
 <div class="container">
   
   <div class="form-group">
-    <div class="row col-9 mt-4 mx-auto text-left">
+    <div class="row col-10 mt-4 mx-auto text-left">
       <label for="image col-3"style="font-size:24px;">画像</label>
       <div class="mt-1 ml-4"><%= f.file_field :image, accept: "image/*", id: "image", class: "form-control-file image md-5" %></div>
+      
+      <div class='col-md-3 offset-md-2'>
+        <lavel class="col-3" style="font-size:24px; text-align:end;">タイトル</lavel>
+        <div class="col-11 mt-2" style="text-align:end;"><%= f.text_field :title ,size: "40×20" %></div>
+      </div>
     </div>
   </div>
-  
+    
   <div class="form-group">
-    <div class="row col-9 mx-auto">
+    <div class="row col-10 mx-auto">
       <label for="col-3"style="font-size:24px;">日付</label>
       <div class="mt-1 ml-4"><%= f.date_field :day %></div>
     </div>
@@ -22,19 +27,27 @@
 
 
   <div class="form-group">
-    <div class="col-9 mx-auto text-left">
+    <div class="col-10 mx-auto text-left">
       <label for="col-3"style="font-size:24px;">ラウンド場所</label>
       <div class=""><%= f.text_field :place ,size: "40×20" %></div>
+
+      <div class='col-md-3' style="position:absolute; bottom:-100px; right:110px;">
+        <label style="font-size:24px;">本文</lavel>
+        <div style="text-align:end;"><%= f.text_area :title, cols: 30, rows:5 %></div>
       </div>
-    </div>
-  
-  <div class="form-group">
-    <div class="row col-9 mt-4 mx-auto text-left">
-      <div class=""style="font-size:24px;">OUT： 55<%#= post.score %>&emsp; In： 45<%#= f.score %>&emsp; Total：<strong>100<%#= f.score %></strong></div>
     </div>
   </div>
   
-      <table class="ml-3" style="background-color:gainsboro;">
+  <div class="form-group">
+    <div class="row col-10 mx-auto" style="position:absolute; left:260px; bottom: 270px;">
+      <div class=""style="font-size:24px;">OUT：<%#= post.score %>&emsp;&emsp; In：<%#= f.score %>&emsp;&emsp;&emsp; Total：<strong><%#= f.score %></strong></div>
+    </div>
+  </div>
+  
+  <div style="position:absolute; left:880px; bottom: 180px;"><%= link_to "　戻る　", user_path(current_user), class: "btn btn-lg btn-secondary btn-outline-dark text-white" %></div>
+  <div style="position:absolute; left:1080px; bottom: 180px;"><%= f.submit "投稿する" ,class: "button btn-lg" %></div>
+  
+      <table style="background-color:gainsboro; position:absolute; bottom:180px;">
         <tr>
           <th>No.</th> <th>1</th> <th>2</th> <th>3</th><th>4</th> <th>5</th> <th>6</th><th>7</th> <th>8</th> <th>9</th> <th>10</th> <th>11</th> <th>12</th><th>13</th> <th>14</th> <th>15</th><th>16</th> <th>17</th> <th>18</th>
         </tr>
@@ -61,15 +74,4 @@
         </tr>
       </table>
     </div>
-
-
-
-
-
-      <lavel class="col-3" style="font-size:24px; text-align:end;">タイトル</lavel>
-        
-  <div class="col-11 ml-1" style="text-align:end;"><%= f.text_field :title ,size: "40×20" %></div>
-        <label for="" style="font-size:24px;">本文</lavel>
-              <div class="" style="text-align:end;"><%= f.text_area :title%></div>
 <% end %>
-
