@@ -9,7 +9,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :encrypted_password, null: false, default: ""
       
       t.integer :post_id
-      t.text :profile_image_url
       t.string :round_area
       t.integer :average_score
       t.string :experience

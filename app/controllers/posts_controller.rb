@@ -6,12 +6,16 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find(params[:id])
+    @user = User.find(params[:id])
   end
   
   def create
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
+    @post.in_score = 1  #仮でつけてる
+    @post.out_score = 1 #仮でつけてる
     @post.save
-    redirect_to user_path(@post.id)
+    redirect_to post_path(@post.id)
   end
   
   def index
@@ -29,7 +33,7 @@ class PostsController < ApplicationController
   private
   
   def post_params
-      params.require(:post).permit(:title, :body, :post_image, :day, :score, :place)
+      params.require(:post).permit(:title, :body, :post_image, :round_day, :in_score, :out_score, :round_place)
   end
   
   

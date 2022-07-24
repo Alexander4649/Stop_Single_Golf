@@ -98,14 +98,12 @@ ActiveRecord::Schema.define(version: 2022_07_22_111203) do
 
   create_table "posts", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.string "title", default: "", null: false
-    t.text "body", default: "", null: false
-    t.integer "post_image_id", null: false
-    t.text "post_image_url", default: "", null: false
-    t.date "round_day", null: false
-    t.float "in_score", null: false
-    t.float "out_score", null: false
-    t.string "round_place", default: "", null: false
+    t.string "title", null: false
+    t.text "body", null: false
+    t.date "round_day"
+    t.float "in_score"
+    t.float "out_score"
+    t.string "round_place"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -122,7 +120,6 @@ ActiveRecord::Schema.define(version: 2022_07_22_111203) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.integer "post_id"
-    t.text "profile_image_url"
     t.string "round_area"
     t.integer "average_score"
     t.string "experience"

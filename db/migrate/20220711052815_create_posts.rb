@@ -1,15 +1,13 @@
 class CreatePosts < ActiveRecord::Migration[6.1]
   def change
     create_table :posts do |t|
-      t.integer :user_id, null: false, default: ""
-      t.string :title,    null: false, default: ""
-      t.text :body,       null: false, default: ""
-      t.integer :post_image_id, null: false, default: ""
-      t.text :post_image_url, null: false, default: ""
-      t.date :round_day,       null: false, default: ""
-      t.float :in_score,       null: false, default: ""
-      t.float :out_score,       null: false, default: ""
-      t.string :round_place,       null: false, default: ""
+      t.integer :user_id, null: false
+      t.string :title,    null: false
+      t.text :body,       null: false
+      t.date :round_day
+      t.float :in_score
+      t.float :out_score
+      t.string :round_place
 
       t.timestamps
     end

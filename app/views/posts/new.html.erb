@@ -3,7 +3,7 @@
   <div class="mt-4" style="text-align:center; font-size:48px; font-weight:bold;">Posting Do!</div>
 </div>
 
-<%= form_with model: @post, url: posts_path, method: :post do |f| %>
+<%= form_with model: @post, local:true do |f| %>
 <div class="container">
   
   <div class="form-group">
@@ -21,7 +21,7 @@
   <div class="form-group">
     <div class="row col-10 mx-auto">
       <label for="col-3"style="font-size:24px;">日付</label>
-      <div class="mt-1 ml-4"><%= f.date_field :day %></div>
+      <div class="mt-1 ml-4"><%= f.date_field :round_day %></div>
     </div>
   </div>
 
@@ -29,18 +29,18 @@
   <div class="form-group">
     <div class="col-10 mx-auto text-left">
       <label for="col-3"style="font-size:24px;">ラウンド場所</label>
-      <div class=""><%= f.text_field :place ,size: "40×20" %></div>
+      <div class=""><%= f.text_field :round_place ,size: "40×20" %></div>
 
       <div class='col-md-3' style="position:absolute; bottom:-100px; right:110px;">
         <label style="font-size:24px;">本文</lavel>
-        <div style="text-align:end;"><%= f.text_area :title, cols: 30, rows:5 %></div>
+        <div style="text-align:end;"><%= f.text_area :body, cols: 30, rows:5 %></div>
       </div>
     </div>
   </div>
   
   <div class="form-group">
     <div class="row col-10 mx-auto" style="position:absolute; left:260px; bottom: 270px;">
-      <div class=""style="font-size:24px;">OUT：<%#= post.score %>&emsp;&emsp; In：<%#= f.score %>&emsp;&emsp;&emsp; Total：<strong><%#= f.score %></strong></div>
+      <div class=""style="font-size:24px;">OUT：<%#= post.out_score %>&emsp;&emsp; In：<%#= f.in_score %>&emsp;&emsp;&emsp; Total：<strong><%#= f.total_score %></strong></div>
     </div>
   </div>
   

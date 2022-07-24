@@ -1,1 +1,38 @@
 <%= render "layouts/header" %>
+<div class="container">
+  <div class="mt-4 text-center" style="text-align:center; font-size:48px; font-weight:bold;">User Edit</div>
+
+<%= form_with model: @user, url: user_path(current_user), method: :patch , local:true do |f| %>
+
+      <div class="row mt-5">
+          <label class="col-5 mt-3" style="font-size:24px; text-align:end;">プロフィール画像</label>
+          <div class="mt-4 ml-4"><%= f.file_field :profile_image, accept: "image/*", id: "image", class: "form-control-file image" %></div>
+      </div>
+      
+        <div class="row mt-3">
+            <lavel class="col-5 mt-3" style="font-size:24px; text-align:end;">アカウント名</lavel>
+            <div class="mt-4 ml-4" style="text-align:end;"><%= f.text_field :name ,size: "40×20" %></div>
+        </div>
+        
+        <div class="row mt-3">
+            <lavel class="col-5 mt-3" style="font-size:24px; text-align:end;">ラウンド地域</lavel>
+            <div class="mt-4 ml-4" style="text-align:end;"><%= f.text_field :round_area ,size: "20×20" %></div>
+        </div>
+        
+        <div class="row mt-3">
+            <lavel class="col-5 mt-3" style="font-size:24px; text-align:end;">平均スコア</lavel>
+            <div class="mt-4 ml-4" style="text-align:end;"><%= f.text_field :average_score ,size: "20×20" %></div>
+        </div>
+        
+        <div class="row mt-3">
+            <lavel class="col-5 mt-3" style="font-size:24px; text-align:end;">ゴルフ経験</lavel>
+            <div class="mt-4 ml-4" style="text-align:end;"><%= f.text_field :experience ,size: "20×20" %></div>
+        </div>
+        
+        <div class="row mt-3" style="text-align:end;">
+            <div class="col-5 mt-4"><%= link_to "戻る" , user_path(current_user), class: "btn btn-lg btn-secondary" %></div>
+            <div class="col-3 mt-4 ml-3"><%= f.submit "変更する", class: "button"  %></div>
+        </div>
+      
+  <% end %>
+  </div>
