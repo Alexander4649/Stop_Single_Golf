@@ -102,9 +102,10 @@ ActiveRecord::Schema.define(version: 2022_07_22_111203) do
     t.text "body", default: "", null: false
     t.integer "post_image_id", null: false
     t.text "post_image_url", default: "", null: false
-    t.date "day"
-    t.float "score"
-    t.string "place"
+    t.date "round_day", null: false
+    t.float "in_score", null: false
+    t.float "out_score", null: false
+    t.string "round_place", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

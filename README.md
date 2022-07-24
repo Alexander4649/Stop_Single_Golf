@@ -65,7 +65,7 @@
 > https://docs.google.com/spreadsheets/d/1wB1LcZoWMiD2Op1-AkbEr9nqJqTVqRVrnEzuz_5xRsQ/edit#gid=1842528248
 
 * ER図
-![Golf-ER図](https://user-images.githubusercontent.com/105344687/180429321-12d6eb74-2365-4596-9a1f-7de2164e1a3b.jpg)
+![Golf-ER図](https://user-images.githubusercontent.com/105344687/180640004-7038b4c4-7015-471c-b679-97e839ac1c82.jpg)
 
 * ワイヤーフレーム(User)
 ![Golf-UI Forws(ユーザー側)](https://user-images.githubusercontent.com/105344687/180429441-f5c54968-5a09-4460-b592-9ae41a1c4f70.jpg)
