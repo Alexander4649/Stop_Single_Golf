@@ -3,21 +3,21 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-table {
+.posting_table {
   border-collapse: collapse;
   text-align: center;
 }
-th, td {
+.posting_table th, td {
   padding: 5px;
   border: 1px solid #333;
 }
-th {
+.posting_table th {
   background-color: #2c88d9;
   color: #FFF;
 }
 
 
-select {
+.posting_table select {
 -webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
 -moz-appearance: none; /* ベンダープレフィックス(Firefox用) */
 appearance: none; /* 標準のスタイルを無効にする */
