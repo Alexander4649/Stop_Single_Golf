@@ -22,3 +22,29 @@
 -moz-appearance: none; /* ベンダープレフィックス(Firefox用) */
 appearance: none; /* 標準のスタイルを無効にする */
 }
+
+/* タイトル・本文 */
+.post-box {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #474747;
+    background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+    border-left: double 7px #4ec4d3;/*左線*/
+    border-right: double 7px #4ec4d3;/*右線*/
+}
+.post-box .p-title,.p-body {
+    margin: 0; 
+    padding: 0;
+}
+
+.p-title {
+  color: #009900;
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+.p-body {
+  font-size: 13px;
+}

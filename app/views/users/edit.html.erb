@@ -2,7 +2,7 @@
 <div class="container">
   <div class="mt-4 text-center" style="text-align:center; font-size:48px; font-weight:bold;">User Edit</div>
 
-<%= form_with model: @user, url: user_path(current_user), method: :patch , local:true do |f| %>
+<%= form_with model: @user, url: user_path(@user.id), method: :patch do |f| %>
 
       <div class="row mt-5">
           <label class="col-5 mt-3" style="font-size:24px; text-align:end;">プロフィール画像</label>
