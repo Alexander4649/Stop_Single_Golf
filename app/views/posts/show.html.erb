@@ -26,9 +26,14 @@
         <p class='p-title col mt-3'>Ψ　<%= @post.title %>　Ψ</p>
         <p class='p-body mt-4'><%= @post.body %></p>
       </div>
+      
+      <div class='row'>
+        
+      <% form_with model: @post_comment, url: post_post_comments_path(@post), method: :post  do |f| %>
+        <div class="col"><%= f.text_area :comment ,class: "w-100" %></div>
+        <div class=''><%= f.submit "コメント",class: "button" %></div>
+      <% end %>
+      </div>
     
   </div>
-    
-  
-
 </div>

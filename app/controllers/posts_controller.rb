@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = @post.user
     @user = User.find(@user.id)
+    @post_comment = PostComment.new
   end
   
   def create
