@@ -15,7 +15,7 @@ class PostCommentsController < ApplicationController
     # @post_comment = PostComment.find(params[:post_comment_id])
     # current_user.id == @post_comment.user.id
     # @post_comment.destroy
-    end
+  end
   
   private
   
