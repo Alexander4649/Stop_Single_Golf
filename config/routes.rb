@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   get "home/logout" => "homes#logout"
   
   resources :users,only:[:show, :edit, :update] do
-    resources :relationships, only: [:create, :destroy]
-    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'follows' => 'relationships#follows', as: 'follows'
     get 'followers' => 'relationships#followers', as: 'followers'
+    resources :relationships, only: [:create, :destroy]
   end
   
   resources :posts do
