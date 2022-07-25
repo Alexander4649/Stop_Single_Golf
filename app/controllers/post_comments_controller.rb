@@ -7,7 +7,15 @@ class PostCommentsController < ApplicationController
   end
   
   def destroy
-  end
+    #PostComment.find_by(id: params[:id], post_id: params[:post_id]).destroy
+    #@post = Post.find(params[:post_id])
+    #PostComment.find(params[:post_id]).destroy
+    #redirect_to request.referer
+    # @post = Post.find(params[:post_id])
+    # @post_comment = PostComment.find(params[:post_comment_id])
+    # current_user.id == @post_comment.user.id
+    # @post_comment.destroy
+    end
   
   private
   
