@@ -10,7 +10,6 @@ class RelationshipsController < ApplicationController
     follow = Relationship.find_by(follow_id: current_user.id ,follower_id: params[:user_id])
     follow.destroy
     @user = User.find(params[:user_id])
-    
     #redirect_to request.referer
   end
   

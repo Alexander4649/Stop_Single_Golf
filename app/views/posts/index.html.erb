@@ -1,1 +1,32 @@
 <%= render "layouts/header" %>
+<div class="cotainer">
+
+    <div class="col">
+    <table class='table table-borderless text-center'>
+  
+    <thead>
+      <th>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+      </th>
+    </thead>
+    
+    <tbody>
+      <% @posts.each do |postall| %>
+        <th>
+          <td nowrap><%= image_tag postall.post_image, size: '100x100' %></td>
+          <td>名前　　：<%= postall.user.name %></td>
+          <td>日付　　：<%= postall.round_day %></td>
+          <td></td>
+          <td></td>
+        </th>
+      <% end %>
+    </tbody>
+    
+    </table>
+    </div>
+
+</div>
