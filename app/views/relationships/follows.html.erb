@@ -1,1 +1,36 @@
 <%= render "layouts/header" %>
+<div class='container px-5 px-sm-0 mt-5'>
+  <div class='row'>
+    <div class='col-md-8'>
+      <h2>Followers Users</h2>
+      <table class="table table-borderless ml-4 mt-4" style="text-align: center;">
+        <thead>
+          <tr>
+            <th colspan="2"></th>
+            <th colspan="3">アカウント名</th>
+            <th colspan="2">平均スコア</th>
+            <th colspan="2">ゴルフ経験</th>
+            <th colspan="2">ラウンド地域</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @users.each do |user| %>
+          <tr>
+            <td colspan="2" style="vertical-align:middle;">
+              <%= link_to user_path(user) do %>
+              <%= image_tag user.get_profile_image, size: '50x50' %>
+              <% end %>
+            </td>
+            <td colspan="3" style="vertical-align:middle;"><%= link_to user.name,user_path(user),class: "text-dark" %></td>
+            <td colspan="2" style="vertical-align:middle;"><%= user.average_score%></td>
+            <td colspan="2" style="vertical-align:middle;"><%= user.experience%></td>
+            <td colspan="2" style="vertical-align:middle;"><%= user.round_area%></td>
+          </tr>
+          <% end %>
+        </tbody>
+        
+      </table>
+    </div>
+  </div>
+</div>
