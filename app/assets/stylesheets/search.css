@@ -1,90 +1,28 @@
-/*========= 検索窓を開くためのボタン設定 ===========*/
-
-.open-btn{
-	position: absolute;
-	top:10px;
-	right:10px;
-	background:url("../img/icon_search.svg") no-repeat 15px center;/*虫眼鏡アイコンを背景に表示*/
-	background-size: 20px 20px;
-	width:50px;
-	height:50px;
-	cursor: pointer;/*カーソルを指マークに*/
-}
-
-/*クリック後、JSでボタンに btnactive クラスが付与された後の見た目*/
-.open-btn.btnactive{
-	background:url("../img/icon_close.svg") no-repeat 15px center;/*閉じるアイコンを背景に表示*/
-	background-size: 18px 18px;
-}
-
-/*========= 検索窓の設定 ===============*/
-
-/*==検索窓背景のエリア*/
-
-#search-wrap{
-    position:absolute;/*絶対配置にして*/
-	top:150px;
-    right:20px;
-	z-index: -1;/*最背面に設定*/
-	opacity: 0;/*透過を0に*/
-	width:0;/*横幅は0に*/
-	transition: all 0.4s;/*transitionを使ってスムースに現れる*/
-	border-radius: 5px;
-}
-
-/*ボタンクリック後、JSで#search-wrapに panelactive クラスが付与された後の見た目*/
-#search-wrap.panelactive{
-	opacity: 1;/*不透明に変更*/
-	z-index: 3;/*全面に出現*/
-	width:280px;
-	padding:20px;
-	top:60px;
-	background:#fff;
-}
-
-/*==検索窓*/
-#search-wrap #searchform{
-	display: none;/*検索窓は、はじめ非表示*/
-}
-
-/*ボタンクリック後、JSで#search-wrapに panelactive クラスが付与された後*/
-#search-wrap.panelactive #searchform{
-	display: block;/*検索窓を表示*/
-}
-
-/*==検索フォームの設定*/
-
-/*==テキスト入力とボタンinput共通設定*/
-#search-wrap input{
-	-webkit-appearance:none;/*SafariやChromeのデフォルトの設定を無効*/
-	outline: none;
-	cursor: pointer;/*カーソルを指マークに*/
-	color: #666;
+/*検索窓のエリア*/
+ #search-wrap {
+     position: absolute;/*絶対配置にして*/
+	 z-index: 2;/*最前面に設定。数字は変更可*/
+	 top:10px;
+	 right:10px;
 }
 
 /*テキスト入力input設定*/
- #search-wrap input[type="text"] {
-	width: 100%;
+ #search-text{
+	-webkit-appearance:none;/*SafariやChromeのデフォルトの設定を無効*/
+	width: 50px;/*テキスト入力エリアが伸びる前の横幅*/
+	height: 30px;
+ /*padding: 20px;*/
 	border: none;
-	border-bottom:2px solid #ccc;
-	transition: all 0.5s;
-	letter-spacing: 0.05em;
-    height:46px;
-	padding: 10px;
-}
-
-/*テキスト入力inputにフォーカスされたら*/
- #search-wrap input[type="text"]:focus {
-	background:#eee;/*背景色を付ける*/
-}
-
-/*ボタンinput設定*/
- #search-wrap input[type="submit"] {
-	position: absolute;
-    top:10px;
-	right:30px;
-	background:url("../img/icon_search.svg") no-repeat right;/*虫眼鏡アイコンを背景に表示*/
+	background:#fff url("../img/search.jpeg") no-repeat 17px center;/*虫眼鏡アイコンを背景に表示*/
 	background-size: 20px 20px;
-	width:30px;
-	height: 60px;
+	transition: all 0.5s;/*transitionを使ってスムースに伸ばす*/
+	outline: none;
+	cursor: pointer;/*カーソルを指マークに*/
+}
+
+/*テキスト入力inputにフォーカスした時の形状*/
+ #search-text:focus {
+	width: 200px;/*テキスト入力エリアが伸びる後の横幅*/
+	/*padding: 20px 0 20px 60px;*/
+	box-shadow: 0 2px rgba(6,0,1,.26);
 }

@@ -1,3 +1,23 @@
-<div class="container">
+<div class="container mt-4">
   <div class="row">
-    <div class='col-5'>
+      <% @posts.each do |postall| %>
+      <table class="table-borderless" align="left" style="font-size:13px;">
+          <td>
+            <%= link_to post_path(postall.id) do %>
+            <%= image_tag postall.post_image, size: '160x140' %>
+            <% end %>
+          </td>
+        <tr>
+          <td width="350" height="50">
+            日付　　：<%= postall.round_day %><br>
+            タイトル：<%= postall.title %><br>
+            ラウンド：<%= postall.round_place %><br>
+            コメント：<%= postall.post_comments.count %>件<br>
+          </td>
+        </tr>
+       </table>
+      <% end %>
+  </div>
+</div>
+
+

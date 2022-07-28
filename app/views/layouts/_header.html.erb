@@ -9,6 +9,12 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           
+          <li id="search-wrap fas fa-search" style= "margin-right:200px; margin-top:7px;">
+              <form role="fa-search" method="get" action="">
+                <input type="text" value="" name="" id="search-text">
+              </form>
+            </li>
+          
           <% if user_signed_in? %>
           
             <li class="nav-item">
@@ -32,20 +38,6 @@
             <li class="nav-item">
               <%= link_to groups_path,class: 'nav-link text-dark' do %>
                 <i class="fas fa-user-friends"></i> Group
-              <% end %>
-            </li>
-            
-            <!--<div class="open-btn"></div><!--開閉ボタン-->
-            <!--  <div id="search-wrap"><!--表示エリアのHTML開閉ボタンをクリックするたび、search-wrap に表示用のクラス名が付与・除去されて付与の場合出現します。-->
-            <!--  <form role="search" method="get" id="searchform" action="">-->
-            <!--  <input type="text" value="" name="" id="search-text" placeholder="search">-->
-            <!--  <input type="submit" id="searchsubmit" value="">-->
-            <!--  </form>-->
-              <!--/search-wrap--><!--</div>-->
-            
-            <li class="nav-item">
-              <%= link_to user_path(current_user),class: 'nav-link text-dark' do %>
-                <i class="fas fa-search"></i> Search
               <% end %>
             </li>
             

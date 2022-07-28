@@ -1,0 +1,4 @@
+$('#post_comment_remote').html("<%= j(f.text_area :comment ,placeholder: "コメントはこちら",size: "50x4"%>");
+$('#post_comment_remote').html("<%= j(f.submit "コメント",class: "button btn-lg" %>");
+
+$('#post_comment_form').html("<%= j(render "book_comments/form", book: @book, book_comment: BookComment.new) %>");

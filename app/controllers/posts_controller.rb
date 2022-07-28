@@ -9,7 +9,6 @@ class PostsController < ApplicationController
     @user = @post.user
     @user = User.find(@user.id)
     @post_comment = PostComment.new
-    @post_comments = PostComment.all
   end
   
   def create

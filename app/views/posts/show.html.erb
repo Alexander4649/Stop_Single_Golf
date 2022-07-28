@@ -30,11 +30,11 @@
     </div>
   </div>
       
-    <div class="container mt-3 ml-5">
-      <div class='row ml-auto align-self-start'>
-        <table>
+    <div class="container mt-3 ml-5 ">
+      <div id='row ml-auto align-self-start'>
+        <table class="post_comment_remote">
           <tbody>
-              <% @post_comments.each do |post_comment| %>
+              <% @post.post_comments.each do |post_comment| %>
               <tr>
                 <td style="border: none; text-align: center;">
                   <%= link_to user_path(post_comment.user) do %>
@@ -52,15 +52,14 @@
               <% end %>
           </tbody>
         </table>
-         
+      </div>
       
-        <div class="row mt-2">
+      <div id="post_comment_form">
           <%= form_with(model:[@post, @post_comment], local:true) do |f| %>
-          <div class="row ml-auto">
-          <div class="col"><%= f.text_area :comment ,size: "50x4"  %></div>
+          <div class="col ml-auto mt-3">
+          <div class="col"><%= f.text_area :comment ,placeholder: "コメントはこちら",size: "50x4" %></div>
           <div class='col'><%= f.submit "コメント",class: "button btn-lg" %></div>
           </div>
           <% end %>
-        </div>
       </div>
     </div>

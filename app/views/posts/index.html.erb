@@ -19,7 +19,7 @@
               タイトル：<%= postall.title %><br>
               ラウンド：<%= postall.round_place %><br>
               スコア：<%#= postall.total_score %><br>
-              コメント：<%#= postall.post_comments %><br>
+              コメント：<%= postall.post_comments.count %>件<br>
             </td>
         </th>
       <% end %>
