@@ -7,17 +7,19 @@
         <div class="col-sm-auto" style="position:absolute; margin-left:165px;">ラウンド地域：<%= @user.round_area %></div>
     </div>
     
+    <div class="col-sm-auto">
+          <%= link_to edit_user_path(current_user),class: 'text-dark md-3' do %>
+          <i class="fas fa-address-card fa-3x"style="position:absolute; margin-left:350px;"></i>
+          <% end %>
+    </div>
+    
     <div class="mt-3" style="display: inline">
       <div class="row">
         <div class="col-sm-auto text-left" id="followers_count">フォロワー数：<%= link_to @user.followers.count, user_followers_path(@user) %>人</div>
         <div class="col-sm-auto" style="position:absolute; margin-left:165px;">平均スコア　：<%= @user.average_score %></div>
-        <div class="col-sm-auto">
-          <%= link_to edit_user_path(current_user),class: 'text-dark md-3' do %>
-          <i class="fas fa-address-card fa-3x"style="position:absolute; margin-left:200px;"></i>
-          <% end %>
-        </div>
       </div>
     </div>
+    
     
     <div class="mt-3" style="display: inline">
       <div class="row">

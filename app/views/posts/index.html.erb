@@ -1,32 +1,29 @@
 <%= render "layouts/header" %>
-<div class="cotainer">
-
-    <div class="col">
-    <table class='table table-borderless text-center'>
-  
-    <thead>
-      <th>
-        <tr></tr>
-        <tr></tr>
-        <tr></tr>
-        <tr></tr>
-        <tr></tr>
-      </th>
-    </thead>
-    
+<div class="cotainer mt-5">
+      <div style="width: 130px; margin-left:555px; background-color:gainsboro;">
+       <%= link_to '新しい順', posts_path(latest: "true"),class: "text-dark"%> |
+       <%= link_to '古い順', posts_path(old: "true"),class: "text-dark" %>
+       </div>
+  <table class='table table-borderless mt-3'>
     <tbody>
       <% @posts.each do |postall| %>
-        <th>
-          <td nowrap><%= image_tag postall.post_image, size: '100x100' %></td>
-          <td>名前　　：<%= postall.user.name %></td>
-          <td>日付　　：<%= postall.round_day %></td>
-          <td></td>
-          <td></td>
+        <tr>
+            <td width="200" height="100" style="padding-left:450px;">
+              <%= link_to post_path(postall.id) do %>
+              <%= image_tag postall.post_image, size: '160x140' %>
+              <% end %>
+            </td>
+            <td nowrap>
+              名前：<%= postall.user.name %><br>
+              日付：<%= postall.round_day %><br>
+              タイトル：<%= postall.title %><br>
+              ラウンド：<%= postall.round_place %><br>
+              スコア：<%#= postall.total_score %><br>
+              コメント：<%#= postall.post_comments %><br>
+            </td>
         </th>
       <% end %>
     </tbody>
-    
-    </table>
-    </div>
-
+  </table>
 </div>
+<div style="width: auto; margin-left:550px;"><%= paginate @posts %></div>
