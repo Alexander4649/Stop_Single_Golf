@@ -16,8 +16,11 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     @post.in_score = 1  #仮でつけてる
     @post.out_score = 1 #仮でつけてる
-    @post.save
-    redirect_to post_path(@post.id)
+    if @post.save
+       redirect_to post_path(@post.id)
+    else
+       render :new
+    end
   end
   
   def index

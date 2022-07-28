@@ -1,4 +1,10 @@
 <%= render "layouts/header" %>
+<div style="font-size: 20px; color: red; position:absolute; margin-top:10px; left:110px;">
+  <% if @post.errors.any? %>
+    <%= @post.errors.count %>件の未入力があります。
+  <% end %>
+</div>
+
 <div class="container">
   <div class="mt-4" style="text-align:center; font-size:48px; font-weight:bold;">Posting Do!</div>
 </div>
