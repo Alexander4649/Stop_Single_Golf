@@ -13,6 +13,9 @@
             タイトル：<%= postall.title %><br>
             ラウンド：<%= postall.round_place %><br>
             コメント：<%= postall.post_comments.count %>件<br>
+            <% if current_user == postall.user %>
+            <%= link_to "削除", post_path(postall), method: :delete, "data-confirm" => "本当に削除しますか？" ,class: "btn btn-sm btn-danger" %>
+            <% end %>
           </td>
         </tr>
        </table>

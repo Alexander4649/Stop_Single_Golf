@@ -9,8 +9,10 @@
           <div class="row">
           <div class="col mt-3"><%= @post.round_day %></div>
           <div class="col">
-            <%= link_to edit_post_path(@post) do %>
-            <i class="fas fa-edit fa-2x text-dark" style="position:absolute; margin-top:15px;"></i>
+            <% if current_user == @post.user %>
+              <%= link_to edit_post_path(@post) do %>
+              <i class="fas fa-edit fa-2x text-dark" style="position:absolute; margin-top:15px;"></i>
+              <% end %>
             <% end %>
           </div>
           </div>
@@ -55,8 +57,8 @@
       </div>
       
       <div id="post_comment_form">
-          <%= form_with(model:[@post, @post_comment], local:true) do |f| %>
-          <div class="col ml-auto mt-3">
+          <%= form_with(model:[@post, @post_comment]) do |f| %>
+          <div class="col mt-3">
           <div class="col"><%= f.text_area :comment ,placeholder: "コメントはこちら",size: "50x4" %></div>
           <div class='col'><%= f.submit "コメント",class: "button btn-lg" %></div>
           </div>
