@@ -21,17 +21,16 @@ class PostsController < ApplicationController
   end
   
   def index
-    @posts = Post.all
-    
+    posts = Post.all
     if params[:latest]
-      @posts = Post.latest
+      posts = Post.latest
     elsif params[:old]
-      @posts = Post.old
+      posts = Post.old
     else
-      @posts = Post.all
+      posts = Post.all
     end
     
-    @posts = Post.page(params[:page]).per(3)
+    @posts = posts.page(params[:page]).per(3)
   end
   
   def edit

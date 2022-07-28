@@ -1,4 +1,10 @@
 〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
+
+
+                  <p>post:::<%= @post.inspect %></p>
+                  <p>post_comment:::<%= post_comment.inspect %></p>
+                  
+                  
 テーブルで横合わせしてサイズ指定するやーつ<html>
 
 <div class="table1" style="border: none;">
