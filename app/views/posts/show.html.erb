@@ -6,6 +6,7 @@
     <div class="row">
       <div class='col-5'>
           <div class="mt-4"><%= image_tag @post.post_image, size:'360x250' %></div>
+          
           <div class="row">
           <div class="col mt-3"><%= @post.round_day %></div>
           <div class="col">
@@ -14,8 +15,20 @@
               <i class="fas fa-edit fa-2x text-dark" style="position:absolute; margin-top:15px;"></i>
               <% end %>
             <% end %>
+            
+            <% if @post.favorited_by?(current_user) %>
+              <%= link_to post_favorites_path(@post), method: :delete do %>
+                <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+                <%= @post.favorites.count %>Good!
+              <% end %>
+            <% else %>
+              <%= link_to post_favorites_path(@post), method: :post do %>
+                <i class="fas fa-heart" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
           </div>
           </div>
+          
           <div class="mt-1"><%= @post.round_place %></div>
           <div class="row ml-2 mt-1" style="font-size:22px;">
             OUT：<div class=""style="font-weight:bold;"><%= @post.in_score %></div>&emsp;
