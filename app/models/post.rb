@@ -19,7 +19,7 @@ class Post < ApplicationRecord
     out_score + in_score
   end
   
-  def favorited_by?(current_user)
+  def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
 

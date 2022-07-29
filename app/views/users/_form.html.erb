@@ -7,7 +7,7 @@
   <div class="mt-3 ml-3">アカウント名： <%= @user.name %>
     <div class="mt-3" style="display: inline">
       <div class="row">
-        <div class="col-sm-auto text-left" id="follow_count">フォロー数：<%= link_to @user.follows.count, user_follows_path(@user) %>人</div>
+        <div class="col-sm-auto text-left" id="follow_count">フォロー数&emsp;：<%= link_to @user.follows.count, user_follows_path(@user) %>人</div>
         <div class="col-sm-auto" style="position:absolute; margin-left:165px;">ラウンド地域：<%= @user.round_area %></div>
     </div>
     

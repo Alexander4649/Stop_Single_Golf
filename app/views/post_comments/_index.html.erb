@@ -1,20 +1,23 @@
-<table>
+<div class='row ml-auto align-self-start'>
+  <table class="table">
     <tbody>
-        <% @post_comments.each do |post_comment| %>
-        <tr>
-          <td style="border: none; text-align: center;">
-            <%= link_to user_path(post_comment.user) do %>
-              <%= image_tag post_comment.user.get_profile_image, size: "50x50" %><br>
-              <%= post_comment.user.name %>
-            <% end %>
-          </td>
-          <td style="border: none;"><u><%= post_comment.comment %></u></td>
-          <td style="border: none;">
-            <% if post_comment.user == current_user %>
-              <%= link_to "削除", post_post_comments_path(@post, @post_comment), method: :delete,class: "btn btn-sm btn-danger pull-right" %>
-            <% end %>
-          </td>
-        </tr>
-        <% end %>
+      <%#= render "post_comments/index" , post_comments: @post_comments %>
+      <% @post1.post_comments.each do |post_comment| %>
+      <tr>
+        <td style="border: none; text-align: center;">
+          <%= link_to user_path(post_comment.user) do %>
+            <%= image_tag post_comment.user.get_profile_image, size: "50x50" %><br>
+            <%= post_comment.user.name %>
+          <% end %>
+        </td>
+        <td style="border: none;"><u><%= post_comment.comment %></u></td>
+        <td style="border: none;">
+          <% if post_comment.user == current_user %>
+            <%= link_to "削除", post_post_comment_path(@post, post_comment), method: :delete,class: "btn btn-sm btn-danger pull-right",remote:true %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
     </tbody>
   </table>
+</div>

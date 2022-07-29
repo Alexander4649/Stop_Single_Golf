@@ -1,10 +1,16 @@
 〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
+#byebug
+<p>post:::<%= @post.inspect %></p>
+<p>post_comment:::<%= post_comment.inspect %></p>
+
+$('#post_comment_form').html("<%= j(render "post_comments/form", post: @post, post_comment: @post_comment) %>");
+
+【&nbsp;】：半角スペースと同じサイズの空白
+【&thinsp;】：&nbsp;の空白より小さい空白
+【&ensp;】：半角スペースより間隔がやや広い空白
+【&emsp;】：全角スペースとほぼ同じサイズの空白
 
 
-                  <p>post:::<%= @post.inspect %></p>
-                  <p>post_comment:::<%= post_comment.inspect %></p>
-                  
-                  
 テーブルで横合わせしてサイズ指定するやーつ<html>
 
 <div class="table1" style="border: none;">
