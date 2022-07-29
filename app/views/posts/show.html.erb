@@ -12,20 +12,23 @@
           <div class="col">
             <% if current_user == @post.user %>
               <%= link_to edit_post_path(@post) do %>
-              <i class="fas fa-edit fa-2x text-dark" style="position:absolute; margin-top:15px;"></i>
+              <i class="fas fa-edit fa-2x text-dark" style="position:absolute; margin-top:15px; padding-right:5px;"></i>
               <% end %>
             <% end %>
             
+            <div id="favorites-remote">
+            <%#= render "favorites/favorite" , post_favorite: @post_favorite %>
             <% if @post.favorited_by?(current_user) %>
-              <%= link_to post_favorites_path(@post), method: :delete do %>
-                <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+              <%= link_to post_favorites_path(@post), method: :delete do  %>
+                <i class="fas fa-heart fa-2x mt-3 ml-5" style="color: red;" aria-hidden="true"></i>
                 <%= @post.favorites.count %>Good!
               <% end %>
             <% else %>
               <%= link_to post_favorites_path(@post), method: :post do %>
-                <i class="fas fa-heart" aria-hidden="true"></i>
+                <i class="fas fa-heart fa-2x mt-3 ml-5" aria-hidden="true"></i>
               <% end %>
             <% end %>
+          </div>
           </div>
           </div>
           

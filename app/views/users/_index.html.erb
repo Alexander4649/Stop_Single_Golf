@@ -16,6 +16,17 @@
             <% if current_user == postall.user %>
             <%= link_to "削除", post_path(postall), method: :delete, "data-confirm" => "本当に削除しますか？" ,class: "btn btn-sm btn-danger" %>
             <% end %>
+            <%#= render "favorites/favorite" , post_favorite: @post_favorite %>
+            <% if postall.favorited_by?(current_user) %>
+              <%= link_to post_favorites_path(postall), method: :delete do  %>
+                <i class="fas fa-heart fa-lg ml-4" aria-hidden="true" style="color: red;"></i>
+                <%= postall.favorites.count %>Good!
+              <% end %>
+            <% else %>
+              <%= link_to post_favorites_path(postall), method: :post do %>
+                <i class="fas fa-heart fa-lg ml-4" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
           </td>
         </tr>
        </table>

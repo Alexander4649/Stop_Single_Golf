@@ -1,1 +1,1 @@
-$('#favorite_buttons_<%= @book.id %>').html("<%= escape_javascript(render "favorites/favorite", book: @book) %>");
+$('#favorites-remote').html("<%= render "/favorites/favorite" , post_favorite: @post ");
