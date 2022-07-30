@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end
   
-  resources :groups,only:[:create, :index, :show, :edit, :update, :destroy] do
+  resources :groups do
     resources :group_comments,only:[:create, :destroy]
   end
   

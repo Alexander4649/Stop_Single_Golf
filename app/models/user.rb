@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: :follower_id, dependent: :destroy
   has_many :follows, through: :relationships, source: :follower
   has_many :followers, through: :reverse_of_relationships, source: :follow
+  has_many :group_users
   
   def follow_by?(user)
     reverse_of_relationships.find_by(follow_id: user.id).present?

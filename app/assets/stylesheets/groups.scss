@@ -1,3 +1,24 @@
 // Place all the styles related to the groups controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.group_button {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 12pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 4px 8px;   /* 余白       */
+  background    : #ffff1a;     /* 背景色     */
+  color         : #330033;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 5px 5px 3px #666666;  /* 影の設定 */
+  border        : 2px solid #ffff1a;    /* 枠の指定 */
+  margin-top    : 30px;
+}
+.group_button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #ffff1a;     /* 背景色     */
+  background    : #330033;     /* 文字色     */
+}
