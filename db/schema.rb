@@ -84,9 +84,8 @@ ActiveRecord::Schema.define(version: 2022_07_30_095522) do
   end
 
   create_table "groups", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "owner_id", null: false
-    t.string "group_name", null: false
+    t.integer "owner_id"
+    t.string "group_name"
     t.string "image_id"
     t.date "round_day"
     t.string "round_place"

@@ -6,20 +6,20 @@
        </div>
   <table class='table table-borderless mt-3'>
     <tbody>
-      <% @posts.each do |postall| %>
+      <% @posts.each do |post| %>
         <tr>
             <td width="200" height="100" style="padding-left:450px;">
-              <%= link_to post_path(postall.id) do %>
-              <%= image_tag postall.post_image, size: '160x140' %>
+              <%= link_to post_path(post.id) do %>
+              <%= image_tag post.post_image, size: '160x140' %>
               <% end %>
             </td>
             <td nowrap>
-              名前：<%= postall.user.name %><br>
-              日付：<%= postall.round_day %><br>
-              タイトル：<%= postall.title %><br>
-              ラウンド：<%= postall.round_place %><br>
-              スコア：<%#= postall.total_score %><br>
-              コメント：<%= postall.post_comments.count %>件<br>
+              名前：<%= post.user.name %><br>
+              日付：<%= post.round_day %><br>
+              タイトル：<%= post.title %><br>
+              ラウンド：<%= post.round_place %><br>
+              スコア：<%#= post.total_score %><br>
+              コメント：<%= post.post_comments.count %>件<br>
             </td>
         </th>
       <% end %>

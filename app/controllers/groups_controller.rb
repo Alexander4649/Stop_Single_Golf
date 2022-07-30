@@ -16,6 +16,13 @@ class GroupsController < ApplicationController
   
   def index
     @groups = Group.all
+    @groups = @groups.page(params[:page]).per(4)
+  end
+  
+  def join
+    @group = Group.find(params[:group_id])
+    @group.users << current_user
+    #redirect_to  groups_path
   end
   
   def show
@@ -36,12 +43,15 @@ class GroupsController < ApplicationController
   end
   
   def destroy
+    #byebug
     @group = Group.find(params[:id])
+    @group.users.destroy(current_user)
+    #redirect_to groups_path
   end
   
   private
   
   def group_params
-    params.require(:group).permit(:group_name, :round_day, :round_place,:image)
+    params.require(:group).permit(:group_name, :round_day, :round_place,:group_image)
   end
 end

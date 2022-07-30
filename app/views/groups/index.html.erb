@@ -3,4 +3,4 @@
   <div><%=link_to "グループを作る",new_group_path,class: "group_button" %></div>
   <%= render "index", groups: @groups %>
 </div>
-<div style="width: auto; margin-left:550px; margin-top:10px;"><%#= paginate @groups %></div>
+<div style="width: auto; margin-left:550px; margin-top:10px;"><%= paginate @groups %></div>
