@@ -1,4 +1,6 @@
 〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
+
+
 #byebug
 <p>post:::<%= @post.inspect %></p>
 <p>post_comment:::<%= post_comment.inspect %></p>

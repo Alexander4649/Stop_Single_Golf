@@ -8,28 +8,15 @@
           <div class="mt-4"><%= image_tag @post.post_image, size:'360x250' %></div>
           
           <div class="row">
-          <div class="col mt-3"><%= @post.round_day %></div>
-          <div class="col">
-            <% if current_user == @post.user %>
-              <%= link_to edit_post_path(@post) do %>
-              <i class="fas fa-edit fa-2x text-dark" style="position:absolute; margin-top:15px; padding-right:5px;"></i>
+            <div class="col mt-3"><%= @post.round_day %></div>
+            <div class="col">
+              <% if current_user == @post.user %>
+                <%= link_to edit_post_path(@post) do %>
+                <i class="fas fa-edit fa-2x text-dark" style="position:absolute; margin-top:15px; padding-right:5px;"></i>
+                <% end %>
               <% end %>
-            <% end %>
-            
-            <div id="favorites-remote">
-            <%#= render "favorites/favorite" , post_favorite: @post_favorite %>
-            <% if @post.favorited_by?(current_user) %>
-              <%= link_to post_favorites_path(@post), method: :delete do  %>
-                <i class="fas fa-heart fa-2x mt-3 ml-5" style="color: red;" aria-hidden="true"></i>
-                <%= @post.favorites.count %>Good!
-              <% end %>
-            <% else %>
-              <%= link_to post_favorites_path(@post), method: :post do %>
-                <i class="fas fa-heart fa-2x mt-3 ml-5" aria-hidden="true"></i>
-              <% end %>
-            <% end %>
-          </div>
-          </div>
+              <em id="favorites-remote"><%= render "favorites/favorite", post: @post %></em>
+            </div>
           </div>
           
           <div class="mt-1"><%= @post.round_place %></div>
@@ -49,37 +36,6 @@
   </div>
       
     <div class="container mt-3">
-      <div id='row ml-auto align-self-start'>
-        <table>
-          <tbody>
-            <%#= render "post_comments/index" , post_comments: @post_comments %>
-            <% @post.post_comments.each do |post_comment| %>
-            <tr>
-              <td nowrap style="border: none; text-align: center;">
-                <%= link_to user_path(post_comment.user) do %>
-                  <%= image_tag post_comment.user.get_profile_image, size: "50x50" %><br>
-                  <%= post_comment.user.name %>
-                <% end %>
-              </td>
-              <td style="border: none;"><u><%= post_comment.comment %></u></td>
-              <td style="border: none;">
-                <% if post_comment.user == current_user %>
-                  <%= link_to "削除", post_post_comment_path(@post, post_comment), method: :delete,class: "btn btn-sm btn-danger pull-right" %>
-                <% end %>
-              </td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-      
-      <div id="post_comment_form">
-        <%#= render "post_comments/form" ,post: @post ,post_comment: @post_comment %>
-        <%= form_with(model:[@post, @post_comment]) do |f| %>
-        <div class="col mt-3">
-        <div class="col"><%= f.text_area :comment ,placeholder: "コメントはこちら",size: "50x4" %></div>
-        <div class='col'><%= f.submit "コメント",class: "button btn-lg" %></div>
-        </div>
-        <% end %>
-      </div>
+      <div id="post_comment_remote"><%= render "post_comments/index" , post: @post %></div>
+      <div id="post_comment_form"><%= render "post_comments/form" ,post: @post ,post_comment: @post_comment %></div>
     </div>

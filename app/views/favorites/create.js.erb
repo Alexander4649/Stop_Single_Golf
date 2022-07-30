@@ -1,1 +1,2 @@
-$('#favorites-remote').html("<%= render "/favorites/favorite" , post_favorite: @post ");
+$('#favorites-remote').html("<%= j(render "favorites/favorite" , post: @post) %>");
+$('#favorites-remote_<%= @post.id %>').html("<%= j(render "favorites/favorite" , post: @post) %>");

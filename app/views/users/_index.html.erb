@@ -1,36 +1,26 @@
 <div class="container mt-4">
   <div class="row">
-      <% @posts.each do |postall| %>
-      <table class="table-borderless" align="left" style="font-size:13px;">
-          <td>
-            <%= link_to post_path(postall.id) do %>
-            <%= image_tag postall.post_image, size: '160x140' %>
-            <% end %>
-          </td>
-        <tr>
-          <td width="350" height="50">
-            日付　　：<%= postall.round_day %><br>
-            タイトル：<%= postall.title %><br>
-            ラウンド：<%= postall.round_place %><br>
-            コメント：<%= postall.post_comments.count %>件<br>
-            <% if current_user == postall.user %>
-            <%= link_to "削除", post_path(postall), method: :delete, "data-confirm" => "本当に削除しますか？" ,class: "btn btn-sm btn-danger" %>
-            <% end %>
-            <%#= render "favorites/favorite" , post_favorite: @post_favorite %>
-            <% if postall.favorited_by?(current_user) %>
-              <%= link_to post_favorites_path(postall), method: :delete do  %>
-                <i class="fas fa-heart fa-lg ml-4" aria-hidden="true" style="color: red;"></i>
-                <%= postall.favorites.count %>Good!
-              <% end %>
-            <% else %>
-              <%= link_to post_favorites_path(postall), method: :post do %>
-                <i class="fas fa-heart fa-lg ml-4" aria-hidden="true"></i>
-              <% end %>
-            <% end %>
-          </td>
-        </tr>
-       </table>
-      <% end %>
+    <% @posts.each do |post| %>
+    <table class="table-borderless" align="left" style="font-size:13px;">
+        <td>
+          <%= link_to post_path(post.id) do %>
+          <%= image_tag post.post_image, size: '160x140' %>
+          <% end %>
+        </td>
+      <tr>
+        <td width="350" height="50">
+          日付　　：<%= post.round_day %><br>
+          タイトル：<%= post.title %><br>
+          ラウンド：<%= post.round_place %><br>
+          コメント：<%= post.post_comments.count %>件<br>
+          <% if current_user == post.user %>
+          <%= link_to "削除", post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？" ,class: "btn btn-sm btn-danger" %>
+          <% end %>
+          <em id="favorites-remote_<%= post.id %>"><%= render "favorites/favorite" , post: post %></em>
+        </td>
+      </tr>
+     </table>
+    <% end %>
   </div>
 </div>
 

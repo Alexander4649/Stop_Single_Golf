@@ -3,10 +3,10 @@ class Post < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   
-  validates :title, presence: true
-  validates :body, presence: true, length: { maximum: 200 }
+  validates :title, presence: true, length: { minimum: 2, maximum: 50 }
+  validates :body, presence: true, length: { minimum: 2, maximum: 200 }
   validates :round_day, presence: true
-  validates :round_place, presence: true
+  validates :round_place, presence: true, length: { minimum: 2, maximum: 30 }
   validates :post_image, presence: true
   
   
