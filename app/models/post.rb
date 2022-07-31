@@ -2,12 +2,13 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :rounds
   
   validates :title, presence: true, length: { minimum: 2, maximum: 50 }
   validates :body, presence: true, length: { minimum: 2, maximum: 200 }
   validates :round_day, presence: true
   validates :round_place, presence: true, length: { minimum: 2, maximum: 30 }
-  validates :post_image, presence: true
+  # validates :post_image, presence: true
   
   
   scope :latest, -> {order(created_at: :desc)}

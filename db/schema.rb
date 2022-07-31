@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_30_095522) do
+ActiveRecord::Schema.define(version: 2022_07_31_125443) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -111,8 +111,6 @@ ActiveRecord::Schema.define(version: 2022_07_30_095522) do
     t.string "title", null: false
     t.text "body", null: false
     t.date "round_day"
-    t.float "score_in"
-    t.float "score_out"
     t.string "round_place"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -125,11 +123,19 @@ ActiveRecord::Schema.define(version: 2022_07_30_095522) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "rounds", force: :cascade do |t|
+    t.integer "round_number"
+    t.integer "score"
+    t.integer "post_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_rounds_on_post_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.integer "post_id"
     t.string "round_area"
     t.integer "average_score"
     t.string "experience"
@@ -146,4 +152,5 @@ ActiveRecord::Schema.define(version: 2022_07_30_095522) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
+  add_foreign_key "rounds", "posts"
 end

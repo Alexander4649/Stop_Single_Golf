@@ -57,3 +57,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'jquery-datetimepicker-rails'
 gem 'kaminari','~> 1.2.1'
+gem 'rails-i18n'

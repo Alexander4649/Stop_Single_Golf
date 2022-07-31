@@ -8,7 +8,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
       
-      t.integer :post_id
       t.string :round_area
       t.integer :average_score
       t.string :experience
