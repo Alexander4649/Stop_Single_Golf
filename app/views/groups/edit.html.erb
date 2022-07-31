@@ -1,1 +1,41 @@
 <%= render "layouts/header" %>
+<div class='container'>
+
+  <div style="font-size: 20px; color: red; position:absolute; margin-top:10px; left:110px;">
+  <% if @group.errors.any? %>
+    <%= @group.errors.count %>件の未入力があります。
+  <% end %>
+  </div>
+
+<div class="container">
+  <div class="mt-4 text-center" style="text-align:center; font-size:48px; font-weight:bold;">Group Edit</div>
+  
+  <%= form_with model: @group do |f| %>
+
+    <div class="row mt-5">
+        <label class="col-5 mt-3" style="font-size:24px; text-align:end;">グループ画像</label>
+        <div class="mt-4 ml-5"><%= f.file_field :group_image, accept: "image/*", id: "image", class: "form-control-file image" %></div>
+    </div>
+    
+      <div class="row mt-3">
+          <lavel class="col-5 mt-3" style="font-size:24px; text-align:end;">グループ名</lavel>
+          <div class="mt-4 ml-5" style="text-align:end;"><%= f.text_field :group_name ,size: "40×20" %></div>
+      </div>
+      
+      <div class="row mt-3">
+          <lavel class="col-5 mt-3" style="font-size:24px; text-align:end;">ラウンド日</lavel>
+          <div class="mt-4 ml-5" style="text-align:end;"><%= f.date_field :round_day ,size: "20×20" %></div>
+      </div>
+      
+      <div class="row mt-3">
+          <lavel class="col-5 mt-3" style="font-size:24px; text-align:end;">ラウンド場所</lavel>
+          <div class="mt-4 ml-5" style="text-align:end;"><%= f.text_field :round_place ,size: "40×20" %></div>
+      </div>
+      
+      <div class="row mt-3" style="text-align:end;">
+          <div class="col-5 mt-4"><%= link_to "戻る" , :back, class: "btn btn-lg btn-secondary" %></div>
+          <div class="col-3 mt-4 ml-3"><%= f.submit "作成する", class: "button"  %></div>
+      </div>
+      
+  <% end %>
+  </div>

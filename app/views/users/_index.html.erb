@@ -14,7 +14,7 @@
           ラウンド：<%= post.round_place %><br>
           コメント：<%= post.post_comments.count %>件<br>
           <% if current_user == post.user %>
-          <%= link_to "削除", post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？" ,class: "btn btn-sm btn-danger" %>
+          <%= link_to "削除", post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？" ,class: "btn btn-sm btn-danger destroy_button_round" %>
           <% end %>
           <em id="favorites-remote_<%= post.id %>"><%= render "favorites/favorite" , post: post %></em>
         </td>

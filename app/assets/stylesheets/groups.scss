@@ -22,3 +22,34 @@
   color         : #ffff1a;     /* 背景色     */
   background    : #330033;     /* 文字色     */
 }
+
+.image_bigscale {
+　padding: 16px;
+　color: white;
+　transition: all 0.1s;
+}
+
+.image_bigscale:hover {
+  transform: scale(1.3, 1.3);
+}
+
+.join_bottom_up {
+  background: mediumseagreen;
+　padding: 8px 16px;
+　color: white;
+　box-shadow: 0 5px black;
+}
+
+.join_bottom_up:hover {
+  box-shadow: 0 10px 10px black;
+　transform: translate(0, -5px);
+}
+
+.destroy_button_round {
+  padding: 32px;
+}
+
+.destroy_button_round:hover {
+  border-radius: 90%;
+　color: white; 
+}

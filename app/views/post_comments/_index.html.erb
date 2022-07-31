@@ -11,7 +11,7 @@
       <td style="border: none;"><u><%= post_comment.comment %></u></td>
       <td style="border: none;">
         <% if post_comment.user == current_user %>
-          <%= link_to "削除", post_post_comment_path(post, post_comment), method: :delete,class: "btn btn-sm btn-danger pull-right",remote:true %>
+          <%= link_to "削除", post_post_comment_path(post, post_comment), method: :delete,class: "btn btn-sm btn-danger pull-right destroy_button_round",remote:true %>
         <% end %>
       </td>
     </tr>

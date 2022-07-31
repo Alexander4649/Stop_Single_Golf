@@ -1,7 +1,7 @@
 <% if current_user.id != group.owner_id %>
  <% if group.users.include?(current_user) %>
-  <%= link_to "退会する", group_path(group) , method: :delete ,class: "btn btn-sm btn-danger",remote: true %>
+  <%= link_to "退会", group_path(group) , method: :delete ,class: "btn btn-sm btn-danger join_bottom_up",remote: true %>
 <% else %>
-  <%= link_to "参加する", group_join_path(group) , method: :post ,class: "btn btn-sm btn-primary",remote: true %>
+  <%= link_to "参加", group_join_path(group) , method: :post ,class: "btn btn-sm btn-primary join_bottom_up",remote: true %>
  <% end %>
 <% end %>

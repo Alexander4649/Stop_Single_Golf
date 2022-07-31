@@ -1,4 +1,4 @@
-<table class="table table-borderless table-hover">
+<table class="table table-borderless">
   <thead align="center" valign="middle" style="font-size:15px;">
     <th></th>
     <th style="border-bottom:3px solid;">グループ名</th>
@@ -12,8 +12,8 @@
   
   <% groups.each do |group| %>
   <tbody align="center" style="font-size:15px;">
-      <td>
-        <%= link_to group_path(group) do %>
+      <td class="image_bigscale">
+        <%= link_to group_path(group) do  %>
         <%= image_tag group.get_group_image, size:'100x100' %>
         <% end %>
       </td>
@@ -28,8 +28,9 @@
       <td style="display:table-cell; vertical-align:middle;"><%= group.users.count %></td>
       <td style="display:table-cell; vertical-align:middle;"><span id="group_remote"><%= render "join" , group: group %></span></td>
       <td style="display:table-cell; vertical-align:middle;">
-        <% if group.owner_id = current_user.id %>
-        <%= link_to "削除",group_path(group.id),method: :delete, "data-confirm" => "本当に削除しますか？",class: "btn btn-sm btn-danger" %>
+        <% if group.owner_id == current_user.id %>
+        <%= link_to "編集",edit_group_path(group.id),method: :patch,class: "btn btn-sm btn-warning" %>&emsp;
+        <%= link_to "削除",group_path(group.id),method: :delete, "data-confirm" => "本当に削除しますか？",class: "btn btn-sm btn-danger destroy_button_round" %>
         <% end %>
       </td>
   </tbody>
