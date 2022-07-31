@@ -82,6 +82,7 @@ var score_out = <%= @post.new_record? ? @post.score_result[:score_out] + 36 : @p
 var score_total = <%= @post.score_result[:score_total] %>
 var olddate = 0
 $('.fields_for_select').on('click', (e) => {
+  // 100に意味はなく、フラグの役割のみ、0は使用できなかったので、parとの区別をする為
   olddate = (json[e.target.value] || 100)
   console.log(olddate)
 })
