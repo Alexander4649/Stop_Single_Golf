@@ -14,8 +14,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.in_score = 1  #仮でつけてる
-    @post.out_score = 1 #仮でつけてる
+    score_total = score_out + score_in
     if @post.save
        redirect_to post_path(@post.id)
     else
@@ -55,7 +54,7 @@ class PostsController < ApplicationController
   private
   
   def post_params
-      params.require(:post).permit(:title, :body, :post_image, :round_day, :in_score, :out_score, :round_place)
+      params.require(:post).permit(:title, :body, :post_image, :round_day, :score_in, :score_out, :round_place)
   end
   
   

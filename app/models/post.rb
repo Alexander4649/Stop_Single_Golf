@@ -15,9 +15,9 @@ class Post < ApplicationRecord
   
   has_one_attached :post_image
   
-  def total_score
-    out_score + in_score
-  end
+  # def score_total
+  #   score_out + score_in
+  # end
   
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?

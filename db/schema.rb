@@ -111,8 +111,8 @@ ActiveRecord::Schema.define(version: 2022_07_30_095522) do
     t.string "title", null: false
     t.text "body", null: false
     t.date "round_day"
-    t.float "in_score"
-    t.float "out_score"
+    t.float "score_in"
+    t.float "score_out"
     t.string "round_place"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

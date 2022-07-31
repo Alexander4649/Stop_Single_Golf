@@ -5,8 +5,8 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.string :title,    null: false
       t.text :body,       null: false
       t.date :round_day
-      t.float :in_score
-      t.float :out_score
+      t.float :score_in
+      t.float :score_out
       t.string :round_place
 
       t.timestamps
