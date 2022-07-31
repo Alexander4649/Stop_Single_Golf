@@ -21,9 +21,9 @@
           
           <div class="mt-1"><%= @post.round_place %></div>
           <div class="row ml-2 mt-1" style="font-size:22px;">
-            OUT：<div class=""style="font-weight:bold;"><%#= @post.score_in %></div>&emsp;
-            IN：<div class="" style="font-weight:bold;"><%#= @post.score_out %></div>&emsp;
-            TOTAL：<div class=""style="font-weight:bold;"><%#= @post.score_total %></div>
+            OUT：<div class=""style="font-weight:bold;"><%= @post.score_result[:score_out] %></div>&emsp;
+            IN：<div class="" style="font-weight:bold;"><%=  @post.score_result[:score_in]  %></div>&emsp;
+            TOTAL：<div class=""style="font-weight:bold;"><%= @post.score_result[:score_total] %></div>
           </div>
           <div class="col-10" style="border-bottom: 1px solid black;"></div>
    

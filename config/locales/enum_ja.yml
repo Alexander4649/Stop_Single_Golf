@@ -1,0 +1,16 @@
+ja:
+  enum:
+    round:
+      score:
+        eagle: "◎"
+        burdy: "○"
+        par: "-"
+        bogey: "△"
+        double_bogy: "□"
+        triple_bogy: "+3"
+        plus_4: "+4"
+        plus_5: "+5"
+        plus_6: "+6"
+        plus_7: "+7"
+        plus_8: "+8"
+        plus_9: "+9"
