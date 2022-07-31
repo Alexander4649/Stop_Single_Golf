@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :groups do
     get "join" => "groups#join"
     post "join" => "groups#join"
+    delete "out" => "groups#out"
     resources :group_comments,only:[:create, :destroy]
   end
   

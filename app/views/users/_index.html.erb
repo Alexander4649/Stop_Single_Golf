@@ -2,7 +2,7 @@
   <div class="row">
     <% @posts.each do |post| %>
     <table class="table-borderless" align="left" style="font-size:13px;">
-        <td>
+        <td class="image_box">
           <%= link_to post_path(post.id) do %>
           <%= image_tag post.post_image, size: '160x140' %>
           <% end %>

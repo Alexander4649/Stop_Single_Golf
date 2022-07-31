@@ -25,6 +25,12 @@ class GroupsController < ApplicationController
     #redirect_to  groups_path
   end
   
+  def out
+    @group = Group.find(params[:group_id])
+    @group.users.destroy(current_user)
+    #redirect_to groups_path
+  end
+  
   def show
     @group = Group.find(params[:id])
   end
@@ -45,8 +51,8 @@ class GroupsController < ApplicationController
   def destroy
     #byebug
     @group = Group.find(params[:id])
-    @group.users.destroy(current_user)
-    #redirect_to groups_path
+    @group.destroy
+    redirect_to groups_path
   end
   
   private

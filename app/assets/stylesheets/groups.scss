@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+// グループ作成ボタンの装飾
 .group_button {
   display       : inline-block;
   border-radius : 5%;          /* 角丸       */
@@ -23,6 +24,7 @@
   background    : #330033;     /* 文字色     */
 }
 
+// マウスオーバー時画像を大きく表示する
 .image_bigscale {
 　padding: 16px;
 　color: white;
@@ -33,6 +35,7 @@
   transform: scale(1.3, 1.3);
 }
 
+// 参加・退会ボタン影付け
 .join_bottom_up {
   background: mediumseagreen;
 　padding: 8px 16px;
@@ -45,6 +48,7 @@
 　transform: translate(0, -5px);
 }
 
+// 削除ボタンを丸く変化
 .destroy_button_round {
   padding: 32px;
 }

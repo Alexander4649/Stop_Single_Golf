@@ -1,1 +1,3 @@
-$('#group_remote').html("<%= j(render "join" , group: group) %>");
+$('#group_remote_<%= @group.id %>').html("<%= j(render "join" , group: @group) %>");
+
+$('#group_count_<%= @group.id %>').html("<%=@group.users.count %>");
