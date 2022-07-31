@@ -63,7 +63,7 @@
 - UI Frows・ワイヤーフレーム・ER図
 
 * ER図
-![Golf-ER図](https://user-images.githubusercontent.com/105344687/180647903-ed7e1221-fa11-4eeb-be77-52d8e1144af1.jpg)
+![Golf-ER図](https://user-images.githubusercontent.com/105344687/182009906-188fd148-b401-48bf-b714-8971e788ef86.jpg)
 
 * ワイヤーフレーム(User)
 ![Golf-UI Forws(ユーザー側)](https://user-images.githubusercontent.com/105344687/180429441-f5c54968-5a09-4460-b592-9ae41a1c4f70.jpg)
