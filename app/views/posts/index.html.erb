@@ -18,7 +18,7 @@
               日付&emsp;&emsp;：<%= post.round_day %><br>
               タイトル：<%= post.title %><br>
               ラウンド：<%= post.round_place %><br>
-              スコア&emsp;：<%#= post.score_total %><br>
+              スコア&emsp;：<%= post.score_result[:score_total] %><br>
               コメント：<%= post.post_comments.count %>件<br>
             </td>
         </th>

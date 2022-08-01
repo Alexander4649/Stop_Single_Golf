@@ -17,7 +17,5 @@ class Round < ApplicationRecord
                 plus_8: 12,
                 plus_9: 13 }
   validates :score, inclusion: { in: Round.scores.keys }
-  
-  
                 
 end
