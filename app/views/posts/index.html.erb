@@ -14,12 +14,12 @@
               <% end %>
             </td>
             <td nowrap>
-              名前&emsp;&emsp;：<%= post.user.name %><br>
-              日付&emsp;&emsp;：<%= post.round_day %><br>
-              タイトル：<%= post.title %><br>
-              ラウンド：<%= post.round_place %><br>
-              スコア&emsp;：<%= post.score_result[:score_total] %><br>
-              コメント：<%= post.post_comments.count %>件<br>
+              名前&emsp;&emsp;：<strong><%= post.user.name %></strong><br>
+              日付&emsp;&emsp;：<strong><%= post.round_day %></strong><br>
+              タイトル：<strong><%= post.title %></strong><br>
+              ラウンド：<strong><%= post.round_place %></strong><br>
+              スコア&emsp;：<strong><%= post.score_result[:score_total] %></strong><br>
+              コメント：<strong><%= post.post_comments.count %>件</strong><br>
             </td>
         </th>
       <% end %>

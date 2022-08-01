@@ -36,6 +36,12 @@
             </li>
             
             <li class="nav-item">
+              <%= link_to post_bookmarks_path(current_user),class: 'nav-link text-dark' do %>
+                <i class="far fa-bookmark"></i> Like
+              <% end %>
+            </li>
+            
+            <li class="nav-item">
               <%= link_to groups_path,class: 'nav-link text-dark' do %>
                 <i class="fas fa-user-friends"></i> Group
               <% end %>

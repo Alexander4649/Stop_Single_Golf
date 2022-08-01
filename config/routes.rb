@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   resources :posts do
     resources :post_comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
+    get "bookmarks" => "bookmarks#index"
+    resource :bookmarks, only: [:create, :destroy]
   end
   
   resources :groups do
