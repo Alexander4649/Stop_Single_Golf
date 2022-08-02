@@ -7,11 +7,14 @@ class SearchesController < ApplicationController
     @word = params[:word]
 
     if @range == "User"
-      @users = User.looks(params[:search], params[:word])
+      @users = User.looks(params[:search], params[:word]).page(params[:page]).per(5)
     elsif @range == "Post"
-      @posts = Post.looks(params[:search], params[:word])
+      @posts = Post.looks(params[:search], params[:word]).page(params[:page]).per(3)
+    else
+      redirect_to request.referer
     end
-
+    
+    # @posts = @posts.page(params[:page]).per(3)
     # @posts = Post.where(tag: params[:word])
   end
 end

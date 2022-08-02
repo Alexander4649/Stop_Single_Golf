@@ -1,9 +1,9 @@
 <% if post.bookmarked_by?(current_user) %>
   <%= link_to post_bookmarks_path(post), method: :delete, remote:true do %>
-  <i class="fas fa-bookmark fa-2x"></i>
+  <em><i class="fas fa-bookmark fa-2x" style="color:red;"></i> Like!</em>
   <% end %>
 <% else %>
   <%= link_to post_bookmarks_path(post), method: :post, remote:true do %>
-  <i class="fas fa-bookmark fa-2x" style="color:red;"></i>
+  <i class="fas fa-bookmark fa-2x"></i>
   <% end %>
 <% end %>

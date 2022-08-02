@@ -36,7 +36,7 @@
       </div>
     </div>
   </div>
-  <div style="width: auto; margin-left:550px;"><%#= paginate @users %></div>
+  <div style="width: auto; margin-left:550px;"><%= paginate @users %></div>
 
 <% else %>
 
@@ -50,11 +50,7 @@
   </div>
   
   <div class="cotainer">
-    <div style="width: 130px; margin-left:555px; background-color:gainsboro;">
-       <%= link_to '新しい順', posts_path(latest: "true"),class: "text-dark"%> |
-       <%= link_to '古い順', posts_path(old: "true"),class: "text-dark" %>
-    </div>
-         
+
     <table class='table table-borderless mt-3'>
       <tbody>
         <% @posts.each do |post| %>
@@ -77,5 +73,5 @@
       </tbody>
     </table>
   </div>
-  <div style="width: auto; margin-left:550px;"><%#= paginate @posts %></div>
+  <div style="width: auto; margin-left:550px;"><%= paginate @posts %></div>
   <% end %>

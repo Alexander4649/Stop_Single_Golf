@@ -4,7 +4,6 @@ class BookmarksController < ApplicationController
   def index
     # @bookmarks = Bookmark.all
     #@bookmarks = Bookmark.where(user_id: current_user.id)
-    
     if params[:latest]
       @bookmarks = Bookmark.latest.page(params[:page]).per(3)
     elsif params[:old]
@@ -12,8 +11,6 @@ class BookmarksController < ApplicationController
     else
       @bookmarks = Bookmark.all.page(params[:page]).per(3)
     end
-    
-    # @bookmarks = Bookmark.page(params[:page]).per(3)
   end
 
   def create
@@ -30,6 +27,7 @@ class BookmarksController < ApplicationController
   def destroy
     @post = Post.find(params[:post_id])
     bookmark = Bookmark.find_by(post_id: params[:post_id])#post_id: [:@post.id]
+    bookmark.user_id = current_user.id
     if bookmark.destroy
       # bookmark.destroy!
       # redirect_to require.referer
