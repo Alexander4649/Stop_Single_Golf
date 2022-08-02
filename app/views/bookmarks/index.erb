@@ -9,7 +9,7 @@
       <% @bookmarks.each do |bookmark| %>
         <tr>
             <td class="image-box_stand" width="200" height="100" style="padding-left:450px;">
-              <%= link_to post_path(post.id) do %>
+              <%= link_to post_path(bookmark) do %>
               <%= image_tag bookmark.post.post_image, size: '160x140' %>
               <% end %>
             </td>

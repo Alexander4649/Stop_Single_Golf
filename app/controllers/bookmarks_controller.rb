@@ -18,9 +18,10 @@ class BookmarksController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    bookmark = @post.bookmarks.new(user_id: params[:current_user_id]) #post_id: [:@post.id]
+    bookmark = @post.bookmarks.new
+    bookmark.user_id = current_user.id#post_id: [:@post.id]
     if bookmark.save
-       redirect_to request.referer
+      # redirect_to request.referer
     else
        redirect_to request.referer
     end
@@ -28,10 +29,10 @@ class BookmarksController < ApplicationController
 
   def destroy
     @post = Post.find(params[:post_id])
-    bookmark = @post.bookmarks.find_by(user_id: params[:current_user_id])#post_id: [:@post.id]
-    if bookmark.present?
-       bookmark.destroy
-       redirect_to require.referer
+    bookmark = Bookmark.find_by(post_id: params[:post_id])#post_id: [:@post.id]
+    if bookmark.destroy
+      # bookmark.destroy!
+      # redirect_to require.referer
     else
        redirect_to request.referer
     end
