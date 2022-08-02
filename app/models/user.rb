@@ -15,6 +15,11 @@ class User < ApplicationRecord
   has_many :group_users
   has_many :groups, through: :group_users
   
+    # 検索方法分岐
+  def self.looks(search, word)
+    @user = User.where("name LIKE?", "%#{word}%")
+  end
+  
   def follow_by?(user)
     reverse_of_relationships.find_by(follow_id: user.id).present?
   end

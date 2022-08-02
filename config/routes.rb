@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   root :to => "homes#top"
   get "home/about" => "homes#about"
   get "home/logout" => "homes#logout"
+  get "search" => "searches#search"
   
   resources :users,only:[:show, :edit, :update] do
+    get "search_form" => "users#search_form"
     get 'follows' => 'relationships#follows', as: 'follows'
     get 'followers' => 'relationships#followers', as: 'followers'
     resource :relationships, only: [:create, :destroy]

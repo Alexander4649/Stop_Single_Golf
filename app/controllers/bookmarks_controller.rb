@@ -3,7 +3,7 @@ class BookmarksController < ApplicationController
   
   def index
     # @bookmarks = Bookmark.all
-    #bookmarks = Bookmark.where(user_id: current_user.id)
+    #@bookmarks = Bookmark.where(user_id: current_user.id)
     
     if params[:latest]
       @bookmarks = Bookmark.latest.page(params[:page]).per(3)
@@ -18,19 +18,23 @@ class BookmarksController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    bookmark = @post.bookmarks.new(user_id: params[:current_user_id]
-    bookmark.save
-    redirect_to require.referer
+    bookmark = @post.bookmarks.new(user_id: params[:current_user_id]) #post_id: [:@post.id]
+    if bookmark.save
+       redirect_to request.referer
+    else
+       redirect_to request.referer
+    end
   end
 
   def destroy
     @post = Post.find(params[:post_id])
-    bookmark = @post.bookmarks.find_by(user_id: params[:current_user_id], id: params[:id])
+    bookmark = @post.bookmarks.find_by(user_id: params[:current_user_id])#post_id: [:@post.id]
     if bookmark.present?
-        bookmark.destroy
-        redirect_to request.referer
+       bookmark.destroy
+       redirect_to require.referer
     else
-        redirect_to request.referer
+       redirect_to request.referer
     end
+      
   end
 end

@@ -1,9 +1,9 @@
-<% if @post.bookmarked_by?(current_user) %>
-  <%= link_to post_bookmarks_path(@post), method: :delete do %>
+<% if post.bookmarked_by?(current_user) %>
+  <%= link_to post_bookmarks_path(post), method: :delete do %>
   <i class="fas fa-bookmark fa-2x"></i>
   <% end %>
 <% else %>
-  <%= link_to post_bookmarks_path(@post), method: :post do %>
+  <%= link_to post_bookmarks_path(post), method: :post do %>
   <i class="fas fa-bookmark fa-2x" style="color:red;"></i>
   <% end %>
 <% end %>
