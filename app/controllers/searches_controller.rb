@@ -14,7 +14,6 @@ class SearchesController < ApplicationController
       redirect_to request.referer
     end
     
-    # @posts = @posts.page(params[:page]).per(3)
     # @posts = Post.where(tag: params[:word])
   end
 end
