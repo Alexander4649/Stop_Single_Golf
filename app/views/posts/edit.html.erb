@@ -1,1 +1,114 @@
-<%= render "form" %>
+<%= render "layouts/header" %>
+<div style="font-size: 20px; color: red; position:absolute; margin-top:10px; left:110px;">
+  <% if @post.errors.any? %>
+    <%= @post.errors.count %>件の未入力があります。
+  <% end %>
+</div>
+
+<div class="container">
+  <div class="mt-4" style="text-align:center; font-size:48px; font-weight:bold;">Posting Edit</div>
+</div>
+
+<%= form_with model: @post, local:true do |f| %>
+<div class="container">
+  
+  <div class="form-group">
+    <div class="row col-10 mt-4 mx-auto text-left">
+      <label for="image col-3"style="font-size:24px;">画像</label>
+      <div class="mt-1 ml-4"><%= f.file_field :post_image, accept: "image/*", id: "image", class: "form-control-file image md-5" %></div>
+      
+      <div class='col-md-3 offset-md-2'>
+        <lavel class="col-3" style="font-size:24px; text-align:end;">タイトル</lavel>
+        <div class="col-11 mt-2" style="text-align:end;"><%= f.text_field :title ,size: "40×20" %></div>
+      </div>
+    </div>
+  </div>
+    
+  <div class="form-group">
+    <div class="row col-10 mx-auto">
+      <label for="col-3"style="font-size:24px;">日付</label>
+      <div class="mt-1 ml-4"><%= f.date_field :round_day %></div>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <div class="col-10 mx-auto text-left">
+      <label for="col-3"style="font-size:24px;">ラウンド場所</label>
+      <div class=""><%= f.text_field :round_place ,size: "40×20" %></div>
+
+      <div class='col-md-3' style="position:absolute; bottom:-100px; right:110px;">
+        <label style="font-size:24px;">本文</lavel>
+        <div style="text-align:end; font-size:16px;"><%= f.text_area :body, cols: 40, rows:8 %></div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="row col-10 mx-auto mt-5" style="position:absolute; left:260px; bottom: 270px;">
+      <div class=""style="font-size:24px;">
+        OUT：<span id="score_out"><%= @post.score_result[:score_out] %></span>&emsp;&emsp;
+        In：<span id="score_in"><%= @post.score_result[:score_in] %></span>&emsp;&emsp;&emsp;
+        Total：<strong><span id="score_total"><%= @post.score_result[:score_total] %></span></strong>
+      </div>
+    </div>
+  </div>
+  
+  <div style="position:absolute; left:880px; bottom: 180px;"><%= link_to "　戻る　", post_path(@post), class: "btn btn-lg btn-secondary btn-outline-dark text-white" %></div>
+  <div style="position:absolute; left:1080px; bottom: 180px;"><%= f.submit "変更する" , method: :patch,class: "button btn-lg" %></div>
+  
+
+      <table class="posting_table" style="background-color:gainsboro; position:absolute; bottom:180px;">
+        <tr>
+          <th>No.</th>
+          <% (1..18).each do |n| %>
+          <th><%= n %></th>
+          <% end %>
+        </tr>
+        <tr class="posting_table_score">
+    	    <td></td>
+    	    <%= f.fields_for :rounds, class: "fields_for_select" do |r| %>
+          <td class="fields_for_select" id="fields_for_select_<%=r.object.round_number %>"><%= r.select :score, Round.scores_i18n.keys.map{|k| [I18n.t("enum.round.score.#{k}"), k]}, {include_blank: true} %></td>
+          <%= r.hidden_field :round_number %>
+          <% end %>
+    	   </tr>
+      </table>
+    </div>
+<% end %>
+
+<script>
+var json = <%== Round.scores.to_json %>
+var score_in = <%= @post.new_record? ? @post.score_result[:score_in] + 36 : @post.score_result[:score_in]  %>
+var score_out = <%= @post.new_record? ? @post.score_result[:score_out] + 36 : @post.score_result[:score_out] %>
+var score_total = <%= @post.score_result[:score_total] %>
+var olddate = 0
+$('.fields_for_select').on('click', (e) => {
+  // 100に意味はなく、フラグの役割のみ、0は使用できなかったので、parとの区別をする為
+  olddate = (json[e.target.value] || 100)
+  console.log(olddate)
+})
+
+// var obj = JSON.parse(json)
+$('.fields_for_select').on('change', (e) => {
+ const round_number = Number($(e.target).parent().attr("id").replace("fields_for_select_", ""))
+ <% if @post.new_record? %>
+if (olddate == 100) {
+  olddate = 0
+  var score = json[e.target.value] - 4
+} else {
+  var score = json[e.target.value]
+}
+ <% else %>
+ const score = (json[e.target.value])
+ <% end %>
+ console.log(score)
+  if ( round_number <= 9 ) {
+    score_in = score_in - olddate + score
+  } else if (round_number >= 10) {
+    score_out = score_out - olddate + score
+  }
+  score_total = score_in + score_out
+  $('#score_in').text(score_in)
+  $('#score_out').text(score_out)
+  $('#score_total').text(score_total)
+})
+</script>

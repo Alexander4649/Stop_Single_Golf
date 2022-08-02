@@ -1,0 +1,39 @@
+// Place all the styles related to the searches controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.search_container {
+  position: relative;
+  box-sizing: border-box;
+  border: 2px solid #000;
+  display: block;
+  height: 1.8em;
+  width: 220px;
+  overflow: hidden;
+}
+
+.search_container input[type="text"] {
+  border: none;
+  height: 1.7em;
+  padding: 0 10px;
+}
+
+.search_container input[type="text"]:focus {
+  outline: 0;
+}
+
+.search_container button {
+  cursor: pointer;
+  border: none;
+  background: #f0f0f0;
+  color: #000;
+  position: absolute;
+  width: 3rem;
+  height: 3.0rem;
+  right: 0;
+  top: -9px;
+  outline: none;
+}
+
+
+

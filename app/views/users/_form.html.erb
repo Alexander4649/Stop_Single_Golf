@@ -20,15 +20,15 @@
     <div class="mt-3" style="display: inline">
       <div class="row">
         <div class="col-sm-auto text-left" id="followers_count">フォロワー数：<%= link_to @user.followers.count, user_followers_path(@user) %>人</div>
-        <div class="col-sm-auto" style="position:absolute; margin-left:165px;">平均スコア　：<%= @user.average_score %></div>
+        <div class="col-sm-auto" style="position:absolute; margin-left:165px;">平均スコア&emsp;：<%= @user.average_score %></div>
       </div>
     </div>
     
     
     <div class="mt-3" style="display: inline">
       <div class="row">
-        <div class="col-sm-9 text-left">投稿数　　　：<%= @user.posts.count %>件</div>
-        <div class="col-sm-auto" style="position:absolute; margin-left:166px;">ゴルフ経験　：<%= @user.experience %></div>
+        <div class="col-sm-12 text-left">投稿数&emsp;&emsp;&emsp;：<%= @user.posts.count %>件</div>
+        <div class="col-sm-auto" style="position:absolute; margin-left:166px;">ゴルフ経験&emsp;：<%= @user.experience %></div>
       </div>
     </div>
      

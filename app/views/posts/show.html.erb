@@ -9,21 +9,21 @@
           
           <div class="row">
             <div class="col mt-3"><%= @post.round_day %></div>
-            <div class="col">
+            <div class="col-8">
               <% if current_user == @post.user %>
                 <%= link_to edit_post_path(@post) do %>
-                <i class="fas fa-edit fa-2x text-dark" style="position:absolute; margin-top:15px; padding-right:5px;"></i>
+                <i class="fas fa-edit fa-2x text-dark" style="position:absolute; margin-top:15px; margin-right:3px;"></i>
                 <% end %>
               <% end %>
-              <em id="favorites-remote"><%= render "favorites/favorite", post: @post %></em>
+              <span id="favorites-remote" style="position:absolute; margin-top:15px; margin-left:45px;"><%= render "favorites/favorite", post: @post %></span>
+              <span id="bookmarks-remote" style="position:absolute; margin-top:17px; margin-left:145px;"><%= render "bookmarks/bookmark", post: @post %></span>
             </div>
           </div>
-          
-          <div class="mt-1"><%= @post.round_place %></div>
-          <div class="row ml-2 mt-1" style="font-size:22px;">
-            OUT：<div class=""style="font-weight:bold;"><%#= @post.score_in %></div>&emsp;
-            IN：<div class="" style="font-weight:bold;"><%#= @post.score_out %></div>&emsp;
-            TOTAL：<div class=""style="font-weight:bold;"><%#= @post.score_total %></div>
+          <div class="mt-3"><%= @post.round_place %></div>
+          <div class="row ml-auto mt-1" style="font-size:24px;">
+            OUT：<div class=""style="font-weight:bold;"><%= @post.score_result[:score_out] %></div>&emsp;
+            IN：<div class="" style="font-weight:bold;"><%=  @post.score_result[:score_in]  %></div>&emsp;
+            TOTAL：<div class=""style="font-weight:bold;"><%= @post.score_result[:score_total] %></div>
           </div>
           <div class="col-10" style="border-bottom: 1px solid black;"></div>
    

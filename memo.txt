@@ -192,3 +192,152 @@ view　編集
 ❶
 application.html.erbに記述
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> =>FontAwsome適用
+
+
+<!--selectタグを何かしらに変化した時、selectタグの内容をeachしてくる-->
+<!--let にて初期値を設定-->
+<!--eachしてきたデータを(this)はわたしとゆうテンションで、thisにval=>バリュー(値を以下のように設定するとゆうニュアンス)-->
+<!--switchはRubyでいう「if」みたいな感じ、caseはelsifやelseみたいな感じ-->
+<!--◎に値がチェンジした時に、score_inを「−２」にする指示-->
+<!--breakeにて区切りをつける-->
+<!--score_inとゆう合計値クラスをscore_in部分にtext表示させる-->
+<script>
+$('.select_score_in').change(function() {
+    let score_in = 36;
+    $('.select_score_in').each(function () {
+      switch ($(this).val()) {
+        case '◎':
+          score_in = score_in - 2;
+          break;
+        case '◯':
+          score_in = score_in - 1;
+          break;
+        case '-':
+          score_in = score_in + 0;
+          break;
+        case '△':
+          score_in = score_in + 1;
+          break;
+        case '□':
+          score_in = score_in + 2;
+          break;
+        case '+3':
+          score_in = score_in + 3;
+          break;
+        case '+4':
+          score_in = score_in + 4;
+          break;
+        case '+5':
+          score_in = score_in + 5;
+          break;
+        case '+6':
+          score_in = score_in + 6;
+          break;
+        case '+7':
+          score_in = score_in + 7;
+          break;
+        case '+8':
+          score_in = score_in + 8;
+          break;
+        case '+9':
+          score_in = score_in + 9;
+          break;
+        dafault:
+          break;
+      }
+    });
+    $('#score_in').text(score_in);
+    $('#score_total').text(Number(score_in) + Number($('#score_out').text()))
+    $('#post_score_out').val($('#score_out').text())
+    $('#post_score_in').val($('#score_in').text())
+  });
+
+$('.select_score_out').change(function() {
+    let score_out = 32;
+    $('.select_score_out').each(function () {
+      switch ($(this).val()) {
+        case '◎':
+          score_out = score_out - 2;
+          break;
+        case '◯':
+          score_out = score_out - 1;
+          break;
+        case '-':
+          score_out = score_out + 0;
+          break;
+        case '△':
+          score_out = score_out + 1;
+          break;
+        case '□':
+          score_out = score_out + 2;
+          break;
+        case '+3':
+          score_out = score_out + 3;
+          break;
+        case '+4':
+          score_out = score_out + 4;
+          break;
+        case '+5':
+          score_out = score_out + 5;
+          break;
+        case '+6':
+          score_out = score_out + 6;
+          break;
+        case '+7':
+          score_out = score_out + 7;
+          break;
+        case '+8':
+          score_out = score_out + 8;
+          break;
+        case '+9':
+          score_out = score_out + 9;
+          break;
+        dafault:
+          break;
+      }
+    });
+    $('#score_out').text(score_out);
+    $('#score_total').text(Number(score_out) + Number($('#score_in').text()))
+    $('#post_score_out').val($('#score_out').text())
+    $('#post_score_in').val($('#score_in').text())
+  });
+  
+// $('.score_total').text(function() {
+//   (const array = [score_in,score_out];
+//   let sum = 0; {
+//       sum += array[i];
+//   }
+//   console.log(sum);
+// )};
+</script>
+
+
+search.css
+/*検索窓のエリア*/
+ #search-wrap {
+     position: absolute;/*絶対配置にして*/
+	 z-index: 2;/*最前面に設定。数字は変更可*/
+	 top:10px;
+	 right:10px;
+}
+
+/*テキスト入力input設定*/
+ #search-text{
+	-webkit-appearance:none;/*SafariやChromeのデフォルトの設定を無効*/
+	width: 50px;/*テキスト入力エリアが伸びる前の横幅*/
+	height: 30px;
+ /*padding: 20px;*/
+	border: none;
+	/*background:#fff url("../img/search.jpeg") no-repeat 17px center;/*虫眼鏡アイコンを背景に表示*/
+	background-size: 20px 20px;
+	transition: all 0.5s;/*transitionを使ってスムースに伸ばす*/
+	outline: none;
+	cursor: pointer;/*カーソルを指マークに*/
+}
+
+/*テキスト入力inputにフォーカスした時の形状*/
+ #search-text:focus {
+	width: 200px;/*テキスト入力エリアが伸びる後の横幅*/
+	/*padding: 20px 0 20px 60px;*/
+	box-shadow: 0 2px rgba(6,0,1,.26);
+}

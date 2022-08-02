@@ -2,6 +2,8 @@ class PostsController < ApplicationController
   
   def new
     @post = Post.new
+    @rounds = []
+    18.times { |n| @rounds << @post.rounds.build(round_number: n + 1) }
   end
   
   def show
@@ -12,9 +14,7 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = Post.new(post_params)
-    @post.user_id = current_user.id
-    score_total = score_out + score_in
+    @post = current_user.posts.build(post_params)
     if @post.save
        redirect_to post_path(@post.id)
     else
@@ -41,8 +41,11 @@ class PostsController < ApplicationController
   
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    redirect_to post_path(@post.id)
+    if @post.update(post_params)
+       redirect_to post_path(@post.id)
+    else
+       render "edit"
+    end
   end
   
   def destroy
@@ -54,7 +57,7 @@ class PostsController < ApplicationController
   private
   
   def post_params
-      params.require(:post).permit(:title, :body, :post_image, :round_day, :score_in, :score_out, :round_place)
+      params.require(:post).permit(:title, :body, :post_image, :round_day, :score_in, :score_out, :round_place, rounds_attributes: [:round_number, :score, :id])
   end
   
   

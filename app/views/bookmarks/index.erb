@@ -1,0 +1,29 @@
+<%= render "layouts/header" %>
+<div class="cotainer mt-5">
+      <div style="width: 180px; margin-left:555px; background-color:gainsboro; text-align:center;">
+       <%= link_to 'new_Like!',  post_bookmarks_path(latest: "true"),class: "text-dark"%>&ensp; |&ensp;
+       <%= link_to 'old_Like!',  post_bookmarks_path(old: "true"),class: "text-dark" %>
+       </div>
+  <table class='table table-borderless mt-3'>
+    <tbody>
+      <% @bookmarks.each do |bookmark| %>
+        <tr>
+            <td class="image-box_stand" width="200" height="100" style="padding-left:450px;">
+              <%= link_to post_path(bookmark.post.id) do %>
+              <%= image_tag bookmark.post.post_image, size: '160x140' %>
+              <% end %>
+            </td>
+            <td nowrap>
+              名前&emsp;&emsp;：<strong><%= bookmark.post.user.name %></strong><br>
+              日付&emsp;&emsp;：<strong><%= bookmark.post.round_day %></strong><br>
+              タイトル：<strong><%= bookmark.post.title %></strong><br>
+              ラウンド：<strong><%= bookmark.post.round_place %></strong><br>
+              スコア&emsp;：<strong><%= bookmark.post.score_result[:score_total] %></strong><br>
+              コメント：<strong><%= bookmark.post.post_comments.count %>件</strong><br>
+            </td>
+        </th>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div style="width: auto; margin-left:550px;"><%= paginate @bookmarks %></div>

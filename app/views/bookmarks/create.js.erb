@@ -1,0 +1,2 @@
+$('#bookmarks-remote').html("<%= j(render "bookmarks/bookmark", post: @post) %>");
+$('#bookmarks-remote_<%= @post.id %>').html("<%= j(render "bookmarks/bookmark", post: @post) %>");
