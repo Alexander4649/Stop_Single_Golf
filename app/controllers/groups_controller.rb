@@ -36,7 +36,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @owner = User.find(@group.owner_id)
     @group_comment = GroupComment.new
-    # @group_users = Group.users.all
+    @group_users = @group.users.all
     # @group_users = Group.users.find(params[:user_id])
   end
   

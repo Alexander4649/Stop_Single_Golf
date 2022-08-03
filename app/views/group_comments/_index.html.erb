@@ -3,26 +3,20 @@
     <% group.group_comments.each do |group_comment| %>
       
       <% if group_comment.user == current_user %>
-      <tr>
-        <td nowrap style="border: none; text-align: center;"><%= image_tag group_comment.user.get_profile_image, size: "50x50" %></td>
-        <td style="border: none;"><u><%= group_comment.comment %></u></td>
-        <td style="border: none;">
-          <% if group_comment.user == current_user %>
+      <tr >
+        <td nowrap style="border: none;"><%= image_tag group_comment.user.get_profile_image, size: "50x50" %></td>
+        <td style="border: none;" colspan=2>
+            <u><%= group_comment.comment %></u>
             <%= link_to "削除", group_group_comment_path(group, group_comment), method: :delete,class: "btn btn-sm btn-danger pull-right destroy_button_round" %>
-          <% end %>
         </td>
       </tr>
       
       <% else %>
       
-      <tr style="position: relative; left: 500px; overflow: hidden;">
-        <td style="border: none;">
-          <% if group_comment.user == current_user %>
-            <%= link_to "削除", group_group_comment_path(group, group_comment), method: :delete,class: "btn btn-sm btn-danger pull-right destroy_button_round" %>
-          <% end %>
-        </td>
-        <td style="border: none;"><u><%= group_comment.comment %></u></td>
-        <td nowrap style="border: none; text-align: center; "><%= image_tag group_comment.user.get_profile_image, size: "50x50" %></td>
+      <tr class="">
+        <td class="" style="border: none;"></td>
+        <td class="" style="border: none; text-align: right;" colspan=2><u><%= group_comment.comment %></u></td>
+        <td nowrap style="border: none; text-align: center;"><%= image_tag group_comment.user.get_profile_image, size: "50x50" %></td>
       </tr>
       <% end %>
       
