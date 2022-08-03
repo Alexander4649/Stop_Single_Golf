@@ -49,6 +49,9 @@
         OUT：<span id="score_out"><%= @post.score_result[:score_out] %></span>&emsp;&emsp;
         In：<span id="score_in"><%= @post.score_result[:score_in] %></span>&emsp;&emsp;&emsp;
         Total：<strong><span id="score_total"><%= @post.score_result[:score_total] %></span></strong>
+  	   <%= f.hidden_field :f_score_in %>
+  	   <%= f.hidden_field :f_score_out %>
+  	   <%= f.hidden_field :f_score_total %>
       </div>
     </div>
   </div>
@@ -66,7 +69,7 @@
         </tr>
         <tr class="posting_table_score">
     	    <td></td>
-    	    <%= f.fields_for :rounds, class: "fields_for_select" do |r| %>
+    	    <%= f.fields_for :rounds do |r| %>
           <td class="fields_for_select" id="fields_for_select_<%=r.object.round_number %>"><%= r.select :score, Round.scores_i18n.keys.map{|k| [I18n.t("enum.round.score.#{k}"), k]}, {include_blank: true} %></td>
           <%= r.hidden_field :round_number %>
           <% end %>
@@ -77,10 +80,19 @@
 
 <script>
 var json = <%== Round.scores.to_json %>
-var score_in = <%= @post.new_record? ? @post.score_result[:score_in] + 36 : @post.score_result[:score_in]  %>
-var score_out = <%= @post.new_record? ? @post.score_result[:score_out] + 36 : @post.score_result[:score_out] %>
-var score_total = <%= @post.score_result[:score_total] %>
-var olddate = 0
+var score_in = 36;
+<% if @score_result != nil && @score_result[:score_in] != nil %>
+score_in = <%=@score_result[:score_in].to_i%>
+<%end%>
+var score_out = 36;
+<% if @score_result != nil && @score_result[:score_out] != nil %>
+score_out = <%=@score_result[:score_out].to_i%>
+<%end%>
+var score_total = 0;
+<% if @score_result != nil && @score_result[:score_total] != nil %>
+score_total = <%=@score_result[:score_total].to_i%>
+<%end%>
+
 $('.fields_for_select').on('click', (e) => {
   // 100に意味はなく、フラグの役割のみ、0は使用できなかったので、parとの区別をする為
   olddate = (json[e.target.value] || 100)
@@ -89,7 +101,8 @@ $('.fields_for_select').on('click', (e) => {
 
 // var obj = JSON.parse(json)
 $('.fields_for_select').on('change', (e) => {
- const round_number = Number($(e.target).parent().attr("id").replace("fields_for_select_", ""))
+ const round_number = Number(e.target.id.replace("post_rounds_attributes_", "").replace("_score", "")) + 1;// Number($(e.target).parent().attr("id").replace("fields_for_select_", ""))
+ console.log("round number:"+ round_number);
  <% if @post.new_record? %>
 if (olddate == 100) {
   olddate = 0
@@ -107,8 +120,21 @@ if (olddate == 100) {
     score_out = score_out - olddate + score
   }
   score_total = score_in + score_out
+  setScore();
+  
+})
+
+function setScore()
+{
   $('#score_in').text(score_in)
   $('#score_out').text(score_out)
   $('#score_total').text(score_total)
-})
+
+  document.getElementById('post_f_score_in').value = score_in;
+  document.getElementById('post_f_score_out').value = score_out;
+  document.getElementById('post_f_score_total').value = score_total;
+}
+setScore();
+
+
 </script>

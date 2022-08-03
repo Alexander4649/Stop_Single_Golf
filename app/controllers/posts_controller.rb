@@ -18,6 +18,10 @@ class PostsController < ApplicationController
     if @post.save
        redirect_to post_path(@post.id)
     else
+      @score_result = {}
+      @score_result[:score_in] = params[:post][:f_score_in]
+      @score_result[:score_out] = params[:post][:f_score_in]
+      @score_result[:score_total] = params[:post][:f_score_total]
        render :new
     end
   end
