@@ -6,6 +6,7 @@ class CreateGroups < ActiveRecord::Migration[6.1]
       t.string :group_name
       t.date :round_day
       t.string :round_place
+      t.boolean :owner, default: false
 
       t.timestamps
     end

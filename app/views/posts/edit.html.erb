@@ -1,9 +1,5 @@
 <%= render "layouts/header" %>
-<div style="font-size: 20px; color: red; position:absolute; margin-top:10px; left:110px;">
-  <% if @post.errors.any? %>
-    <%= @post.errors.count %>件の未入力があります。
-  <% end %>
-</div>
+<div style="font-size: 20px; color: red; position:absolute; margin-top:10px; left:110px;"><%= alert %></div>
 
 <div class="container">
   <div class="mt-4" style="text-align:center; font-size:48px; font-weight:bold;">Posting Edit</div>
@@ -67,7 +63,9 @@
         <tr class="posting_table_score">
     	    <td></td>
     	    <%= f.fields_for :rounds, class: "fields_for_select" do |r| %>
-          <td class="fields_for_select" id="fields_for_select_<%=r.object.round_number %>"><%= r.select :score, Round.scores_i18n.keys.map{|k| [I18n.t("enum.round.score.#{k}"), k]}, {include_blank: true} %></td>
+          <td class="fields_for_select" id="fields_for_select_<%=r.object.round_number %>">
+            <%= r.select :score, Round.scores_i18n.keys.map{|k| [I18n.t("enum.round.score.#{k}"), k]}, {include_blank: true}, style: " text-align: center;" %>
+          </td>
           <%= r.hidden_field :round_number %>
           <% end %>
     	   </tr>

@@ -1,9 +1,5 @@
 <%= render "layouts/header" %>
-<div style="font-size: 20px; color: red; position:absolute; margin-top:10px; left:110px;">
-  <% if @post.errors.any? %>
-    <%= @post.errors.count %>件の未入力があります。
-  <% end %>
-</div>
+<div style="font-size: 20px; color: red; position:absolute; margin-top:10px; left:110px;"><%= alert %></div>
 
 <div class="container">
   <div class="mt-4" style="text-align:center; font-size:48px; font-weight:bold;">Posting Do!</div>
@@ -49,9 +45,9 @@
         OUT：<span id="score_out"><%= @post.score_result[:score_out] %></span>&emsp;&emsp;
         In：<span id="score_in"><%= @post.score_result[:score_in] %></span>&emsp;&emsp;&emsp;
         Total：<strong><span id="score_total"><%= @post.score_result[:score_total] %></span></strong>
-  	   <%= f.hidden_field :f_score_in %>
-  	   <%= f.hidden_field :f_score_out %>
-  	   <%= f.hidden_field :f_score_total %>
+  	   <%#= f.hidden_field :f_score_in %>
+  	   <%#= f.hidden_field :f_score_out %>
+  	   <%#= f.hidden_field :f_score_total %>
       </div>
     </div>
   </div>
@@ -70,7 +66,9 @@
         <tr class="posting_table_score">
     	    <td></td>
     	    <%= f.fields_for :rounds do |r| %>
-          <td class="fields_for_select" id="fields_for_select_<%=r.object.round_number %>"><%= r.select :score, Round.scores_i18n.keys.map{|k| [I18n.t("enum.round.score.#{k}"), k]}, {include_blank: true} %></td>
+          <td class="fields_for_select" id="fields_for_select_<%=r.object.round_number %>">
+            <%= r.select :score, Round.scores_i18n.keys.map{|k| [I18n.t("enum.round.score.#{k}"), k]}, {include_blank: true} , style: " text-align: center;" %>
+          </td>
           <%= r.hidden_field :round_number %>
           <% end %>
     	   </tr>
@@ -88,7 +86,7 @@ var score_out = 36;
 <% if @score_result != nil && @score_result[:score_out] != nil %>
 score_out = <%=@score_result[:score_out].to_i%>
 <%end%>
-var score_total = 0;
+var score_total = 72;
 <% if @score_result != nil && @score_result[:score_total] != nil %>
 score_total = <%=@score_result[:score_total].to_i%>
 <%end%>
@@ -130,9 +128,9 @@ function setScore()
   $('#score_out').text(score_out)
   $('#score_total').text(score_total)
 
-  document.getElementById('post_f_score_in').value = score_in;
-  document.getElementById('post_f_score_out').value = score_out;
-  document.getElementById('post_f_score_total').value = score_total;
+  // document.getElementById('post_f_score_in').value = score_in;
+  // document.getElementById('post_f_score_out').value = score_out;
+  // document.getElementById('post_f_score_total').value = score_total;
 }
 setScore();
 

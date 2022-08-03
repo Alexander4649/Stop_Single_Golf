@@ -1,0 +1,2 @@
+$('#group_comment_remote').html("<%= j(render "group_comments/index", group: @group) %>");
+$('#group_comment_form').html("<%= j(render "group_comments/form", group: @group, group_comment: GroupComment.new) %>");

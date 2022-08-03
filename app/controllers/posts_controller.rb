@@ -18,11 +18,12 @@ class PostsController < ApplicationController
     if @post.save
        redirect_to post_path(@post.id)
     else
-      @score_result = {}
-      @score_result[:score_in] = params[:post][:f_score_in]
-      @score_result[:score_out] = params[:post][:f_score_in]
-      @score_result[:score_total] = params[:post][:f_score_total]
-       render :new
+      redirect_to new_post_path, alert: '未入力があります。'
+      # @score_result = {}
+      # @score_result[:score_in] = params[:post][:f_score_in]
+      # @score_result[:score_out] = params[:post][:f_score_in]
+      # @score_result[:score_total] = params[:post][:f_score_total]
+      # flash[:hoge] = "デモとしてflashを表示しています。"
     end
   end
   
@@ -48,7 +49,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
        redirect_to post_path(@post.id)
     else
-       render "edit"
+       redirect_to edit_post_path(@post), alert: '未入力があります。'
     end
   end
   

@@ -1,7 +1,7 @@
-<div class="container mt-4">
+<div class="container mt-3">
   <div class="row">
     <% @posts.each do |post| %>
-    <table class="table-borderless" align="left" style="font-size:13px;">
+    <table class="table-borderless mt-1" align="left" style="font-size:13px;">
         <td class="image_box">
           <%= link_to post_path(post.id) do %>
           <%= image_tag post.post_image, size: '180x140' %>
