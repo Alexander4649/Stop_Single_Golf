@@ -12,8 +12,9 @@ class User < ApplicationRecord
   has_many :follows, through: :relationships, source: :follower
   has_many :followers, through: :reverse_of_relationships, source: :follow
   has_many :bookmarks, dependent: :destroy
-  has_many :group_users
   has_many :groups, through: :group_users
+  has_many :group_users, dependent: :destroy
+  has_many :group_comments, dependent: :destroy
   
     # 検索方法分岐
   def self.looks(search, word)
