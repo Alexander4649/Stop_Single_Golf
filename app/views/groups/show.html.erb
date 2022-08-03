@@ -1,1 +1,36 @@
 <%= render "layouts/header" %>
+<div class="container">
+  <div class="row mt-2">
+    <div class="col">
+      <div style="font-size:20px; font-weight:bold;">"<%= @group.group_name %>"</div>
+      <div class="mt-1"><%= image_tag @group.get_group_image, size:'200x150' %></div>
+      <div class="col-4 mt-2" style="margin-left:42px; font-weight:bold;">メンバー</div>
+      <div class="col-6 ml-4 mt-1">
+        <%= link_to user_path(@owner) do %>
+          <span class="ml-1"><%= image_tag @owner.get_profile_image, size:'85x85' %><br></span>
+          <span style="color:black; font-size:14px; text-align:center;"><%= @owner.name %></span>
+        <% end %>
+        
+        <% @group_users.each do |user| %>
+        <%= link_to user_path(user) do %>
+          <span class="mt-1">
+            <%= image_tag user.get_profile_image, size:'85x85' %><br>
+            <%= user.name %>
+          </span>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  
+
+
+    <div class="col-8 mt-3">
+      <div id="group_comment_remote"><%= render "group_comments/index" , group: @group %></div>
+    </div>
+    
+  </div>
+</div>
+
+<div class="container offset-5" style="position:absolute; left:20px; bottom:50px;">
+  <div id="group_comment_form"><%= render "group_comments/form" ,group: @group ,group_comment: @group_comment %></div>
+</div>

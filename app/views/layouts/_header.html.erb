@@ -9,14 +9,10 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           
-          <li id="search-wrap fas fa-search" style= "margin-right:200px; margin-top:7px;">
-              <form role="fa-search" method="get" action="">
-                <input type="text" value="" name="" id="search-text">
-              </form>
-            </li>
-          
           <% if user_signed_in? %>
           
+          <%= render "layouts/search" %>
+            
             <li class="nav-item">
               <%= link_to user_path(current_user),class: 'nav-link text-dark md-5' do %>
                 <i class="fas fa-golf-ball"></i> Home
@@ -32,6 +28,12 @@
             <li class="nav-item">
               <%= link_to posts_path,class: 'nav-link text-dark' do %>
                 <i class="fas fa-list"></i> List
+              <% end %>
+            </li>
+            
+            <li class="nav-item">
+              <%= link_to post_bookmarks_path(current_user), class: 'nav-link text-dark' do %>
+                <i class="far fa-bookmark"></i> Like
               <% end %>
             </li>
             

@@ -4,7 +4,7 @@
     <table class="table-borderless" align="left" style="font-size:13px;">
         <td class="image_box">
           <%= link_to post_path(post.id) do %>
-          <%= image_tag post.post_image, size: '160x140' %>
+          <%= image_tag post.post_image, size: '180x140' %>
           <% end %>
         </td>
       <tr>
@@ -12,11 +12,12 @@
           日付　　：<%= post.round_day %><br>
           タイトル：<%= post.title %><br>
           ラウンド：<%= post.round_place %><br>
-          コメント：<%= post.post_comments.count %>件<br>
+          コメント：<%= post.post_comments.count %> 件<br>
           <% if current_user == post.user %>
           <%= link_to "削除", post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？" ,class: "btn btn-sm btn-danger destroy_button_round" %>
           <% end %>
-          <em id="favorites-remote_<%= post.id %>"><%= render "favorites/favorite" , post: post %></em>
+          <em class="ml-3" id="favorites-remote_<%= post.id %>" style="position:absolute; margin-top:5px;"><%= render "favorites/favorite" , post: post %></em>
+          <em id="bookmarks-remote_<%= post.id %>" style="position:absolute; margin-top:5px; margin-left:100px;"><%= render "bookmarks/bookmark", post: post %></em>
         </td>
       </tr>
      </table>

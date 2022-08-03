@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_31_125443) do
+ActiveRecord::Schema.define(version: 2022_08_01_105255) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -59,6 +59,15 @@ ActiveRecord::Schema.define(version: 2022_07_31_125443) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_bookmarks_on_post_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "post_id", null: false
@@ -69,7 +78,7 @@ ActiveRecord::Schema.define(version: 2022_07_31_125443) do
   create_table "group_comments", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "group_id", null: false
-    t.text "group_comment"
+    t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -85,8 +94,8 @@ ActiveRecord::Schema.define(version: 2022_07_31_125443) do
 
   create_table "groups", force: :cascade do |t|
     t.integer "owner_id"
+    t.integer "user_id"
     t.string "group_name"
-    t.string "image_id"
     t.date "round_day"
     t.string "round_place"
     t.datetime "created_at", precision: 6, null: false
@@ -150,6 +159,8 @@ ActiveRecord::Schema.define(version: 2022_07_31_125443) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookmarks", "posts"
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
   add_foreign_key "rounds", "posts"

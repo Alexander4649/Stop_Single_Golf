@@ -1,0 +1,77 @@
+<% if @range == "User" %>
+
+  <%= render "layouts/header" %>
+  <div class='container px-5 px-sm-0 mt-5'>
+    <div class='row'>
+      <div class='col-md-8'>
+        <h2>'User' searches result for "<span style="color:red;"><%= params[:word] %></span>"</h2>
+        <table class="table table-borderless ml-4 mt-4" style="text-align: center;">
+          <thead>
+            <tr>
+              <th colspan="2"></th>
+              <th colspan="3">アカウント名</th>
+              <th colspan="2">平均スコア</th>
+              <th colspan="2">ゴルフ経験</th>
+              <th colspan="2">ラウンド地域</th>
+            </tr>
+          </thead>
+  
+          <tbody>
+            <% @users.each do |user| %>
+            <tr>
+              <td colspan="2" style="vertical-align:middle;">
+                <%= link_to user_path(user) do %>
+                <%= image_tag user.get_profile_image, size: '50x50' %>
+                <% end %>
+              </td>
+              <td colspan="3" style="vertical-align:middle;"><%= link_to user.name,user_path(user),class: "text-dark" %></td>
+              <td colspan="2" style="vertical-align:middle;"><%= user.average_score%></td>
+              <td colspan="2" style="vertical-align:middle;"><%= user.experience%></td>
+              <td colspan="2" style="vertical-align:middle;"><%= user.round_area%></td>
+            </tr>
+            <% end %>
+          </tbody>
+          
+        </table>
+      </div>
+    </div>
+  </div>
+  <div style="width: auto; margin-left:550px;"><%= paginate @users %></div>
+
+<% else %>
+
+  <%= render "layouts/header" %>
+  <div class='container px-5 px-sm-0 mt-5'>
+    <div class='row'>
+      <div class='col-md-8'>
+        <h2>'Post' searches result for "<span style="color:red;"><%= params[:word]%></span>"</h2>
+      </div>
+    </div>
+  </div>
+  
+  <div class="cotainer">
+
+    <table class='table table-borderless mt-3'>
+      <tbody>
+        <% @posts.each do |post| %>
+          <tr>
+              <td class="image-box_stand" width="200" height="100" style="padding-left:450px;">
+                <%= link_to post_path(post.id) do %>
+                <%= image_tag post.post_image, size: '160x140' %>
+                <% end %>
+              </td>
+              <td nowrap>
+                名前&emsp;&emsp;：<strong><%= post.user.name %></strong><br>
+                日付&emsp;&emsp;：<strong><%= post.round_day %></strong><br>
+                タイトル：<strong><%= post.title %></strong><br>
+                ラウンド：<strong><%= post.round_place %></strong><br>
+                スコア&emsp;：<strong><%= post.score_result[:score_total] %></strong><br>
+                コメント：<strong><%= post.post_comments.count %>件</strong><br>
+              </td>
+          </th>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div style="width: auto; margin-left:550px;"><%= paginate @posts %></div>
+  <% end %>

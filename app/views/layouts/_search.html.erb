@@ -1,0 +1,16 @@
+<%= form_with url: search_path, local: true, method: :get do |f| %>
+<div class="search_form" style= "margin-right:200px; margin-top:7px;">
+  <div class="row">
+    <div class="col-2">
+      <%= f.select :range, options_for_select([['選択'], ['User'], ['Post']]) %>
+    </div>
+    <div class="col-8 ml-2">
+      <span class="search_container">
+        <%= f.text_field :word, :placeholder => "検索" %>
+        <%= f.hidden_field :search %>
+        <button><%= f.submit "検索" , class: "fas fa-search" %></button></span>
+      </div>
+  </div>
+</div>
+<% end %>
+<%#= f.select :search, options_for_select([["タイトル","title"], ["ラウンド場所","round_place"],  ["投稿者","post.name"], ["スコア","score_result"]]) %>
