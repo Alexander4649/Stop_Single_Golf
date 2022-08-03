@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2022_08_01_105255) do
   create_table "group_comments", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "group_id", null: false
-    t.text "group_comment"
+    t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -94,8 +94,8 @@ ActiveRecord::Schema.define(version: 2022_08_01_105255) do
 
   create_table "groups", force: :cascade do |t|
     t.integer "owner_id"
+    t.integer "user_id"
     t.string "group_name"
-    t.string "image_id"
     t.date "round_day"
     t.string "round_place"
     t.datetime "created_at", precision: 6, null: false
