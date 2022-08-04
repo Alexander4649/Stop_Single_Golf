@@ -23,7 +23,6 @@ class PostsController < ApplicationController
       # @score_result[:score_in] = params[:post][:f_score_in]
       # @score_result[:score_out] = params[:post][:f_score_in]
       # @score_result[:score_total] = params[:post][:f_score_total]
-      # flash[:hoge] = "デモとしてflashを表示しています。"
     end
   end
   

@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   get "home/about" => "homes#about"
   get "home/logout" => "homes#logout"
   get "search" => "searches#search"
+  resources :notifications, only: :index do
+    collection do
+    delete  "destroy_all" => "notifications#destroy_all"
+    end
+  end
   
   resources :users,only:[:show, :edit, :update] do
     get "search_form" => "users#search_form"

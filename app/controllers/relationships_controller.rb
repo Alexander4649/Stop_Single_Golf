@@ -1,16 +1,16 @@
 class RelationshipsController < ApplicationController
+  
   def create
     follow = Relationship.new(follow_id: current_user.id ,follower_id: params[:user_id])
     follow.save
     @user = User.find(params[:user_id])
-    #redirect_to request.referer
+    @user.create_notification_follow!(current_user)#通知の作成
   end
   
   def destroy
     follow = Relationship.find_by(follow_id: current_user.id ,follower_id: params[:user_id])
     follow.destroy
     @user = User.find(params[:user_id])
-    #redirect_to request.referer
   end
   
   def follows
@@ -22,4 +22,5 @@ class RelationshipsController < ApplicationController
     @user = User.find(params[:user_id])
     @users = @user.followers
   end
+  
 end

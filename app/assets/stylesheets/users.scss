@@ -2,10 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.image_box {
-  transform:translate(-4.5px, -4.5px);
+.image_box{
+  border: 1px solid #ddd;
+  width: 100%;
+  height: 100%;
+  margin: 0px auto 0;
+  transition-duration: 0.5s;
 }
-
-.image_box:hover {
-  transform:initial;
+.image_box img{
+  width: 50%;
+  cursor: grab;
+}
+.image_box:hover{
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+  transform: translateY(-10px);
+  transition-duration: 0.5s;
 }

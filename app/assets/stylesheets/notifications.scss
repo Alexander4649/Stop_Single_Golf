@@ -1,0 +1,18 @@
+// Place all the styles related to the notifications controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.notification_logo:hover {
+    animation:shake 0.4s ease;
+}
+ 
+@keyframes shake {
+    0%   { transform:translate(0); }
+    16%  { transform:translate(3px); }
+    32%  { transform:translate(-3px); }
+    48%  { transform:translate(2px); }
+    64%  { transform:translate(-2px); }
+    80%  { transform:translate(1px); }
+    96%  { transform:translate(-1px); }
+    100% { transform:translate(0); }
+}

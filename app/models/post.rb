@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :rounds, dependent: :destroy
   accepts_nested_attributes_for :rounds, allow_destroy: true
+  has_many :notifications, dependent: :destroy
   
   validates :title, presence: true, length: { minimum: 2, maximum: 50 }
   validates :body, presence: true, length: { minimum: 2, maximum: 200 }
@@ -40,7 +41,6 @@ class Post < ApplicationRecord
     #   @post = Post.all
     # end
   end
-
   
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
@@ -48,6 +48,40 @@ class Post < ApplicationRecord
   
   def bookmarked_by?(user)
     bookmarks.where(user_id: user).exists?
+  end
+  
+  def create_notification_by(current_user)
+	    notification = current_user.active_notifications.new(
+	      post_id: id,
+	      visited_id: user_id,
+	      action: "favorite"
+	    )
+	    notification.save if notification.valid? #valid? => バリデーションが実行された結果、エラーが無い場合trueを返し，エラーが発生した場合falseを返す
+  end
+
+  def create_notification_post_comment!(current_user, post_comment_id)
+	    # 自分以外にコメントしている人をすべて取得し、全員に通知を送る
+	    temp_ids = PostComment.select(:user_id).where(post_id: id).where.not(user_id: current_user.id).distinct #distinctメソッドは、重複レコードを1つにまとめるためのメソッド #ids =>主キーのカラムデータを取得する
+	    temp_ids.each do |temp_id|
+	       save_notification_post_comment!(current_user, post_comment_id, temp_id['user_id'])
+      end
+    	# まだ誰もコメントしていない場合は、投稿者に通知を送る
+    	   save_notification_post_comment!(current_user, post_comment_id, user_id) if temp_ids.blank? #blank? => nil? or empty? のようなメソッド。nilまたは空のオブジェクトを判定できる
+  end
+
+  def save_notification_post_comment!(current_user, post_comment_id, visited_id)
+      # コメントは複数回することが考えられるため、１つの投稿に複数回通知する
+      notification = current_user.active_notifications.new(
+        post_id: id,
+        post_comment_id: post_comment_id,
+        visited_id: visited_id,
+        action: 'post_comment'
+      )
+      # 自分の投稿に対するコメントの場合は、通知済みとする
+      if notification.visiter_id == notification.visited_id
+        notification.checked = true
+      end
+      notification.save if notification.valid?
   end
 
 end
