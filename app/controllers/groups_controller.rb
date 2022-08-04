@@ -5,14 +5,14 @@ class GroupsController < ApplicationController
   
   def create
     @group = Group.new(group_params)
-    @group.owner_id = current_user.id
+    @group.owner = current_user
     @group.user_id = current_user.id
+    @group.users << current_user
     if @group.save
       redirect_to groups_path
     else
       render 'new'
     end
-    
   end
   
   def index
@@ -23,21 +23,18 @@ class GroupsController < ApplicationController
   def join
     @group = Group.find(params[:group_id])
     @group.users << current_user
-    #redirect_to  groups_path
   end
   
   def out
     @group = Group.find(params[:group_id])
     @group.users.destroy(current_user)
-    #redirect_to groups_path
   end
   
   def show
     @group = Group.find(params[:id])
-    @owner = User.find(@group.owner_id)
-    @group_comment = GroupComment.new
     @group_users = @group.users.all
-    # @group_users = Group.users.find(params[:user_id])
+    @group_comment = GroupComment.new
+    # @group_comments = GroupComment.page(params[:page]).per(6)
   end
   
   def edit
