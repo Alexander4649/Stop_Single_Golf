@@ -36,7 +36,7 @@
      <div class="row">
        <div class="col mt-1" id="follow_remote"><%= render "relationships/follow",user: @user %></div>
        <% if current_user != @user && current_user.follow_by?(@user) && @user.follow_by?(current_user) %>
-       <%= link_to 'DMを送る', chat_path(@user.id), class:"button_DM btn-sm mt-1" %>
+       <%= link_to 'DMを送る', chat_path(@user.id), class: "button_DM btn-sm mt-1" %>
        <% end %>
      </div>
     </div>

@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.scroll_chat {
+  height: 470px;
+  overflow: scroll;
+}
+
 .chat_for_name {
   color: #800080;
   height: auto;
@@ -14,42 +19,49 @@
 .name_strong {
   color: blue;
   font-size: 24px;
+  text-decoration:none; 
 }
 
+// チャット画面全体設定
 .chats{
   margin: 15px auto;
   font-size: 14px;
   background: #7da4cd;
 }
 
-.mycomment {
-  margin: 10px 0 5px 0;
-}
+// 自分のチャットコメント部分
 .mycomment span {
   display: inline-block;
   position: relative;
-  margin: 0 10px 0 0;
-  padding: 8px;
+  padding: 7px;
   border-radius: 12px;
   font-size: 15px;
 }
 
+// 自分の写真設定
+.my_picture_size img {
+  width: 40px;
+  height: auto;
+  border-radius: 50%;
+}
+
+// 相手のチャットコメント部分
 .says {
   display: inline-block;
-  padding: 10px;
+  padding: 9px;
   border-radius: 12px;
   background: #edf1ee;
   background-color: #C0C0C0;
   // width: fit-content;
 }
 
-
+// 相手の写真部分
 .fukidasi .faceicon {
-  float: right;
-  width: 40px;
+  float: right; //写真位置
+  width: 45px; //写真サイズ
 }
 .fukidasi .faceicon img{
-  width: 90%;
-  height: auto;
-  border-radius: 50%;
+  width: 90%; //写真倍率？
+  height: auto; //写真高さ
+  border-radius: 50%; //写真の丸み
 }

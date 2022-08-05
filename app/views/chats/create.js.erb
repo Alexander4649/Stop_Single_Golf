@@ -1,3 +1,2 @@
-/*.messageを部分更新。appendメソッドで要素を追加 */
-
-$('.message').append("<p style='text-align: left;'><%= @chat.message %></p>");
+$('#chat_remote').html("<%= j(render "chats/index" , chats: @chats , user: @user) %>");
+$('#chat_remote_form').html("<%= j(render "chats/index" , chat : @chat.new ) %>);
