@@ -17,7 +17,8 @@ class User < ApplicationRecord
   has_many :group_comments, dependent: :destroy
   has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
-
+  has_many :user_rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
   
     # 検索方法分岐
   def self.looks(search, word)

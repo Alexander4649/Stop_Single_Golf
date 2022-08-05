@@ -1,0 +1,22 @@
+// Place all the styles related to the chats controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.message_for_name {
+  color: #800080;
+  height: auto;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 2.5%;
+  background-color: #C0C0C0;
+}
+
+.name_strong {
+  color: blue;
+  font-size: 24px;
+}
+
+.current_user_name {
+  font-size:20px;
+  font-weight: bold;
+}

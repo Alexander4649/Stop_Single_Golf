@@ -1,11 +1,11 @@
 <% unless user == current_user %>
   <% if user.follow_by?(current_user) %>
     <%= link_to user_relationships_path(user.id), method: :delete, remote:true do %>
-    <button class = "btn btn-sm btn-danger">フォロー外す</button>
+    <button class = "button_follow_out btn-sm">フォロー外す</button>
     <% end %>
   <% else %>
     <%= link_to user_relationships_path(user.id), method: :post, remote:true do %>
-    <button class = "btn btn-sm btn-success">フォローする</button>
+    <button class = "button_follow btn-sm">フォローする</button>
     <% end %>
   <% end %>
 <% end %>

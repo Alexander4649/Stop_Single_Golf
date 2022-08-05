@@ -1,0 +1,45 @@
+<%= render "layouts/header" %>
+<div class="container">
+  <div class="col message_for_name" style="width: fit-content;">
+    <span class="name_strong">『&nbsp;<%= @user.name %>&nbsp;』</span>さんとのチャットルーム
+  </div>
+</div>
+  
+<div class="container offset-2">
+  <div class="row">
+    <div class="col-6 mt-5 current_user_name">
+        <%= link_to user_path(current_user) do %>
+        <%= image_tag current_user.get_profile_image, size: "50x50" %>
+        <% end %>
+        <%= current_user.name %>
+    </div>
+    <div class="col-6 mt-5 current_user_name">
+        <%= @user.name %>
+        <%= link_to user_path(@user) do %>
+        <%= image_tag @user.get_profile_image, size: "50x50" %>
+        <% end %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <% @chats.each do |chat| %>
+      <% if chat.user_id == current_user.id %>
+        <div class="col-6 text-left">
+          <%= chat.message %>
+          <%= link_to chats_path(chat.id), method: :delete do %>
+          <i class="fas fa-trash-alt text-dark"></i>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="col-6"><%= chat.message %></div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+  <div class="col">
+        <%= form_with model: @chat, remote: true do |f| %>
+        <%= f.text_field :message %>
+        <%= f.hidden_field :room_id %>
+        <%= f.submit "送信", class:"button btn-sm" %>
+        <% end %>
+  </div>
