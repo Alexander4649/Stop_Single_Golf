@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.message_for_name {
+.chat_for_name {
   color: #800080;
   height: auto;
   font-size: 18px;
@@ -16,7 +16,40 @@
   font-size: 24px;
 }
 
-.current_user_name {
-  font-size:20px;
-  font-weight: bold;
+.chats{
+  margin: 15px auto;
+  font-size: 14px;
+  background: #7da4cd;
+}
+
+.mycomment {
+  margin: 10px 0 5px 0;
+}
+.mycomment span {
+  display: inline-block;
+  position: relative;
+  margin: 0 10px 0 0;
+  padding: 8px;
+  border-radius: 12px;
+  font-size: 15px;
+}
+
+.says {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 12px;
+  background: #edf1ee;
+  background-color: #C0C0C0;
+  // width: fit-content;
+}
+
+
+.fukidasi .faceicon {
+  float: right;
+  width: 40px;
+}
+.fukidasi .faceicon img{
+  width: 90%;
+  height: auto;
+  border-radius: 50%;
 }
