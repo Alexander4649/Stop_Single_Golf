@@ -1,2 +1,2 @@
-$('#chat_remote').html("<%= j(render "chats/index" , chats: @chats , user: @user) %>");
-$('#chat_remote_form').html("<%= j(render "chats/index" , chat : @chat.new ) %>);
+$('#chat_remote').html("<%= j(render "chats/index" , chats: @chats , user: @user, room: @room ) %>");
+$('#chat_message').val("");

@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   get "home/about" => "homes#about"
   get "home/logout" => "homes#logout"
   get "search" => "searches#search"
-  get 'chat/:id', to: 'chats#show', as: 'chat'
-  resources :chats, only: [:create, :destroy]
+  get 'chat/:user_id', to: 'chats#show', as: 'chat'
+  delete 'rooms/:room_id/chat_destroy/:id' => 'chats#destroy', as: 'chat_destroy'
+  post 'rooms/:room_id/chats' => 'chats#create', as: 'chat_create'
   
   resources :notifications, only: :index do
     collection do

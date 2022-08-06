@@ -13,7 +13,7 @@ def notification_form(notification)
     when "follow" then
       tag.a(notification.visiter.name, href:user_path(@visiter), style:"font-weight: bold;")+"があなたをフォローしました"
     when "favorite" then
-      tag.a(notification.visiter.name, href:user_path(@visiter), style:"font-weight: bold;")+"が"+tag.a('あなたの投稿', href:user_path(notification.post_id), style:"font-weight: bold;")+"にLike!しました"
+      tag.a(notification.visiter.name, href:user_path(@visiter), style:"font-weight: bold;")+"が"+tag.a('あなたの投稿', href:user_path(notification.post_id), style:"font-weight: bold;")+"にGood!しました"
     when "post_comment" then
     	@post_comment = PostComment.find_by(id: @visiter_post_comment)&.comment
     	tag.a(@visiter.name, href:user_path(@visiter), style:"font-weight: bold;")+"が"+tag.a('あなたの投稿', href:user_path(notification.post_id), style:"font-weight: bold;")+"にコメントしました"

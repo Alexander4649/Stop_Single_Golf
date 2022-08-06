@@ -1,6 +1,6 @@
 <div class="container offset-2 chats" style="width:1000px; height: 480px;">
 <div class="scroll_chat">
-  <% @chats.each do |chat| %>
+  <% chats.each do |chat| %>
     <% if chat.user_id == current_user.id %>
       <div class="col text-left mycomment">
           <span class="my_picture_size">
@@ -9,7 +9,7 @@
             <% end %>
           </span>
         <span class="says"><%= chat.message %></span>
-        <%= link_to chats_path(chat.id), method: :delete, remote:true do %>
+        <%= link_to chat_destroy_path(room.id,chat.id), method: :delete, remote:true do %>
         <i class="fas fa-trash-alt text-dark ml-3"></i>
         <% end %>
       </div>
@@ -19,8 +19,8 @@
         <span class="mt-1 mr-1 says"><%= chat.message %></span>
         <span class="fukidasi">
           <span class="faceicon mt-1">
-            <%= link_to user_path(@user) do %>
-            <%= image_tag @user.get_profile_image, size: "50x50" %>
+            <%= link_to user_path(user) do %>
+            <%= image_tag user.get_profile_image, size: "50x50" %>
             <% end %>
           </span>
         </span>
