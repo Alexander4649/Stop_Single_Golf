@@ -9,7 +9,7 @@
             <% end %>
           </span>
         <span class="says"><%= chat.message %></span>
-        <%= link_to chat_destroy_path(room.id,chat.id), method: :delete, remote:true do %>
+        <%= link_to chat_destroy_path(room.id, chat.id), method: :delete, remote:true do %>
         <i class="fas fa-trash-alt text-dark ml-3"></i>
         <% end %>
       </div>

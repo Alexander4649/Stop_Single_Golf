@@ -46,5 +46,16 @@ class User < ApplicationRecord
       notification.save if notification.valid?
     end
  end
+ 
+ def self.guest
+   find_or_create_by!(email: 'guest@example.com') do |user|
+     user.password = SecureRandom.urlsafe_base64
+     user.password_confirmation = user.password
+     user.name = "ゲストユーザー"
+     user.round_area = '東京都'
+     user.average_score = '100'
+     user.experience = "1年"
+   end
+ end
   
 end

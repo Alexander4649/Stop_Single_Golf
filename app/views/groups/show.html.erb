@@ -4,19 +4,17 @@
     <div class="col">
       <div style="font-size:20px; font-weight:bold;">"<%= @group.group_name %>"</div>
       <div class="mt-1"><%= image_tag @group.get_group_image, size:'200x150' %></div>
-      <div class="row pl-2 mt-2" style="margin-left:42px; font-weight:bold;">メンバー</div>
+      <div class="pl-2 mt-2" style="margin-left:42px; font-weight:bold;">メンバー</div>
         <% @group_users.each do |user| %>
           <%= link_to user_path(user) do %>
-            <div class="row mt-2 ml-3 pl-4"><%= image_tag user.get_profile_image, size:'85x85' %></div>
-            <div class="row ml-3 pl-4" style="color:black; font-size:13px;"><%= user.name %></div>
+            <div class="col-1 mt-2 ml-3 pl-4"><%= image_tag user.get_profile_image, size:'85x85' %></div>
+            <div class="col-8 ml-3 pl-4" style="color:black; font-size:13px;"><%= user.name %></div>
           <% end %>
         <% end %>
     </div>
-    <div class="col-9 mt-3 group-comment-box">
+    <div class="col-9 mt-3 group-comment-box" style="width:1000px; height: 450px;">
       <div id="group_comment_remote"><%= render "group_comments/index" , group: @group %></div>
+      <div id="group_comment_form" class="mt-4 ml-auto"><%= render "group_comments/form" ,group: @group ,group_comment: @group_comment %></div>
     </div>
   </div>
-</div>
-<div class="container offset-5">
-  <div id="group_comment_form"><%= render "group_comments/form" ,group: @group ,group_comment: @group_comment %></div>
 </div>

@@ -1,9 +1,9 @@
 <div class="container offset-4">
   <div class="col text_field">
-    <%= form_with model: chat,url:chat_create_path(room.id), local:false do |f| %>
+    <%= form_with model: chat,url: chat_create_path(room.id), local:false do |f| %>
       <%= f.text_field :message, placeholder: "メッセージ入力" , size: "40×50" %>
       <%= f.hidden_field :room_id %>
-      <span class="ml-1"><%= f.submit "送信", class:"button btn-sm" %></span>
+      <span class="ml-1"><%= f.submit "送信", class: "button btn-sm" %></span>
     <% end %>
   </div>
 </div>

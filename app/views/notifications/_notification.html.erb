@@ -1,16 +1,15 @@
 <div class="container">
   <div class="col mt-3">
-<% visiter = notification.visiter %>
-<% post = notification.post %>
+    <div class="user-view clearfix ">
+      <li>
+        <%= notification_form(notification) %><!--moduleのNotificationsHelperのnotification_form(notification)から情報を参照してきている-->
+        <span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span>
+      </li>
+      <% if !@post_comment.nil? %>
+        <p class="ml-5 moderate-font text-left">⇨コメント内容：<strong>『<%= @post_comment %>』</strong></p>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<div class="user-view clearfix ">
-  <%#= link_to user_path(notification.visiter) do %>
-    <%#= image_tag :get_profile_image, :fill,100,100, format: "jpeg", fallback: "no_image.jpg", size: "50x50", class:"profile-img-circle" %>
-  <%# end %>
-  <li><%= notification_form(notification) %><span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span></li>
-  <% if !@post_comment.nil? %>
-    <p class="ml-5 moderate-font text-left">⇨コメント内容：<strong>『<%= @post_comment %>』</strong></p>
-  <% end %>
-</div>
-</div>
-</div>
+<%#= link_to user_path(notification.visiter) do %><%#= image_tag :get_profile_image, :fill,100,100, format: "jpeg", fallback: "no_image.jpg", size: "50x50", class:"profile-img-circle" %><%# end %>

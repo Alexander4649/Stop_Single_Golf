@@ -27,7 +27,8 @@
       <td nowrap style="display:table-cell; vertical-align:middle;"><%= group.round_day %></td>
       <td nowrap style="display:table-cell; vertical-align:middle;"><%= group.round_place %></td>
       <td nowrap style="display:table-cell; vertical-align:middle;" id="group_count_<%= group.id %>"><%= group.users.count %></td>
-      <td nowrap style="display:table-cell; vertical-align:middle;"><span id="group_remote_<%= group.id %>"><%= render "join" , group: group %></span></td>
+      <td nowrap style="display:table-cell; vertical-align:middle;"><span id="group_remote_<%= group.id %>"><%= render "join" , group: group %></span>
+      </td>
       <td nowrap style="display:table-cell; vertical-align:middle;">
         <% if group.owner_id == current_user.id %>
         <%= link_to "編集",edit_group_path(group.id),class: "btn btn-sm btn-warning" %>&emsp;

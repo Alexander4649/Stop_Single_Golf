@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   
   devise_for :users
+  #   ,controllers: {
+  #   registrations: 'users/registrations',
+  #   passwords: 'users/passwords'
+  # }
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
+  
   
   devise_for :admins, controllers: {
   sessions: "admin/sessions"
@@ -10,7 +18,7 @@ Rails.application.routes.draw do
   get "home/about" => "homes#about"
   get "home/logout" => "homes#logout"
   get "search" => "searches#search"
-  get 'chat/:user_id', to: 'chats#show', as: 'chat'
+  get 'chat/:user_id' => 'chats#show', as: 'chat'
   delete 'rooms/:room_id/chat_destroy/:id' => 'chats#destroy', as: 'chat_destroy'
   post 'rooms/:room_id/chats' => 'chats#create', as: 'chat_create'
   
