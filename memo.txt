@@ -1,6 +1,16 @@
 〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
 
+Notification Exists? (0.1ms)  SELECT 1 AS one FROM "notifications" WHERE "notifications"."visited_id" = ? AND "notifications"."checked" = ? LIMIT ?  [["visited_id", 2], ["checked", 0], ["LIMIT", 1]]
+ Notification Load (0.2ms)  SELECT "notifications".* FROM "notifications" WHERE "notifications"."visited_id" = ? AND "notifications"."checked" = ? ORDER BY "notifications"."created_at" DESC  [["visited_id", 2], ["checked", 0]]
 
+ #current_userの投稿に紐づいた通知一覧
+    notifications_ids = current_user.passive_notifications.where(checked: false).pluck(:id)
+  # 	@notifications = current_user.passive_notifications
+    @notifications = Notification.where(id: notifications_ids)
+    #@notificationの中でまだ確認していない(indexに一度も遷移していない)通知のみ
+  	current_user.passive_notifications.where(checked: false).each do |notification|
+    		notification.update(checked: true)
+    		
 #byebug
 <p>post:::<%= @post.inspect %></p>
 <p>post_comment:::<%= post_comment.inspect %></p>
