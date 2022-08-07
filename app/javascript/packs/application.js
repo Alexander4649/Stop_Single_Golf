@@ -18,3 +18,18 @@ import '@fortawesome/fontawesome-free/js/all'
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+// DM画面が読み込まれると、最新のチャット場所まで自動スクロールされる
+// window.onload =>画面が読み込まれた時にアクションを指示する記述
+window.onload = function() {
+// ↪︎ windowがロードされた時にアクションを実行するように設定
+  if (document.getElementById("area")) {
+    // ↪︎ areaのIDがある場合に処理を実行させる（これがないとチャット画面がなくても常にJavaScriptが動いてしまいます）
+    var scrollPosition = document.getElementById("area").scrollTop;
+    // ↪︎ area要素のスクロールされた時の最も高い場所を取得
+    var scrollHeight = document.getElementById("area").scrollHeight;
+    // ↪︎ area要素自体の最も高い場所を取得
+    document.getElementById("area").scrollTop = scrollHeight;
+    // ↪︎ area要素のスクロールされた時の最も高い場所をarea要素自体の最も高い場所として指定してあげる
+  }
+}

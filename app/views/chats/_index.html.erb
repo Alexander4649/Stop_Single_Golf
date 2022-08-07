@@ -1,5 +1,5 @@
 <div class="container offset-2 chats" style="width:1000px; height: 480px;">
-<div class="scroll_chat">
+<div class="scroll_chat" id="area">
   <% chats.each do |chat| %>
     <% if chat.user_id == current_user.id %>
       <div class="col text-left mycomment">

@@ -1,3 +1,8 @@
 $("#follow_remote").html("<%= j(render 'relationships/follow', user: @user) %>");
 $("#follow_count").html("フォロー数&emsp;：<%= j(link_to @user.follows.count, user_follows_path(@user)) %>人");
 $("#followers_count").html("フォロワー数：<%= j(link_to @user.followers.count, user_followers_path(@user)) %>人");
+
+<!--フォローを外すを押すと、DMボタンも連動して消える-->
+<!--消す方法として2種類のやり方がある-->
+$('#DM-remote').html("");
+<!--$('#DM-remote').empty();--><!--こっちでも良い-->

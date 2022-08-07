@@ -1,1 +1,7 @@
 $('#chat_remote').html("<%= j(render "chats/index" , chats: @chats , user: @user, room: @room) %>");
+
+setTimeout(function(){
+var scrollPosition = document.getElementById("area").scrollTop;
+var scrollHeight = document.getElementById("area").scrollHeight;
+document.getElementById("area").scrollTop = scrollHeight;
+},100);
