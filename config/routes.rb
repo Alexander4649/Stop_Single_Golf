@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   # devise_for :admins, controllers: {
   # sessions: "admin/sessions"
   # }
-  
   root :to => "homes#top"
   get "home/about" => "homes#about"
   get "home/logout" => "homes#logout"
@@ -29,7 +28,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :users,only:[:show, :edit, :update] do
+  resources :users,only:[:show, :index, :edit, :update, :destroy] do
     get "search_form" => "users#search_form"
     get 'follows' => 'relationships#follows', as: 'follows'
     get 'followers' => 'relationships#followers', as: 'followers'

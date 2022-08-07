@@ -20,6 +20,8 @@ class User < ApplicationRecord
   has_many :user_rooms, dependent: :destroy
   has_many :chats, dependent: :destroy
   
+  validates :name, presence: true, uniqueness: true
+  
     # 検索方法分岐
   def self.looks(search, word)
     @user = User.where("name LIKE?", "%#{word}%")

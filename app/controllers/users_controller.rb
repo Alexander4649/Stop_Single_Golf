@@ -5,12 +5,29 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    if !current_user.admin && @user.admin # ログインユーザが管理者ではない 且 管理者のページである => 両方の条件を満たすとリダイレクトしたいため。
+      redirect_to user_path(current_user)
+    end
     posts = @user.posts
     @posts = posts.page(params[:page]).per(6)
   end
   
+  # User一覧(管理者専用)
+  def index
+    if current_user.name == "管理者"
+      @users = User.all
+      # .where.not(admin)
+    else
+      redirect_to user_path(current_user)
+    end
+  end
+  
+  #管理者はeditに遷移できない
   def edit
     @user = User.find(params[:id])
+    if current_user.admin?
+      redirect_to user_path(current_user)
+    end
   end
   
   def update
@@ -18,6 +35,17 @@ class UsersController < ApplicationController
     @user = current_user
     @user.update(user_params)
     redirect_to user_path(@user.id)
+  end
+  
+  # User削除(管理者専用)
+  def destroy
+    if current_user.name == "管理者"
+       @user = User.find(params[:id])
+       @user.destroy
+       redirect_to users_path
+    else
+       redirect_to request.referer
+    end
   end
   
   private

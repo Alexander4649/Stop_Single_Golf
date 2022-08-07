@@ -2,10 +2,14 @@ class PostsController < ApplicationController
   before_action :authenticate_user! # ログイン中か確認
   before_action :ensure_correct_user, only: [:edit, :update, :destroy] # ログイン中のユーザーにのみ、機能させるアクション指定
   
+  #管理者は記事作成に遷移できない
   def new
     @post = Post.new
     @rounds = []
     18.times { |n| @rounds << @post.rounds.build(round_number: n + 1) }
+    if current_user.admin?
+      redirect_to user_path(current_user)
+    end
   end
   
   def show

@@ -2,8 +2,12 @@ class GroupsController < ApplicationController
   before_action :authenticate_user! #ログイン確認
   before_action :ensure_correct_user, only: [:edit, :update] #機能制限(オーナーのみ許可する)
   
+  #管理者はグループ作成に遷移できない
   def new
     @group = Group.new
+    if current_user.admin?
+      redirect_to groups_path
+    end
   end
   
   def create

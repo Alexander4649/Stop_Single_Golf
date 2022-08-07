@@ -1,12 +1,12 @@
 <div class="scroll" id="area">
 <% group.group_comments.each do |group_comment| %>
-  <% if group_comment.user == current_user %>
+<% if group_comment.user == current_user || current_user.name == "管理者" %>
     <div class="row">
       <div class="col-1 mt-2"><%= image_tag group_comment.user.get_profile_image, size: "40x40" %></div>
       <div class="col-9 mt-3">
         <u><%= group_comment.comment %></u>
         <%= link_to group_group_comment_path(group, group_comment), method: :delete, remote:true do %>
-        <i class="fas fa-trash-alt text-dark ml-3"></i>
+          <i class="fas fa-trash-alt text-dark ml-3"></i>
         <% end %>
       </div>
     </div>
