@@ -65,19 +65,14 @@ class Post < ApplicationRecord
   end
 
   def create_notification_post_comment!(current_user, post_comment_id)
-	    # 自分以外にコメントしている人をすべて取得し、全員に通知を送る
-	   # コメントをしたユーザと記事を探し、もしコメントをしたユーザが自分である場合には通知を除外し、重複した場合は削除する
 	    post_comment = PostComment.find(post_comment_id)
 	    post = post_comment.post
 	   if post.user != current_user
 	     save_notification_post_comment!(current_user, post_comment_id, user_id)
 	   end
-	   # .where.not(user_id: current_user.id).distinct#distinctメソッドは、重複レコードを1つにまとめるためのメソッド #ids =>主キーのカラムデータを取得する
-	   # temp_ids.each do |temp_id|
-	   #    save_notification_post_comment!(current_user, post_comment_id, temp_id['user_id'])
-    #   end
-    	# まだ誰もコメントしていない場合は、投稿者に通知を送る
-    	    #blank? => nil? or empty? のようなメソッド。nilまたは空のオブジェクトを判定できる
+	   #コメントをしたidを取得し、post_commentに代入
+	   #コメントをされた投稿を取得し、postに代入
+	   #もし、コメントをしたユーザーが本人ではない場合は、saveメソッドを実行する。
   end
 
   def save_notification_post_comment!(current_user, post_comment_id, visited_id)
