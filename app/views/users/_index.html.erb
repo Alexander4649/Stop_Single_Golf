@@ -13,10 +13,13 @@
           タイトル：<%= post.title %><br>
           ラウンド：<%= post.round_place %><br>
           コメント：<%= post.post_comments.count %> 件<br>
-          <% if current_user == post.user ||   %>
+          <% if current_user == post.user || current_user.name == "管理者" %>
           <%= link_to "削除", post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？" ,class: "btn btn-sm btn-danger destroy_button_round" %>
           <% end %>
+          <% if current_user.admin? %>
+          <% else %>
           <em class="ml-3" id="favorites-remote_<%= post.id %>" style="position:absolute; margin-top:5px;"><%= render "favorites/favorite" , post: post %></em>
+          <% end %>
           <em id="bookmarks-remote_<%= post.id %>" style="position:absolute; margin-top:5px; margin-left:100px;"><%= render "bookmarks/bookmark", post: post %></em>
         </td>
       </tr>
