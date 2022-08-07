@@ -5,7 +5,7 @@
       <div class="col text-left mycomment">
           <span class="my_picture_size">
             <%= link_to user_path(current_user) do %>
-            <%= image_tag current_user.get_profile_image, size: "50x50" %>
+            <%= image_tag current_user.get_profile_image %>
             <% end %>
           </span>
         <span class="says"><%= chat.message %></span>
@@ -20,7 +20,7 @@
         <span class="fukidasi">
           <span class="faceicon mt-1">
             <%= link_to user_path(user) do %>
-            <%= image_tag user.get_profile_image, size: "50x50" %>
+            <%= image_tag user.get_profile_image %>
             <% end %>
           </span>
         </span>
