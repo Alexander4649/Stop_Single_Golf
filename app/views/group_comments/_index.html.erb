@@ -1,5 +1,4 @@
-<!--<div class="scroll-list jscroll">-->
-<div class="scroll">
+<div class="scroll" id="area">
 <% group.group_comments.each do |group_comment| %>
   <% if group_comment.user == current_user %>
     <div class="row">
@@ -19,19 +18,3 @@
   <% end %>
 <% end %>
 </div>
-
-<%#= paginate @group_comments %>
-
-<!--無限スクロールの処理-->
-<!--<script>-->
-<!--$(window).on('scroll', function() {-->
-<!--    scrollHeight = $(document).height();-->
-<!--    scrollPosition = $(window).height() + $(window).scrollTop();-->
-<!--    if ( (scrollHeight - scrollPosition) / scrollHeight <= 0.3) {-->
-<!--          $('.jscroll').jscroll({-->
-<!--            contentSelector: '.scroll-list',-->
-<!--            nextSelector: 'span.next:last a'-->
-<!--          });-->
-<!--    }-->
-<!--});-->
-<!--</script>-->

@@ -1,1 +1,9 @@
 $('#group_comment_remote').html("<%= j(render "group_comments/index", group: @group) %>");
+
+<!--setTimeoutは上の処理が終わったあと、少し時間差を設ける時に使うメソッド-->
+<!--時間指定は最後に記載する数値で判断、ミリ秒で記載(1000ミリ秒は1秒)-->
+setTimeout(function(){
+var scrollPosition = document.getElementById("area").scrollTop;
+var scrollHeight = document.getElementById("area").scrollHeight;
+document.getElementById("area").scrollTop = scrollHeight;
+},100);
