@@ -1,4 +1,7 @@
 class GroupsController < ApplicationController
+  before_action :authenticate_user! #ログイン確認
+  before_action :ensure_correct_user, only: [:edit, :update] #機能制限(オーナーのみ許可する)
+  
   def new
     @group = Group.new
   end
@@ -62,4 +65,12 @@ class GroupsController < ApplicationController
   def group_params
     params.require(:group).permit(:group_name, :round_day, :round_place,:group_image)
   end
+  
+  def ensure_correct_user
+    @group = Group.find(params[:id])
+    unless @group.owner_id == current_user.id
+      redirect_to groups_path
+    end
+  end
+  
 end

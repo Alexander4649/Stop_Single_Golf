@@ -1,4 +1,5 @@
 class RelationshipsController < ApplicationController
+  before_action :authenticate_user! # ログインしているか確認!
   
   def create
     follow = Relationship.new(follow_id: current_user.id ,follower_id: params[:user_id])

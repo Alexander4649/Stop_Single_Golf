@@ -9,10 +9,11 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
   
-  
-  devise_for :admins, controllers: {
-  sessions: "admin/sessions"
-  }
+  #管理者機能が少ない為、今回は使用しないこととする。
+  #仕様変更できる様に、コメントアウトとする。
+  # devise_for :admins, controllers: {
+  # sessions: "admin/sessions"
+  # }
   
   root :to => "homes#top"
   get "home/about" => "homes#about"
@@ -48,8 +49,4 @@ Rails.application.routes.draw do
     delete "out" => "groups#out"
     resources :group_comments,only:[:create, :destroy]
   end
-  
-  # namespace :admin do
-    
-  # end
 end

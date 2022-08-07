@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user! # ログイン中か確認
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy] # ログイン中のユーザーにのみ、機能させるアクション指定
   
   def new
     @post = Post.new
@@ -62,6 +64,13 @@ class PostsController < ApplicationController
   
   def post_params
       params.require(:post).permit(:title, :body, :post_image, :round_day, :score_in, :score_out, :round_place, rounds_attributes: [:round_number, :score, :id])
+  end
+  
+  def ensure_correct_user # before_actionによる定義。ログイン中のユーザーを判別する定義
+    @post = Post.find(params[:id])
+    unless @post.user == current_user
+      redirect_to posts_path
+    end
   end
   
   
