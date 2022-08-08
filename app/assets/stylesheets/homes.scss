@@ -7,7 +7,7 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background-image: url(top.jpeg);
+  background-image: image-url(top.jpeg);
   background-size: cover;
   background-position: center;
   letter-spacing: 0.05em;
@@ -48,7 +48,7 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background-image: url(about.jpeg);
+  background-image: image-url(about.jpeg);
   background-size: cover;
   background-position: center;
 }
@@ -79,7 +79,7 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background-image: url(logout.jpeg);
+  background-image: image-url(logout.jpeg);
   background-size: cover;
   background-position: center;
 }
