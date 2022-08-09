@@ -104,3 +104,105 @@
   text-align: center;
   padding-top: 30px;
 }
+
+@media screen and (max-width: 425px) {
+  
+  .backgroud_image_top {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image: image-url("top.jpeg");
+  background-size: cover;
+  background-position: center;
+  letter-spacing: 0.05em;
+  }
+
+  .image-logo {
+    text-align: center;
+    margin-right: 80px;
+  }
+    
+  .main-title {
+  font-size: 30px;
+  font-weight: 800;
+  }
+  
+  .sub-title{
+  font-size: 100%;
+  }
+  
+  .information {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+  
+  .about_link{
+    text-align: center;
+    // padding-top: 130px; 
+  }
+  
+  // Aboutページ
+  .backgroud_image_about {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-image: image-url("about.jpeg");
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .main-text {
+    text-align: center;
+    font-size: 64px;
+    font-weight: 700;
+  
+  }
+  
+  .sub-text {
+    text-align: start;
+    font-size: 24px;
+    padding-top: 10px;
+    padding-left: 250px;
+    font-weight: 700;
+  }
+  
+  .root-back {
+    text-align: end;
+    padding-right: 250px;
+    padding-top: 30px;
+  }
+  
+  // logoutページ
+  .backgroud_image_logout {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-image: image-url("logout.jpeg");
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .logout-title {
+    text-align: center;
+    font-size: 64px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    background: #BBFFFF;
+  
+  }
+  
+  .logout-text {
+    text-align: center;
+    font-size: 24px;
+    padding-top: 30px;
+    
+  }
+  
+  .top-back {
+    text-align: center;
+    padding-top: 30px;
+  }
+
+}

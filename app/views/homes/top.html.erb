@@ -2,14 +2,14 @@
   <%= render "logo" %>
   
   <div class="title">
-    <h1 class="main-title">〜　Stop! Single Golf　〜</h1>
+    <h1 class="main-title">〜&nbsp;Stop! Single Golf&nbsp;〜</h1>
     <p class="sub-title">一人でゴルフはもうやめよう</p>
   </div>
   
   <div class = "information">
-    <%= link_to "　登録　", new_user_registration_path, class: "button mx-5" %>
-    <%= link_to "ログイン", new_user_session_path, class: "button mx-5" %>
-    <%= link_to "閲覧のみ", users_guest_sign_in_path, method: :post, class: "login button mx-5" %>
+    <%= link_to "　登録　", new_user_registration_path, class: "button" %>&emsp;&emsp;
+    <%= link_to "ログイン", new_user_session_path, class: "button" %>&emsp;&emsp;
+    <%= link_to "閲覧のみ", users_guest_sign_in_path, method: :post, class: "login button" %>
   </div>
   
   <h2 class="about_link">
