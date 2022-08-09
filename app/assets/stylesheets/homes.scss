@@ -57,15 +57,18 @@
   text-align: center;
   font-size: 64px;
   font-weight: 700;
-
 }
 
 .sub-text {
-  text-align: start;
+  text-align: center;
   font-size: 24px;
-  padding-top: 10px;
-  padding-left: 250px;
   font-weight: 700;
+}
+
+.target-user {
+  text-align: start;
+  margin-left: 200px;
+  font-size: 28px;
 }
 
 .root-back {
@@ -140,7 +143,6 @@
   
   .about_link{
     text-align: center;
-    // padding-top: 130px; 
   }
   
   // Aboutページ
@@ -155,23 +157,28 @@
   
   .main-text {
     text-align: center;
-    font-size: 64px;
+    font-size: 32px;
     font-weight: 700;
-  
+    margin-top: 20px;
   }
   
   .sub-text {
-    text-align: start;
-    font-size: 24px;
+    text-align: center;
+    font-size: 15px;
     padding-top: 10px;
-    padding-left: 250px;
     font-weight: 700;
   }
   
+  .target-user {
+    text-align: start;
+    margin-left: 30px;
+    font-size: 16px;
+  }
+  
   .root-back {
-    text-align: end;
-    padding-right: 250px;
-    padding-top: 30px;
+    text-align: center;
+    padding-left: 130px;
+    width: max-content;
   }
   
   // logoutページ
@@ -186,18 +193,17 @@
   
   .logout-title {
     text-align: center;
-    font-size: 64px;
+    font-size: 45px;
     font-weight: 700;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.01em;
     background: #BBFFFF;
-  
+    margin-top: 20px;
   }
   
   .logout-text {
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
     padding-top: 30px;
-    
   }
   
   .top-back {

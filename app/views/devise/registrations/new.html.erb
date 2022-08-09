@@ -2,37 +2,39 @@
   
   <%= render "homes/logo" %>
   
-  <div style="text-align: center; font-size: 64px; font-weight: 800;">Sign up</div>
+  <div class="signup-text">Sign up</div>
   <%= render "devise/shared/error_messages", resource: resource %>
   
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   
-    <div class="container" style="text-align: start; font-size:24px; font-weight: bold;">
-      <div class="row mt-5 ml-auto d-flex justify-content-center">
-        <div class="col-3 "><%= f.label :ユーザーネーム %></div>
-        <div class="mx-5"><%= f.text_field :name ,:size=>"30x10" %></div>
+    <div class="container signup-form">
+      
+      <div class="row signup-form_for mt-5">
+        <span class="col-7 signup-lavel"><%= f.label :ユーザーネーム %></span>
+        <span class="col-5 signup-field"><%= f.text_field :name ,:size=>"30x10" %></span>
       </div>
 
-      <div class="row mt-4 ml-auto d-flex justify-content-center">
-        <div class="col-3"><%= f.label :メールアドレス %></div>
-        <div class="mx-5"><%= f.email_field :email, autofocus: true, autocomplete: "email",:size=>"30x10" %></div>
+      <div class="row signup-form_for mt-4">
+        <span class="col-7 signup-lavel"><%= f.label :メールアドレス %></span>
+        <span class="col-5 signup-field"><%= f.email_field :email, autofocus: true, autocomplete: "email",:size=>"30x10" %></span>
       </div>
 
-        <div class="row mt-4 ml-auto d-flex justify-content-center">
-          <div class="col-3"><%= f.label :"パスワード" %></div>
+        <div class="row signup-form_for mt-4">
+          <span class="col-7 signup-lavel"><%= f.label :"パスワード" %></span>
         <% if @minimum_password_length %><% end %>
-          <div class="mx-5"><%= f.password_field :password, autocomplete: "new-password",:size=>"30x10" %></div>
+          <span class="col-5 signup-field"><%= f.password_field :password, autocomplete: "new-password",:size=>"30x10" %></span>
         </div>
     
-        <div class="row mt-4 ml-auto d-flex justify-content-center">
-          <div class="col-3"><%= f.label :"パスワード(確認)" %></div>
-          <div class="mx-5"><%= f.password_field :password_confirmation, autocomplete: "new-password",:size=>"30x10" %></div>
+        <div class="row signup-form_for mt-4">
+          <span class="col-7 signup-lavel"><%= f.label :"パスワード(確認)" %></span>
+          <span class="col-5 signup-field"><%= f.password_field :password_confirmation, autocomplete: "new-password",:size=>"30x10" %></span>
         </div>
-        
-        <div class="ml-5">
-            <div class="mt-4 col-9 ml-5 d-flex justify-content-end"><%= f.submit "登録" , class: "button"%></div>
-            <div class="mt-4 col-9 ml-5 d-flex justify-content-end" style="font-size:16px"><%= render "devise/shared/links" %></div>
+        <div class="col">
+        <div class="signup-button col-11 ml-4"><%= f.submit "登録" , class: "button"%></div>
+        <div class="login-link col-11 ml-4"><%= render "devise/shared/links" %></div>
         </div>
-   </div>
+      </div>
  <% end %>
 </div>
+
+

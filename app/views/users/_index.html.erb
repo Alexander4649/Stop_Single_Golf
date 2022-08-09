@@ -1,14 +1,14 @@
 <div class="container mt-3">
   <div class="row">
     <% @posts.each do |post| %>
-    <table class="table-borderless mt-1" style="font-size:13px;">
+    <table class="table-borderless mt-1" style="font-size:13px; margin-bottom: 8vh;">
         <td class="image_box">
           <%= link_to post_path(post.id) do %>
           <%= image_tag post.post_image, size: '180x140' %>
           <% end %>
         </td>
       <tr>
-        <td width="350" height="50">
+        <td>
           日付　　：<%= post.round_day %><br>
           タイトル：<%= post.title %><br>
           ラウンド：<%= post.round_place %><br>
@@ -18,9 +18,9 @@
           <% end %>
           <% if current_user.admin? %>
           <% else %>
-          <em class="ml-3" id="favorites-remote_<%= post.id %>" style="position:absolute; margin-top:5px;"><%= render "favorites/favorite" , post: post %></em>
+          <em class="ml-3 favorite-class" id="favorites-remote_<%= post.id %>"><%= render "favorites/favorite" , post: post %></em>
           <% end %>
-          <em id="bookmarks-remote_<%= post.id %>" style="position:absolute; margin-top:5px; margin-left:100px;"><%= render "bookmarks/bookmark", post: post %></em>
+          <em class="bookmark-class" id="bookmarks-remote_<%= post.id %>"><%= render "bookmarks/bookmark", post: post %></em>
         </td>
       </tr>
      </table>
