@@ -58,12 +58,12 @@
 
 - 機能一覧
 
-<img width="680" alt="スクリーンショット 2022-07-22 20 32 42" src="https://user-images.githubusercontent.com/105344687/180430818-d77841d4-4a7e-4545-8c97-a630b359da78.png">
+<img width="717" alt="機能一覧" src="https://user-images.githubusercontent.com/105344687/183882883-1665243c-70ae-4a05-b18c-95498a1fc991.png">
 
 - UI Frows・ワイヤーフレーム・ER図
 
 * ER図
-![Golf-ER図](https://user-images.githubusercontent.com/105344687/182009906-188fd148-b401-48bf-b714-8971e788ef86.jpg)
+![GOLF-ER図](https://user-images.githubusercontent.com/105344687/183879686-ef3f5856-a328-4fd8-9f3d-3a480d04abc0.jpg)
 
 * ワイヤーフレーム(User)
 ![Golf-UI Forws(ユーザー側)](https://user-images.githubusercontent.com/105344687/180429441-f5c54968-5a09-4460-b592-9ae41a1c4f70.jpg)
