@@ -1,31 +1,27 @@
 <div class="container mt-3">
   <div class="row">
     <% @posts.each do |post| %>
-    <table class="table-borderless mt-1" style="font-size:13px; margin-bottom: 8vh;">
-        <td class="image_box">
+    <table class="table-borderless mt-1">
+        <td class="image-box">
           <%= link_to post_path(post.id) do %>
           <%= image_tag post.post_image, size: '180x140' %>
           <% end %>
         </td>
-      <tr>
-        <td>
+        <td style="font-size:13px;">
           日付　　：<%= post.round_day %><br>
           タイトル：<%= post.title %><br>
           ラウンド：<%= post.round_place %><br>
           コメント：<%= post.post_comments.count %> 件<br>
           <% if current_user == post.user || current_user.name == "管理者" %>
-          <%= link_to "削除", post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？" ,class: "btn btn-sm btn-danger destroy_button_round" %>
+          <%= link_to "削除", post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？" ,class: "mt-2 btn btn-sm btn-danger destroy_button_round" %>
           <% end %>
           <% if current_user.admin? %>
           <% else %>
-          <em class="ml-3 favorite-class" id="favorites-remote_<%= post.id %>"><%= render "favorites/favorite" , post: post %></em>
+          <em class="mt-2 ml-3 favorite-class" id="favorites-remote_<%= post.id %>"><%= render "favorites/favorite" , post: post %></em>
           <% end %>
-          <em class="bookmark-class" id="bookmarks-remote_<%= post.id %>"><%= render "bookmarks/bookmark", post: post %></em>
+          <em class="mt-2 bookmark-class" id="bookmarks-remote_<%= post.id %>"><%= render "bookmarks/bookmark", post: post %></em>
         </td>
-      </tr>
      </table>
     <% end %>
   </div>
 </div>
-
-

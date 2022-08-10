@@ -7,7 +7,7 @@ class SearchesController < ApplicationController
     @word = params[:word]
 
     if @range == "User"
-      @users = User.looks(params[:search], params[:word]).page(params[:page]).per(5)
+      @users = User.looks(params[:search], params[:word]).page(params[:page]).per(6)
     elsif @range == "Post"
       @posts = Post.looks(params[:search], params[:word]).page(params[:page]).per(3)
     else

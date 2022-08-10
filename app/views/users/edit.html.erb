@@ -9,10 +9,12 @@
           <div class="mt-4 ml-4"><%= f.file_field :profile_image, accept: "image/*", id: "image", class: "form-control-file image" %></div>
       </div>
       
+        <% if @user.name != "ゲストユーザー" %>
         <div class="row mt-3">
             <lavel class="col-5 mt-3" style="font-size:24px; text-align:end;">アカウント名</lavel>
             <div class="mt-4 ml-4" style="text-align:end;"><%= f.text_field :name ,size: "40×20" %></div>
         </div>
+        <% end %>
         
         <div class="row mt-3">
             <lavel class="col-5 mt-3" style="font-size:24px; text-align:end;">ラウンド地域</lavel>

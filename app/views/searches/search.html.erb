@@ -19,6 +19,7 @@
           <tbody>
             <% @users.each do |user| %>
             <% if user.name != "管理者" %>
+            <% if user.name != "ゲストユーザー" %>
             <tr>
               <td colspan="2" style="vertical-align:middle;">
                 <%= link_to user_path(user) do %>
@@ -30,6 +31,7 @@
               <td colspan="2" style="vertical-align:middle;"><%= user.experience%></td>
               <td colspan="2" style="vertical-align:middle;"><%= user.round_area%></td>
             </tr>
+            <% end %>
             <% end %>
             <% end %>
           </tbody>
@@ -53,11 +55,11 @@
   
   <div class="cotainer">
 
-    <table class='table table-borderless mt-3'>
+    <table class='search_table table-borderless mt-3'>
       <tbody>
         <% @posts.each do |post| %>
           <tr>
-              <td class="image-box_stand" width="200" height="100" style="padding-left:450px;">
+              <td class="image-box_stand">
                 <%= link_to post_path(post.id) do %>
                 <%= image_tag post.post_image, size: '160x140' %>
                 <% end %>
@@ -75,5 +77,5 @@
       </tbody>
     </table>
   </div>
-  <div style="width: auto; margin-left:550px;"><%= paginate @posts %></div>
+  <div class="pagenation"><%= paginate @posts %></div>
   <% end %>

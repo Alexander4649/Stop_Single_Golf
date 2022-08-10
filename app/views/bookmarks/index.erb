@@ -4,11 +4,11 @@
        <%= link_to 'new_Like!',  post_bookmarks_path(latest: "true"),class: "text-dark"%>&ensp; |&ensp;
        <%= link_to 'old_Like!',  post_bookmarks_path(old: "true"),class: "text-dark" %>
        </div>
-  <table class='table table-borderless mt-3'>
+  <table class='bookmark_table table-borderless mt-3'>
     <tbody>
       <% @bookmarks.each do |bookmark| %>
         <tr>
-            <td class="image-box_stand" width="200" height="100" style="padding-left:450px;">
+            <td class="image-box_stand">
               <%= link_to post_path(bookmark.post.id) do %>
               <%= image_tag bookmark.post.post_image, size: '160x140' %>
               <% end %>
@@ -26,4 +26,4 @@
     </tbody>
   </table>
 </div>
-<div style="width: auto; margin-left:550px;"><%= paginate @bookmarks %></div>
+<div class="pagenation"><%= paginate @bookmarks %></div>

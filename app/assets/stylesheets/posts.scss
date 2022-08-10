@@ -66,6 +66,17 @@ appearance: none; /* 標準のスタイルを無効にする */
   border-radius: 15px;    /*角を丸くする*/
 }
 
+.reorder-index {
+  width: 220px;
+  margin-left:555px;
+  background-color:gainsboro;
+  text-align:center;
+}
+
+.post_table {
+  margin-left: 450px;
+}
+
 // 画像が跳ねる
 .image-box_stand:hover {
     animation:bounce 0.8s ease-out;
@@ -80,4 +91,10 @@ appearance: none; /* 標準のスタイルを無効にする */
     66.4% { transform:translate(0, 0); }
     83%   { transform:translate(0, -4px); animation-timing-function:ease-in; }
     100%  { transform:translate(0, 0); }
+}
+
+.pagenation {
+  width: auto;
+  margin-left:550px;
+  margin-top:20px;
 }

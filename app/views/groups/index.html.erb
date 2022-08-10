@@ -6,4 +6,4 @@
   <% end %>
   <%= render "index", groups: @groups, owner_user: @owner_user %>
 </div>
-<div style="width: auto; margin-left:550px; margin-top:10px;"><%= paginate @groups %></div>
+<div class="pagenation"><%= paginate @groups %></div>

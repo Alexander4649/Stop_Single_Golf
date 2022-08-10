@@ -1,19 +1,21 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-
-.image_box{
-  // border: 1px solid #ddd;
-  // width: 100%;
-  // height: 100%;
-  // margin: 0px auto 0;
-  // transition-duration: 0.1s;
+td {
+  width: max-content;
 }
-.image_box img{
-  width: 50%;
+
+.image-box{
+  width: 100%;
+  height: 100%;
+  transition-duration: 0.1s;
+  width: max-content;
+}
+
+.image-box img{
   cursor: grab;
 }
-.image_box:hover{
+.image-box:hover{
   box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
   transform: translateY(-10px);
   transition-duration: 0.3s;

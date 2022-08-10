@@ -2,8 +2,8 @@
 <div class="container">
   <%= render "form" %>
   
-  <div class="cotainer mt-2">
+  <div class="cotainer mt-3">
       <%= render "index" %>
   </div>
 </div>
-<div style="width: auto; margin-left:550px; margin-top:10px;"><%= paginate @posts %></div>
+<div class="pagenation"><%= paginate @posts %></div>
