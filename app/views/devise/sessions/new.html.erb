@@ -2,20 +2,19 @@
   
   <%= render "homes/logo" %>
   
-  <div class="login">
     <h1 class="login-text">Log in</h1>
     
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   
     
     <div class="login-email-field">
-      <%= f.label :メールアドレス %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" ,:size=>"30x10",class: "mx-5" %>
+      <%= f.label :メールアドレス %>&emsp;
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" ,:size=>"30x10" %>
     </div>
     
     <div class="login-password-field">
-      <%= f.label :パスワード %>
-      <%= f.password_field :password, autocomplete: "current-password",:size=>"20x10",class: "mx-5" %>
+      <%= f.label :パスワード %>&emsp;
+      <%= f.password_field :password, autocomplete: "current-password",:size=>"20x10" %>
     </div>
 
   <% if devise_mapping.rememberable? %>
@@ -25,16 +24,8 @@
     </div>
   <% end %>
 
-  <div class="login-actions">
-    <div class="col-8">
-    <%= f.submit "　ログイン　", class: "button" %>
-    </div>
-  </div>
+  <div class="login-actions col-7"><%= f.submit "　ログイン　", class: "button" %></div>
  <% end %>
  
- <div class= "login-render-actions">
-   <div class="col-8">
-   <%= render "devise/shared/links" %>
-   </div>
-  </div>
+ <div class= "login-render-actions col-7"><%= render "devise/shared/links" %></div>
 </div>

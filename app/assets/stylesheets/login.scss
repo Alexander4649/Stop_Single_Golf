@@ -8,16 +8,14 @@
   letter-spacing: 0.05em;
 }
 
-.login {
-  text-align: center;
-}
-
 .login-text {
+  text-align: center;
   font-size: 64px;
   font-weight: 800;
 }
 
 .login-email-field {
+  text-align: center;
   font-size: 24px;
   font-weight: 700;
   padding-top: 60px;
@@ -25,6 +23,7 @@
 }
 
 .login-password-field {
+  text-align: center;
   font-size: 24px;
   font-weight: 700;
   padding-top: 40px;
@@ -33,11 +32,18 @@
 
 .login-remember-field {
   padding-top: 5px;
-  padding-right: 150px;
+  padding-right: 110px;
+  text-align: center;
 }
 
 .login-actions {
   padding-top: 20px;
+  margin-left: 50px;
+  text-align: end;
+}
+
+.login-render-actions {
+  padding-top: 10px;
   margin-left: 50px;
   text-align: end;
 }
@@ -62,8 +68,76 @@
   text-decoration-line: none;
 }
 
+
+@media screen and (max-width: 500px) {
+  
+.backgroud_image_login {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image: image-url("login.jpeg");
+  background-size: cover;
+  background-position: center;
+  letter-spacing: 0.05em;
+}
+
+.login-text {
+  font-size: 64px;
+  font-weight: 800;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.login-email-field {
+  text-align: start;
+  font-size: 24px;
+  font-weight: 700;
+  padding-top: 40px;
+  margin-left: 10px;
+}
+
+.login-password-field {
+  text-align: start;
+  font-size: 24px;
+  font-weight: 700;
+  padding-top: 40px;
+  margin-left: 10px;
+}
+
+.login-remember-field {
+  padding-top: 5px;
+  text-align: start;
+  margin-left: 20px;
+}
+
+.login-actions {
+  padding-top: 20px;
+  text-align: end;
+}
+
 .login-render-actions {
   padding-top: 10px;
-  margin-left: 50px;
-  text-align: end;
+  margin-left: 70px;
+}
+
+.button {
+  display       : inline-block;
+  font-size     : 17pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 10px 40px;   /* 余白       */
+  background    : #66ff66;     /* 背景色     */
+  color         : #000000;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 2px 2px 3px #666666;  /* 影の設定 */
+  border        : 2px solid #66ff66;    /* 枠の指定 */
+}
+.button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #66ff66;     /* 背景色     */
+  background    : #000000;     /* 文字色     */
+  text-decoration-line: none;
+}
+
 }
