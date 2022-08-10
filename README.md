@@ -58,7 +58,7 @@
 
 - 機能一覧
 
-<img width="717" alt="機能一覧" src="https://user-images.githubusercontent.com/105344687/183882883-1665243c-70ae-4a05-b18c-95498a1fc991.png">
+<img width="706" alt="機能一覧" src="https://user-images.githubusercontent.com/105344687/183883245-83976d45-1193-42e1-bf72-fbc98b886c79.png">
 
 - UI Frows・ワイヤーフレーム・ER図
 
