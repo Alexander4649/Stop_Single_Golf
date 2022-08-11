@@ -10,7 +10,7 @@
         <tr>
             <td class="image-box_stand">
               <%= link_to post_path(bookmark.post.id) do %>
-              <%= image_tag bookmark.post.post_image, size: '160x140' %>
+              <%= image_tag bookmark.post.images[0].to_s, size: '160x140' %>
               <% end %>
             </td>
             <td nowrap>

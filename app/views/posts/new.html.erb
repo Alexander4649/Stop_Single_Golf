@@ -11,7 +11,7 @@
   <div class="form-group">
     <div class="row col-10 mt-4 mx-auto text-left">
       <label for="image col-3"style="font-size:24px;">画像</label>
-      <div class="mt-1 ml-4"><%= f.file_field :post_image, accept: "image/*", id: "image", class: "form-control-file image md-5" %></div>
+      <div class="mt-1 ml-4"><%= f.file_field :images, accept: "image/*", id: "image", multiple: true, class: "form-control-file image md-5" %></div>
       
       <div class='col-md-3 offset-md-2'>
         <lavel class="col-3" style="font-size:24px; text-align:end;">タイトル</lavel>

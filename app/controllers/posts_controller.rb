@@ -67,7 +67,7 @@ class PostsController < ApplicationController
   private
   
   def post_params
-      params.require(:post).permit(:title, :body, :post_image, :round_day, :score_in, :score_out, :round_place, rounds_attributes: [:round_number, :score, :id])
+      params.require(:post).permit(:title, :body, :post_image, :round_day, :score_in, :score_out, :round_place, rounds_attributes: [:round_number, :score, :id], images: []) #post_images: [])
   end
   
   def ensure_correct_user # before_actionによる定義。ログイン中のユーザーを判別する定義

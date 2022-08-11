@@ -3,9 +3,11 @@
     <% @posts.each do |post| %>
     <table class="table-borderless mt-1">
         <td class="image-box">
-          <%= link_to post_path(post.id) do %>
-          <%= image_tag post.post_image, size: '180x140' %>
-          <% end %>
+          <span class="images">
+            <%= link_to post_path(post.id) do %>
+            <%= image_tag post.images[0].to_s, size: '180x140' %>
+            <% end %>
+          </span>
         </td>
         <td style="font-size:13px;">
           日付　　：<%= post.round_day %><br>

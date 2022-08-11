@@ -10,7 +10,7 @@
         <tr>
             <td class="image-box_stand">
               <%= link_to post_path(post.id) do %>
-              <%= image_tag post.post_image, size: '160x140' %>
+              <%= image_tag post.images[0].to_s, size: '160x140' %>
               <% end %>
             </td>
             <td nowrap>

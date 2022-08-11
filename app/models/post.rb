@@ -11,13 +11,15 @@ class Post < ApplicationRecord
   validates :body, presence: true, length: { minimum: 2, maximum: 200 }
   validates :round_day, presence: true
   validates :round_place, presence: true, length: { minimum: 2, maximum: 30 }
-  validates :post_image, presence: true
+  # validates :post_image, presence: true
   
   
   scope :latest, -> {order(created_at: :desc)}
   scope :old, -> {order(created_at: :asc)}
   
-  has_one_attached :post_image
+  # has_one_attached :post_image
+  # has_many_attached :post_images
+  mount_uploaders :images, ImageUploader
   
   def score_result
     score = self.rounds

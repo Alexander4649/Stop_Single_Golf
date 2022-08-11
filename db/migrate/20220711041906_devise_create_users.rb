@@ -11,6 +11,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :round_area
       t.integer :average_score
       t.string :experience
+      t.boolean :admin, default: false
       
 
       ## Recoverable

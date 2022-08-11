@@ -4,9 +4,21 @@
   
   <div class="container">
     <div class="row">
-      <div class='col-5'>
-          <div class="mt-4"><%= image_tag @post.post_image, size:'360x250' %></div>
-          
+      <div class='col-4'>
+          <div class="mt-4">
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper">
+                <% @post.images.each do |image| %>
+                <div class="swiper-slide" role="group">
+                  <%= image_tag image.url, size:'360x250' %>
+                </div>
+                <% end %>
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
           <div class="row">
             <div class="col mt-3"><%= @post.round_day %></div>
             <div class="col-8">
@@ -23,25 +35,40 @@
             </div>
           </div>
           <div class="mt-3"><%= @post.round_place %></div>
-          <div class="row ml-auto mt-1" style="font-size:24px;">
+          <div class="row ml-auto mt-1" style="font-size:22px;">
             OUT：<div class=""style="font-weight:bold;"><%= @post.score_result[:score_out] %></div>&emsp;
             IN：<div class="" style="font-weight:bold;"><%=  @post.score_result[:score_in]  %></div>&emsp;
             TOTAL：<div class=""style="font-weight:bold;"><%= @post.score_result[:score_total] %></div>
           </div>
-          <div class="col-10" style="border-bottom: 1px solid black;"></div>
+          <div class="col-12" style="border-bottom: 1px solid black;"></div>
    
       </div>
-      <div class='post-box col-6 pt-1 mt-4 mb-1'>
+      <div class='post-box col-4 mt-4 ml-4 mb-2'>
         <p class='p-title col mt-3'>Ψ　<%= @post.title %>　Ψ</p>
         <p class='p-body mt-4 ml-3'><%= @post.body %></p>
       </div>
-    </div>
-  </div>
       
-    <div class="container mt-3">
-      <div id="post_comment_remote"><%= render "post_comments/index" , post: @post %></div>
+       <div class="col-3 mt-4">
+      <div class="comment_filed" id="post_comment_remote"><%= render "post_comments/index" , post: @post %></div>
       <% if current_user.admin? %>
       <% else %>
       <div id="post_comment_form"><%= render "post_comments/form" ,post: @post ,post_comment: @post_comment %></div>
       <% end %>
     </div>
+    </div>
+  </div>
+      
+
+<!--投稿画像スライド-->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+    el: ".swiper-pagination"
+    },
+  });
+</script>
