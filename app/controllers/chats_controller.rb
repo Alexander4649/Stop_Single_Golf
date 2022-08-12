@@ -37,8 +37,12 @@ class ChatsController < ApplicationController
     @room = Room.find(params[:room_id])
     @chats = @room.chats
     chat = current_user.chats.new(chat_params)
-    chat.save
-
+    # chat.save
+    if chat.save
+    else
+        flash[:notice] = "添付ファイルは5枚以内にしてください"
+        # chat_path(@room)
+    end
     # redirect_to request.referer
   end
   
@@ -54,7 +58,7 @@ class ChatsController < ApplicationController
   private
 
   def chat_params
-    params.require(:chat).permit(:message, :room_id)
+    params.require(:chat).permit(:message, :room_id, images: [])
   end
 
 end

@@ -9,6 +9,11 @@
             <% end %>
           </span>
         <span class="says"><%= chat.message %></span>
+        <% chat.images.each do |image| %>
+          <%= link_to image.url, "data-lightbox" => image do %>
+          <%= image_tag image.url,size:'50x50', class: "ml-2" %>
+          <% end %>
+        <% end %>
         <%= link_to chat_destroy_path(room.id, chat.id), method: :delete, remote:true do %>
         <i class="fas fa-trash-alt text-dark ml-3"></i>
         <% end %>
@@ -16,6 +21,11 @@
     <% else %>
     
       <div class="col-12 mt-1 text-right">
+        <% chat.images.each do |image| %>
+          <%= link_to image.url, "data-lightbox" => image do %>
+          <%= image_tag image.url,size:'50x50', class: "ml-2" %>
+          <% end %>
+        <% end %>
         <span class="mt-1 mr-1 says"><%= chat.message %></span>
         <span class="fukidasi">
           <span class="faceicon mt-1">
@@ -29,3 +39,4 @@
   <% end %>
 </div>
 </div>
+

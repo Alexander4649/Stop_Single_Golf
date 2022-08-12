@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 2022_08_05_084454) do
     t.integer "user_id"
     t.integer "room_id"
     t.text "message"
+    t.json "images"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
