@@ -98,3 +98,17 @@ appearance: none; /* 標準のスタイルを無効にする */
   margin-left:550px;
   margin-top:20px;
 }
+
+.mySwiper .swiper-button-prev, 
+.mySwiper .swiper-button-next {
+  opacity: 0;
+  transition: opacity 1s;
+}
+.mySwiper .swiper-button-prev.hover, 
+.mySwiper .swiper-button-next.hover {
+  opacity: 2;
+}
+.mySwiper .swiper-button-prev.swiper-button-disabled.hover, 
+.mySwiper .swiper-button-next.swiper-button-disabled.hover {
+  opacity: 0.35;
+}

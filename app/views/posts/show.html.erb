@@ -14,8 +14,10 @@
                 </div>
                 <% end %>
               </div>
-              <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div>
+                <div class="swiper-button-prev swiper-button-white"></div>
+                <div class="swiper-button-next swiper-button-white"></div>
+              <!--<div class="swiper-button-next"></div>-->
+              <!--<div class="swiper-button-prev"></div>-->
               <div class="swiper-pagination"></div>
             </div>
           </div>
@@ -71,4 +73,21 @@
     el: ".swiper-pagination"
     },
   });
+
+  const container = document.querySelector('.mySwiper');
+  const prev_button =  document.querySelector('.mySwiper .swiper-button-prev');
+  const next_button =  document.querySelector('.mySwiper .swiper-button-next');
+  
+  container.addEventListener('mouseenter', () => {
+    // hover クラスを追加
+    prev_button.classList.add('hover');
+    next_button.classList.add('hover');
+  });
+  //マウスアウトイベント
+  container.addEventListener('mouseleave', () => {
+    // hover クラスを削除
+    prev_button.classList.remove('hover');
+    next_button.classList.remove('hover');
+  });
+
 </script>
