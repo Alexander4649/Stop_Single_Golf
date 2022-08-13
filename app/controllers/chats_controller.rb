@@ -37,16 +37,12 @@ class ChatsController < ApplicationController
     @room = Room.find(params[:room_id])
     @chats = @room.chats
     @chat_new = current_user.chats.new(chat_params)
-    #chat.save
-    #@chat = Chat.new(room_id: @room.id)
     if @chat_new.save
-         @chat = Chat.new(room_id: @room.id)
+         @chat = Chat.new(room_id: @room.id) # 既存のファイルを消す再度空を読み込ませる為
     else
-        #redirect_to chat_path(@user.id), notice: "添付ファイルは5枚以内にしてください。"
-        @alert = "添付ファイルは5枚以内にしてください。"
-        render :errors
+        @alert = "『文字数を1文字以上』又は『添付ファイルを5枚以内にして下さい』"
+        render :errors # renderするとJSファイルが読み込まれる為、errors.jsを呼ぶように指示している
     end
-    # redirect_to request.referer
   end
   
   def destroy
@@ -55,7 +51,6 @@ class ChatsController < ApplicationController
     @chats = @room.chats
     chat = Chat.find(params[:id])
     chat.destroy
-    # redirect_to request.referer
   end
 
   private

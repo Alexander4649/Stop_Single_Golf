@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', function(){ //これを定義することにより、今からquerySelectorを使うよーみたいな感じで宣言してあげてる感じらしい！これがないと読み込まれない
+
   var swiper = new Swiper(".mySwiper", {
     
     navigation: {
@@ -23,4 +25,6 @@
     // hover クラスを削除
     prev_button.classList.remove('hover');
     next_button.classList.remove('hover');
+  });
+  
   });

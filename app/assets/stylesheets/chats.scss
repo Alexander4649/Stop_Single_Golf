@@ -66,6 +66,7 @@
   border-radius: 50%; //写真の丸み
 }
 
+// 添付ファイルのlight-boxに自動で付与されるaタグのアンダーラインを消してる
 .none-underline a {
   text-decoration: none;
   &:hover {

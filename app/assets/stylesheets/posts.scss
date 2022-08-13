@@ -99,6 +99,7 @@ appearance: none; /* 標準のスタイルを無効にする */
   margin-top:20px;
 }
 
+// swiperの設定、hover時に出現させる
 .mySwiper .swiper-button-prev, 
 .mySwiper .swiper-button-next {
   opacity: 0;

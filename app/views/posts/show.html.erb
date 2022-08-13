@@ -1,3 +1,4 @@
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
 <%= render "layouts/header" %>
 <div class="container">
   <%= render "users/form" %>
@@ -16,9 +17,10 @@
               </div>
                 <div class="swiper-button-prev swiper-button-white"></div>
                 <div class="swiper-button-next swiper-button-white"></div>
-              <!--<div class="swiper-button-next"></div>-->
-              <!--<div class="swiper-button-prev"></div>-->
-              <div class="swiper-pagination"></div>
+                <div class="swiper-pagination"></div>
+                <!--hoverなしにしたい時は以下に変更-->
+                <!--<div class="swiper-button-next"></div>-->
+                <!--<div class="swiper-button-prev"></div>-->
             </div>
           </div>
           <div class="row">
@@ -61,33 +63,38 @@
   </div>
       
 
+
+<!--こちらで反応したのは、html内でしかscriptタグの内容を使用しない為、動いていた-->
+<!--現在は、JavaScript/packs/swiper.jsで読み込ませている-->
+
 <!--投稿画像スライド-->
-<script>
-  var swiper = new Swiper(".mySwiper", {
+<!--<script>-->
+<!--  var swiper = new Swiper(".mySwiper", {-->
     
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-    el: ".swiper-pagination"
-    },
-  });
+<!--    navigation: {-->
+<!--      nextEl: ".swiper-button-next",-->
+<!--      prevEl: ".swiper-button-prev",-->
+<!--    },-->
+<!--    pagination: {-->
+<!--    el: ".swiper-pagination"-->
+<!--    },-->
+<!--  });-->
 
-  const container = document.querySelector('.mySwiper');
-  const prev_button =  document.querySelector('.mySwiper .swiper-button-prev');
-  const next_button =  document.querySelector('.mySwiper .swiper-button-next');
+<!--  const container = document.querySelector('.mySwiper');-->
+<!--  console.log(container)-->
+<!--  const prev_button =  document.querySelector('.mySwiper .swiper-button-prev');-->
+<!--  const next_button =  document.querySelector('.mySwiper .swiper-button-next');-->
   
-  container.addEventListener('mouseenter', () => {
-    // hover クラスを追加
-    prev_button.classList.add('hover');
-    next_button.classList.add('hover');
-  });
-  //マウスアウトイベント
-  container.addEventListener('mouseleave', () => {
-    // hover クラスを削除
-    prev_button.classList.remove('hover');
-    next_button.classList.remove('hover');
-  });
+<!--  container.addEventListener('mouseenter', () => {-->
+<!--    // hover クラスを追加-->
+<!--    prev_button.classList.add('hover');-->
+<!--    next_button.classList.add('hover');-->
+<!--  });-->
+<!--  //マウスアウトイベント-->
+<!--  container.addEventListener('mouseleave', () => {-->
+<!--    // hover クラスを削除-->
+<!--    prev_button.classList.remove('hover');-->
+<!--    next_button.classList.remove('hover');-->
+<!--  });-->
 
-</script>
+<!--</script>-->

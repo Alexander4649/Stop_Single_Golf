@@ -14,6 +14,7 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application" 
 import '@fortawesome/fontawesome-free/js/all'
+import "./swiper.js"
 
 Rails.start()
 //Turbolinks.start()
@@ -33,5 +34,3 @@ window.onload = function() {
     // ↪︎ area要素のスクロールされた時の最も高い場所をarea要素自体の最も高い場所として指定してあげる
   }
 }
-
-// require('packs/swiper')

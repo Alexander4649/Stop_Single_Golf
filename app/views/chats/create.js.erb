@@ -1,7 +1,7 @@
-$('#alert-message').html("");
+$('#alert-message').html("");<!--エラーメッセージを削除する為-->
 $('#chat_remote').html("<%= j(render "chats/index" , chats: @chats, user: @user, room: @room ) %>");
 $('#chat_remote_form').html("<%= j(render "chats/form", chat: @chat, room: @room ) %>");
-$('#chat_message').val("");
+$('#chat_message').val("");<!--既に入力されている文字とファイルを削除する為-->
 <!--setTimeoutは上の処理が終わったあと、少し時間差を設ける時に使うメソッド-->
 <!--時間指定は最後に記載する数値で判断、ミリ秒で記載(1000ミリ秒は1秒)-->
 setTimeout(function(){
