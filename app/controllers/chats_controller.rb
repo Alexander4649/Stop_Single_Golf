@@ -36,8 +36,16 @@ class ChatsController < ApplicationController
     @user = UserRoom.where(room_id:params[:room_id]).where.not(user_id: current_user.id).first.user
     @room = Room.find(params[:room_id])
     @chats = @room.chats
-    chat = current_user.chats.new(chat_params)
-    chat.save
+    @chat_new = current_user.chats.new(chat_params)
+    #chat.save
+    #@chat = Chat.new(room_id: @room.id)
+    if @chat_new.save
+         @chat = Chat.new(room_id: @room.id)
+    else
+        #redirect_to chat_path(@user.id), notice: "添付ファイルは5枚以内にしてください。"
+        @alert = "添付ファイルは5枚以内にしてください。"
+        render :errors
+    end
     # redirect_to request.referer
   end
   

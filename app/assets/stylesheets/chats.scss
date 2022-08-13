@@ -65,3 +65,10 @@
   height: auto; //写真高さ
   border-radius: 50%; //写真の丸み
 }
+
+.none-underline a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}

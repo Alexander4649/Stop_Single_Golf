@@ -4,7 +4,7 @@
 // that code so it'll be compiled.
 
 import Rails from "@rails/ujs"
-import Turbolinks from "turbolinks"
+//import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
@@ -16,7 +16,7 @@ import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
 
 Rails.start()
-Turbolinks.start()
+//Turbolinks.start()
 ActiveStorage.start()
 
 // DM画面が読み込まれると、最新のチャット場所まで自動スクロールされる
@@ -33,3 +33,5 @@ window.onload = function() {
     // ↪︎ area要素のスクロールされた時の最も高い場所をarea要素自体の最も高い場所として指定してあげる
   }
 }
+
+// require('packs/swiper')

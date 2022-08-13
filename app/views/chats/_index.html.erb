@@ -2,7 +2,7 @@
 <div class="scroll_chat" id="area">
   <% chats.each do |chat| %>
     <% if chat.user_id == current_user.id %>
-      <div class="col text-left mycomment">
+      <div class="col text-left mycomment none-underline">
           <span class="my_picture_size">
             <%= link_to user_path(current_user) do %>
             <%= image_tag current_user.get_profile_image %>
@@ -20,7 +20,7 @@
       </div>
     <% else %>
     
-      <div class="col-12 mt-1 text-right">
+      <div class="col-12 mt-1 text-right none-underline">
         <% chat.images.each do |image| %>
           <%= link_to image.url, "data-lightbox" => image do %>
           <%= image_tag image.url,size:'50x50', class: "ml-2" %>
