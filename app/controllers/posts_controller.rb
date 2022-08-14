@@ -34,7 +34,7 @@ class PostsController < ApplicationController
   
   def index
     posts = Post.all
-    @posts = Post.published.page(params[:page]).reverse_order #投稿するタグを選択した場合のみ取得する
+    @posts = Post.published.page(params[:page]).reverse_order.per(3) #投稿するタグを選択した場合のみ取得する
     
     if params[:latest]
       posts = Post.latest
@@ -44,7 +44,6 @@ class PostsController < ApplicationController
       posts = Post.all
     end
     
-    @posts = posts.page(params[:page]).per(3)
   end
   
   def confirm
@@ -73,7 +72,7 @@ class PostsController < ApplicationController
   private
   
   def post_params
-      params.require(:post).permit(:title, :body, :post_image, :round_day, :score_in, :score_out, :round_place, :status, rounds_attributes: [:round_number, :score, :id], images: []) #post_images: [])
+      params.require(:post).permit(:title, :body, :post_image, :round_day, :score_in, :score_out, :round_place, :status, rounds_attributes: [:round_number, :score, :id], images: [])
   end
   
   def ensure_correct_user # before_actionによる定義。ログイン中のユーザーを判別する定義

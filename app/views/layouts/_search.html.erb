@@ -1,8 +1,8 @@
 <%= form_with url: search_path, local: true, method: :get do |f| %>
 <div class="search_form">
   <div class="row">
-    <div class="col-1 mt-2 pr-5">
-      <%= f.select :range, options_for_select([['選択'], ['User'], ['Post']]) %>
+    <div class="col-1 mt-2 pr-5 mr-3">
+      <%= f.select :range, options_for_select([['選択'], ['Name'], ['Place']]) %>
     </div>
     <div class="col-3 mt-2 ml-1 pr-5 mr-5">
       <span class="search_container">

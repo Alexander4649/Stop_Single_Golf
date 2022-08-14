@@ -2,7 +2,7 @@
 <div class="container mt-3">
   <% if current_user.admin? %>
   <% else %>
-  <div><%= link_to "グループを作る",new_group_path,class: "group_button" %></div>
+  <div><%= link_to "グループを作る", new_group_path, class: "group_button" %></div>
   <% end %>
   <%= render "index", groups: @groups, owner_user: @owner_user %>
 </div>

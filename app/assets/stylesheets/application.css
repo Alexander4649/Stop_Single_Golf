@@ -51,6 +51,8 @@ header li {
 .menu_content {
 	display: none;
 	position: absolute;
+	margin: 0px;
+	padding: 0px;
 }
 
 .menu_content-item {

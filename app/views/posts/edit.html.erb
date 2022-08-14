@@ -10,7 +10,7 @@
   
   <div class="form-group">
     <div class="row col-10 mt-4 mx-auto text-left">
-      <label for="image col-3"style="font-size:24px;">画像</label>
+      <label for="image col-3" style="font-size:24px;">画像</label>
       <div class="mt-1 ml-4"><%= f.file_field :images, accept: "image/*", id: "image", multiple: true, class: "form-control-file image md-5" %></div>
       
       <div class='col-md-3 offset-md-2'>
@@ -22,7 +22,7 @@
     
   <div class="form-group">
     <div class="row col-10 mx-auto">
-      <label for="col-3"style="font-size:24px;">日付</label>
+      <label for="col-3" style="font-size:24px;">日付</label>
       <div class="mt-1 ml-4"><%= f.date_field :round_day %></div>
     </div>
   </div>
@@ -30,17 +30,17 @@
 
   <div class="form-group">
     <div class="col-10 mx-auto text-left">
-      <label for="col-3"style="font-size:24px;">ラウンド場所</label>
+      <label for="col-3"style="font-size:24px; margin-top:10px;">ラウンド場所</label>
       <div class=""><%= f.text_field :round_place ,size: "40×20" %></div>
 
-      <div class='col-md-3' style="position:absolute; bottom:-100px; right:110px;">
+      <div class='col-md-3' style="position:absolute; bottom:-50px; right:110px;">
         <label style="font-size:24px;">本文</lavel>
-        <div style="text-align:end; font-size:16px;"><%= f.text_area :body, cols: 40, rows:8 %></div>
+        <div style="text-align:end; font-size:16px;"><%= f.text_area :body, cols: 40, rows:6 %></div>
       </div>
     </div>
   </div>
   <div class="form-group">
-    <div class="row col-10 mx-auto mt-5" style="position:absolute; left:260px; bottom: 270px;">
+    <div class="row" style="position:absolute; left:260px; bottom: 270px;">
       <div class=""style="font-size:24px;">
         OUT：<span id="score_out"><%= @post.score_result[:score_out] %></span>&emsp;&emsp;
         In：<span id="score_in"><%= @post.score_result[:score_in] %></span>&emsp;&emsp;&emsp;
@@ -50,9 +50,9 @@
   </div>
   
   <div class="form-group">
-  <div style="position:absolute; left:880px; bottom: 180px;"><%= link_to "　戻る　", post_path(@post), class: "btn btn-lg btn-secondary btn-outline-dark text-white" %></div>
-  <div style="position:absolute; left:1080px; bottom: 180px;"><%= f.submit "更新する" , method: :patch,class: "button btn-lg" %></div>
-  <%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
+    <div style="position:absolute; left:855px; bottom: 260px;"><%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]}, {}, {class: "custom-select"} %></div>
+    <div style="position:absolute; left:880px; bottom: 180px;"><%= link_to "　戻る　", post_path(@post), class: "btn btn-lg btn-secondary btn-outline-dark text-white" %></div>
+    <div style="position:absolute; left:1080px; bottom: 180px;"><%= f.submit "更新する" , method: :patch,class: "button btn-lg" %></div>
   </div>
 
       <table class="posting_table" style="background-color:gainsboro; position:absolute; bottom:180px;">

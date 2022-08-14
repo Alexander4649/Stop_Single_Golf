@@ -21,6 +21,7 @@
             </li>
             
             <% if current_user.admin? %>
+            
             <li class="nav-item">
                 <%= link_to users_path, class: 'nav-link text-dark' do %>
                   <i class="fas fa-users"></i>Users
@@ -34,14 +35,13 @@
               <% end %>
               <ul class="menu_content">
           			<%= link_to new_post_path,class: 'nav-link text-dark menu_content-item' do %>
-                <i class="fas fa-paper-plane"></i> 投稿
+                <i class="fas fa-paper-plane"></i> 新規投稿
                 <% end %>
               <%= link_to confirm_posts_path,class: 'nav-link text-dark menu_content-item' do %>
-                <i class="fas fa-pencil-alt"></i> 下書き
+                <i class="fas fa-pencil-alt"></i> 下書き一覧
               <% end %>
           		</ul>
             </li>
-            
             
             <li class="menu-list">
               <%= link_to "#", class: 'nav-link text-dark' do %>
@@ -57,10 +57,18 @@
           		</ul>
             </li>
             
-            <li class="nav-item">
-              <%= link_to groups_path,class: 'nav-link text-dark' do %>
-                <i class="fas fa-user-friends"></i> Group
+            <li class="menu-list">
+              <%= link_to "#", class: 'nav-link text-dark' do %>
+                <i class="fas fa-users"></i> Group
               <% end %>
+              <ul class="menu_content">
+          			<%= link_to groups_path, class: 'nav-link text-dark menu_content-item' do %>
+                <i class="fas fa-users"></i> グループ一覧
+              <% end %>
+              <%= link_to new_group_path, class: 'nav-link text-dark menu_content-item' do %>
+                <i class="fas fa-user-plus"></i> グループ作成
+              <% end %>
+          		</ul>
             </li>
             
             <li class="nav-item">

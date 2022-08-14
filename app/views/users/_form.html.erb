@@ -30,7 +30,7 @@
     
     <div class="mt-3" style="display: inline">
       <div class="row">
-        <div class="col-sm-12 text-left">投稿数&emsp;&emsp;&emsp;：<%= @user.posts.count %>件</div>
+        <div class="col-sm-12 text-left">投稿数&emsp;&emsp;&emsp;：<%= @user.posts.published.count %>件</div>
         <div class="col-sm-auto" style="position:absolute; margin-left:166px;">ゴルフ経験&emsp;：<%= @user.experience %></div>
       </div>
     </div>
