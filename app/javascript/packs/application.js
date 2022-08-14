@@ -15,6 +15,7 @@ import "bootstrap";
 import "../stylesheets/application" 
 import '@fortawesome/fontawesome-free/js/all'
 import "./swiper.js"
+import "./header.js" // ドロップダウンメニュー
 
 Rails.start()
 //Turbolinks.start()
