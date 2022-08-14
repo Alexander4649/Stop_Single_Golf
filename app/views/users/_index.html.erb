@@ -2,6 +2,7 @@
   <div class="row">
     <% @posts.each do |post| %>
     <table class="table-borderless mt-1">
+      <% if post.published? %>
         <td class="image-box">
           <span class="images">
             <%= link_to post_path(post.id) do %>
@@ -23,6 +24,7 @@
           <% end %>
           <em class="mt-2 bookmark-class" id="bookmarks-remote_<%= post.id %>"><%= render "bookmarks/bookmark", post: post %></em>
         </td>
+      <% end %>
      </table>
     <% end %>
   </div>

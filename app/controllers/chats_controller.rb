@@ -40,7 +40,7 @@ class ChatsController < ApplicationController
     if @chat_new.save
          @chat = Chat.new(room_id: @room.id) # 既存のファイルを消す再度空を読み込ませる為
     else
-        @alert = "『文字数を1文字以上』又は『添付ファイルを5枚以内にして下さい』"
+        @alert = "『文字数を1文字以上』又は『添付ファイルを5枚以内』にして下さい"
         render :errors # renderするとJSファイルが読み込まれる為、errors.jsを呼ぶように指示している
     end
   end

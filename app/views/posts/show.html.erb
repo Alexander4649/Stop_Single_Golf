@@ -33,9 +33,11 @@
               <% end %>
               <% if current_user.admin? %>
               <% else %>
+                <% if @post.published? %>
               <span id="favorites-remote" style="position:absolute; margin-top:15px; margin-left:45px;"><%= render "favorites/favorite", post: @post %></span>
-              <% end %>
               <span id="bookmarks-remote" style="position:absolute; margin-top:17px; margin-left:145px;"><%= render "bookmarks/bookmark", post: @post %></span>
+                <% end %>
+              <% end %>
             </div>
           </div>
           <div class="mt-3"><%= @post.round_place %></div>
@@ -53,12 +55,14 @@
       </div>
       
        <div class="col-3 mt-4">
+         <% if @post.published? %>
       <div class="comment_filed" id="post_comment_remote"><%= render "post_comments/index" , post: @post %></div>
       <% if current_user.admin? %>
       <% else %>
       <div id="post_comment_form"><%= render "post_comments/form" ,post: @post ,post_comment: @post_comment %></div>
       <% end %>
     </div>
+    <% end %>
     </div>
   </div>
       

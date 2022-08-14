@@ -40,6 +40,10 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     get "bookmarks" => "bookmarks#index"
     resource :bookmarks, only: [:create, :destroy]
+    
+    collection do
+    get 'confirm'
+    end
   end
   
   resources :groups do

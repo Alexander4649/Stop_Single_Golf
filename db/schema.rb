@@ -135,6 +135,7 @@ ActiveRecord::Schema.define(version: 2022_08_05_084454) do
     t.date "round_day"
     t.string "round_place"
     t.json "images"
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

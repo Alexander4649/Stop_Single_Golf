@@ -21,6 +21,8 @@ class Post < ApplicationRecord
   # has_many_attached :post_images
   mount_uploaders :images, ImageUploader
   
+  enum status: { published: 0, draft: 1 }
+  
   def score_result
     score = self.rounds
     score_in = score.where(round_number: [*1..9]).map{ |o| o.score_before_type_cast }.sum

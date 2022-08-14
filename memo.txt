@@ -1,18 +1,28 @@
 〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
 
- #current_userの投稿に紐づいた通知一覧
-    notifications_ids = current_user.passive_notifications.where(checked: false).pluck(:id)
-  # 	@notifications = current_user.passive_notifications
-    @notifications = Notification.where(id: notifications_ids)
-    #@notificationの中でまだ確認していない(indexに一度も遷移していない)通知のみ
-  	current_user.passive_notifications.where(checked: false).each do |notification|
-    		notification.update(checked: true)
-    		
+
+〜〜〜同じ意味になる〜〜〜
+redirect_to user_path(current_user) if !@post.published? && current_user.id != @user.id
+
+unless @post.published?
+  if current_user.id != @user.id
+  redirect_to user_path(current_user)
+  end
+end
+
+※ elseを使用しない時はなるべく1行になるように記述すること
+〜〜〜〜〜〜〜〜〜〜〜〜〜
+
+〜〜〜エラー発見記述〜〜〜〜〜
 #byebug
 <p>post:::<%= @post.inspect %></p>
 <p>post_comment:::<%= post_comment.inspect %></p>
 
-$('#post_comment_form').html("<%= j(render "post_comments/form", post: @post, post_comment: @post_comment) %>");
+byebugはその場所で一度操作を止めて、そこから自分で操作して中身を確認したりできる
+
+inspectは中身をカラムの中身全て表示させる
+〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
+
 
 【&nbsp;】：半角スペースと同じサイズの空白
 【&thinsp;】：&nbsp;の空白より小さい空白
@@ -20,7 +30,7 @@ $('#post_comment_form').html("<%= j(render "post_comments/form", post: @post, po
 【&emsp;】：全角スペースとほぼ同じサイズの空白
 
 
-テーブルで横合わせしてサイズ指定するやーつ<html>
+〜〜〜テーブルで横合わせしてサイズ指定するやーつ〜〜〜
 
 <div class="table1" style="border: none;">
 <table class="table" style="border: none;">
@@ -56,13 +66,7 @@ $('#post_comment_form').html("<%= j(render "post_comments/form", post: @post, po
     }
   }
 }
-
 〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
-
-【&nbsp;】：半角スペースと同じサイズの空白
-【&thinsp;】：&nbsp;の空白より小さい空白
-【&ensp;】：半角スペースより間隔がやや広い空白
-【&emsp;】：全角スペースとほぼ同じサイズの空白
 
 ・gemfileコメントアウト => gem 'image_processing', '~> 1.2'
 

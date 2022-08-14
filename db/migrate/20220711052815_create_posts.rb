@@ -7,6 +7,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.date :round_day
       t.string :round_place
       t.json :images
+      t.integer :status, default: 0, null: false
 
       t.timestamps
     end

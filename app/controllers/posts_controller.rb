@@ -15,8 +15,8 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @user = @post.user
-    @user = User.find(@user.id)
     @post_comment = PostComment.new
+    redirect_to user_path(current_user) if !@post.published? && current_user.id != @user.id #下書きであり　且　ログインユーザーIDと@userのIDが違う場合はページ遷移できない
   end
   
   def create
@@ -34,6 +34,8 @@ class PostsController < ApplicationController
   
   def index
     posts = Post.all
+    @posts = Post.published.page(params[:page]).reverse_order #投稿するタグを選択した場合のみ取得する
+    
     if params[:latest]
       posts = Post.latest
     elsif params[:old]
@@ -43,6 +45,10 @@ class PostsController < ApplicationController
     end
     
     @posts = posts.page(params[:page]).per(3)
+  end
+  
+  def confirm
+    @posts = current_user.posts.draft.page(params[:page]).reverse_order.per(4) #下書きするタグを選択した場合のみ取得する
   end
   
   def edit
@@ -67,7 +73,7 @@ class PostsController < ApplicationController
   private
   
   def post_params
-      params.require(:post).permit(:title, :body, :post_image, :round_day, :score_in, :score_out, :round_place, rounds_attributes: [:round_number, :score, :id], images: []) #post_images: [])
+      params.require(:post).permit(:title, :body, :post_image, :round_day, :score_in, :score_out, :round_place, :status, rounds_attributes: [:round_number, :score, :id], images: []) #post_images: [])
   end
   
   def ensure_correct_user # before_actionによる定義。ログイン中のユーザーを判別する定義

@@ -1,16 +1,11 @@
 <%= render "layouts/header" %>
-<div class="cotainer mt-5">
-      <div class="reorder-index">
-       <%= link_to '新しい投稿順', posts_path(latest: "true"), class: "text-dark"%>&ensp; |&ensp;
-       <%= link_to '古い投稿順', posts_path(old: "true"), class: "text-dark" %>
-       </div>
+<div class="cotainer mt-3">
   <table class='post_table table-borderless mt-3'>
     <tbody>
       <% @posts.each do |post| %>
         <tr>
-          <% if post.published? %>
             <td class="image-box_stand">
-              <%= link_to post_path(post.id) do %>
+              <%= link_to edit_post_path(post.id) do %>
               <%= image_tag post.images[0].to_s, size: '160x140' %>
               <% end %>
             </td>
@@ -22,8 +17,7 @@
               スコア&emsp;：<strong><%= post.score_result[:score_total] %></strong><br>
               コメント：<strong><%= post.post_comments.count %>件</strong><br>
             </td>
-          <% end %>
-        </tr>
+        </th>
       <% end %>
     </tbody>
   </table>

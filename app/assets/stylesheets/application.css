@@ -59,6 +59,7 @@ header li {
  overflow: hidden;
  color: black;
  text-decoration: none;
+ background-color: #B0E0E6;
 }
 .menu_content-item:after {
  position: absolute;
