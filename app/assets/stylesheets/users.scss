@@ -1,21 +1,15 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-td {
-  width: max-content;
-}
-
-.image-box{
-  width: 100%;
-  height: 100%;
+.card{
   transition-duration: 0.1s;
-  width: max-content;
 }
 
-.image-box img{
+.card img{
   cursor: grab;
 }
-.image-box:hover{
+
+.card:hover{
   box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
   transform: translateY(-10px);
   transition-duration: 0.3s;
@@ -42,12 +36,14 @@ td {
 }
 
 .favorite-class {
-  position:absolute;
-  margin-top:5px;
+  white-space:nowrap; // 折り返ししない
 }
 
 .bookmark-class {
-  position:absolute;
-  margin-top:5px;
-  margin-left:100px;
+  white-space:nowrap;
+}
+
+// カードを横並びにする
+.card-wrapper {
+  display:flex;
 }

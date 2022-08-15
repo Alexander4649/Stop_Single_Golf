@@ -1,31 +1,37 @@
 <div class="container mt-3">
-  <div class="row">
+  <div class="card-wrapper row">
     <% @posts.each do |post| %>
-    <table class="table-borderless mt-1">
-      <% if post.published? %>
-        <td class="image-box">
-          <span class="images">
-            <%= link_to post_path(post.id) do %>
-            <%= image_tag post.images[0].to_s, size: '180x140' %>
-            <% end %>
-          </span>
-        </td>
-        <td style="font-size:13px;">
-          日付　　：<%= post.round_day %><br>
-          タイトル：<%= post.title %><br>
-          ラウンド：<%= post.round_place %><br>
-          コメント：<%= post.post_comments.count %> 件<br>
-          <% if current_user == post.user || current_user.name == "管理者" %>
-          <%= link_to "削除", post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？" ,class: "mt-2 btn btn-sm btn-danger destroy_button_round" %>
+      <div class="col-md-3">
+        <% if post.published? %>
+        <div class="card" style="width: 15.1rem;">
+          <img class="card-img-top">
+          <%= link_to post_path(post.id) do %>
+          <%= image_tag post.images[0].to_s, size: '240x160' %>
           <% end %>
-          <% if current_user.admin? %>
-          <% else %>
-          <em class="mt-2 ml-3 favorite-class" id="favorites-remote_<%= post.id %>"><%= render "favorites/favorite" , post: post %></em>
-          <% end %>
-          <em class="mt-2 bookmark-class" id="bookmarks-remote_<%= post.id %>"><%= render "bookmarks/bookmark", post: post %></em>
-        </td>
-      <% end %>
-     </table>
+        <div class="card-body" style="font-size:14px; font-weight:bold;"><%= post.title %></div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" style="font-size:14px;"><%= post.round_day %><br>
+              <span style="font-size:11px; white-space:nowrap;"><%= post.round_place %></span><br>
+              <div class="row ml-auto mt-1" style="font-size:15px;">
+                OUT&nbsp;<div class=""style="font-weight:bold;"><%= post.score_result[:score_out] %></u></div>&ensp;
+                IN&nbsp;<div class="" style="font-weight:bold;"><%=  post.score_result[:score_in]  %></div>&ensp;
+                TOTAL&nbsp;<div class=""style="font-weight:bold;"><%= post.score_result[:score_total] %></div>
+                コメント：<%= post.post_comments.count %>件
+              </div>
+              <span class="card-link row">
+                <% if current_user == post.user || current_user.name == "管理者" %>
+                  <%= link_to "削除", post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？" ,class: "mt-2 btn btn-sm btn-danger destroy_button_round" %>
+                <% end %>
+              <% if !current_user.admin? %>
+                <em class="col-5 mt-2 favorite-class" id="favorites-remote_<%= post.id %>"><%= render "favorites/favorite" , post: post %></em>
+                <em class="col mt-2 bookmark-class" id="bookmarks-remote_<%= post.id %>"><%= render "bookmarks/bookmark", post: post %></em>
+              <% end %>
+              </span>
+            </li>
+          </ul>
+        </div>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>

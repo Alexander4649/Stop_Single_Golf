@@ -5,11 +5,10 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @posts = @user.posts.published.page(params[:page]).reverse_order.per(4)
     if !current_user.admin && @user.admin # ログインユーザが管理者ではない 且 管理者のページである => 両方の条件を満たす時リダイレクトしたいため。
       redirect_to user_path(current_user)
     end
-    posts = @user.posts
-    @posts = posts.page(params[:page]).per(6)
   end
   
   # User一覧(管理者専用)
