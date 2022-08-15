@@ -55,12 +55,10 @@
 
 - 機能一覧
 
-<img width="706" alt="機能一覧" src="https://user-images.githubusercontent.com/105344687/183883245-83976d45-1193-42e1-bf72-fbc98b886c79.png">
-
-- UI Frows・ワイヤーフレーム・ER図
+<img width="705" alt="機能一覧" src="https://user-images.githubusercontent.com/105344687/184580549-fb6bb911-1742-4c90-9aeb-a4da1dc2e96c.png">
 
 * ER図
-![GOLF-ER図](https://user-images.githubusercontent.com/105344687/183879686-ef3f5856-a328-4fd8-9f3d-3a480d04abc0.jpg)
+![GOLF-ER図](https://user-images.githubusercontent.com/105344687/184579460-a19f9cc4-7ad2-4bd4-a117-db673f012480.jpg)
 
 * ワイヤーフレーム(User)
 ![Golf-UI Forws(ユーザー側)](https://user-images.githubusercontent.com/105344687/180429441-f5c54968-5a09-4460-b592-9ae41a1c4f70.jpg)
@@ -79,7 +77,7 @@
 
 - テスト仕様書
 
-> URLを記載
+[Stop!Single Golf_テスト仕様書.xlsx.pdf](https://github.com/Alexander4649/Stop_Single_Golf/files/9336402/Stop.Single.Golf_.xlsx.pdf)
 
 ***
 ## ◆開発環境

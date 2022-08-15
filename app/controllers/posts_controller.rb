@@ -48,6 +48,9 @@ class PostsController < ApplicationController
   
   def confirm
     @posts = current_user.posts.draft.page(params[:page]).reverse_order.per(4) #下書きするタグを選択した場合のみ取得する
+    if current_user.admin?
+      redirect_to user_path(current_user)
+    end
   end
   
   def edit

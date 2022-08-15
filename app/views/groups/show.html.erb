@@ -1,9 +1,9 @@
 <%= render "layouts/header" %>
-<div class="container">
-  <div class="row mt-2">
+<div class="container mt-3">
+  <div style="font-size:20px; font-weight:bold;">"<%= @group.group_name %>"</div>
+  <div class="row">
     <div class="col">
-      <div style="font-size:20px; font-weight:bold;">"<%= @group.group_name %>"</div>
-      <div class="mt-1"><%= image_tag @group.get_group_image, size:'200x150' %></div>
+      <div class="mt-2"><%= image_tag @group.get_group_image, size:'200x150' %></div>
       <div class="pl-2 mt-2" style="margin-left:42px; font-weight:bold;">メンバー</div>
         <% @group_users.each do |user| %>
           <%= link_to user_path(user) do %>
@@ -12,7 +12,7 @@
           <% end %>
         <% end %>
     </div>
-    <div class="col-9 mt-3 group-comment-box" style="width:1000px; height: 450px;">
+    <div class="col-9 group-comment-box" style="width:1000px; height: 460px;">
       <div id="group_comment_remote"><%= render "group_comments/index" , group: @group %></div>
       <div id="group_comment_form" class="mt-4 ml-auto"><%= render "group_comments/form" ,group: @group ,group_comment: @group_comment %></div>
     </div>
