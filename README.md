@@ -52,9 +52,6 @@
 
 ***
 ## ◆設計書
-- 要件定義書
-
-> URLを記載(.pages)
 
 - 機能一覧
 
@@ -78,7 +75,7 @@
 
 - アプリケーション詳細設計
 
-> URLを記載(スプレットシート)
+[Stop! Single Golf詳細設計.pdf](https://github.com/Alexander4649/Stop_Single_Golf/files/9335021/Stop.Single.Golf.pdf)
 
 - テスト仕様書
 
