@@ -29,13 +29,22 @@
   background: #7da4cd;
 }
 
-// 自分のチャットコメント部分
+// 自分のチャットコメント
 .mycomment span {
   display: inline-block;
   position: relative;
   padding: 7px;
   border-radius: 12px;
   font-size: 15px;
+}
+// 自分のチャットコメント部分
+.mycomment_says {
+  display: inline-block;
+  padding: 9px;
+  border-radius: 12px;
+  background: #edf1ee;
+  background-color: #CCFFFF;
+  // width: fit-content;
 }
 
 // 自分の写真設定
@@ -46,12 +55,12 @@
 }
 
 // 相手のチャットコメント部分
-.says {
+.partner_says {
   display: inline-block;
   padding: 9px;
   border-radius: 12px;
   background: #edf1ee;
-  background-color: #C0C0C0;
+  background-color: #FFEEFF;
   // width: fit-content;
 }
 
@@ -72,4 +81,12 @@
   &:hover {
     text-decoration: none;
   }
+}
+
+// メッセージ部をhoverした時にelementが動作する設定/index 親子設定
+.change-element-style-chat .element-chat {
+  display: none; //消す
+}
+.change-element-style-chat:hover .element-chat {
+  display: unset; // 設定しない、hoverした時に何もしないよって意味
 }

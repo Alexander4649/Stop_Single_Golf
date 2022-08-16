@@ -6,9 +6,16 @@
 .scroll_post_comment {
   height: 300px;
   overflow: scroll;
-  width: 460px;
 }
 
 .comment_filed {
-  width: 460px;
+  width: 430px;
+}
+
+// コメント部をhoverした時にelementが動作する設定/index 親子設定
+.change-element-style-post_comment .element-post_comment {
+  display: none; //消す
+}
+.change-element-style-post_comment:hover .element-post_comment {
+  display: unset; // 設定しない、hoverした時に何もしないよって意味
 }

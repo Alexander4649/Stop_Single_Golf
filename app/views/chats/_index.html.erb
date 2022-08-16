@@ -1,41 +1,40 @@
 <div class="container offset-2 chats" style="width:1000px; height: 480px;">
-<div class="scroll_chat" id="area">
-  <% chats.each do |chat| %>
-    <% if chat.user_id == current_user.id %>
-      <div class="col text-left mycomment none-underline">
-          <span class="my_picture_size">
-            <%= link_to user_path(current_user) do %>
-            <%= image_tag current_user.get_profile_image %>
+  <div class="scroll_chat" id="area">
+    <% chats.each do |chat| %>
+      <% if chat.user_id == current_user.id %>
+        <div class="col text-left mycomment none-underline change-element-style-chat">
+            <span class="my_picture_size">
+              <%= link_to user_path(current_user) do %>
+              <%= image_tag current_user.get_profile_image %>
+              <% end %>
+            </span>
+            <span class="mycomment_says"><%= chat.message %></span>
+          <% chat.images.each do |image| %>
+            <%= link_to image.url, "data-lightbox" => image do %>
+            <%= image_tag image.url,size:'50x50', class: "ml-2" %>
             <% end %>
-          </span>
-        <span class="says"><%= chat.message %></span>
-        <% chat.images.each do |image| %>
-          <%= link_to image.url, "data-lightbox" => image do %>
-          <%= image_tag image.url,size:'50x50', class: "ml-2" %>
           <% end %>
-        <% end %>
-        <%= link_to chat_destroy_path(room.id, chat.id), method: :delete, remote:true do %>
-        <i class="fas fa-trash-alt text-dark ml-3"></i>
-        <% end %>
-      </div>
-    <% else %>
-    
-      <div class="col-12 mt-1 text-right none-underline">
-        <% chat.images.each do |image| %>
-          <%= link_to image.url, "data-lightbox" => image do %>
-          <%= image_tag image.url,size:'50x50', class: "ml-2" %>
+          <%= link_to chat_destroy_path(room.id, chat.id), method: :delete, remote:true, class: "element-chat" do %>
+            <i class="fas fa-trash-alt text-dark ml-3"></i>
           <% end %>
-        <% end %>
-        <span class="mt-1 mr-1 says"><%= chat.message %></span>
-        <span class="fukidasi">
-          <span class="faceicon mt-1">
-            <%= link_to user_path(user) do %>
-            <%= image_tag user.get_profile_image %>
+        </div>
+      <% else %>
+        <div class="col-12 mt-1 text-right none-underline">
+          <% chat.images.each do |image| %>
+            <%= link_to image.url, "data-lightbox" => image do %>
+            <%= image_tag image.url,size:'50x50', class: "ml-2" %>
             <% end %>
+          <% end %>
+          <span class="mt-1 mr-1 partner_says"><%= chat.message %></span>
+          <span class="fukidasi">
+            <span class="faceicon mt-1">
+              <%= link_to user_path(user) do %>
+              <%= image_tag user.get_profile_image %>
+              <% end %>
+            </span>
           </span>
-        </span>
-      </div>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
 </div>

@@ -15,3 +15,11 @@
   height: 430px;
   overflow: scroll;
 }
+
+// コメント部をhoverした時にelementが動作する設定/index 親子設定
+.change-element-style-group_comment .element-group_comment {
+  display: none; //消す
+}
+.change-element-style-group_comment:hover .element-group_comment {
+  display: unset; // 設定しない、hoverした時に何もしないよって意味
+}

@@ -1,29 +1,22 @@
 <div class="scroll_post_comment" id="area">
-<table class='row ml-auto align-self-start'>
-  <tbody>
-    <% post.post_comments.each do |post_comment| %>
-    <tr>
-      <td nowrap style="border: none; text-align: center;">
+  <% post.post_comments.each do |post_comment| %>
+    <div class="row ml-auto change-element-style-post_comment">
         <%= link_to user_path(post_comment.user) do %>
           <%= image_tag post_comment.user.get_profile_image, size: "50x50" %><br>
           <span class="text-dark" style="font-size:11px;"><%= post_comment.user.name %></span>
         <% end %>
-      </td>
-      <td style="border: none;"><u><%= post_comment.comment %></u></td>
-      <td style="border: none;">
+      <div class="col-8 ml-2 mt-2"><u><%= post_comment.comment %></u></div>
+      <div class="ml-2 mt-2">
         <% if post_comment.user == current_user %>
-          <%= link_to post_post_comment_path(post, post_comment), method: :delete, remote:true do %>
+          <%= link_to post_post_comment_path(post, post_comment), method: :delete, remote:true, class: "element-post_comment" do %>
           <i class="fas fa-trash-alt text-dark"></i>
           <% end %>
         <% elsif current_user.name == "管理者" %>
-          <%= link_to post_post_comment_path(post, post_comment), method: :delete, remote:true do %>
+          <%= link_to post_post_comment_path(post, post_comment), method: :delete, remote:true, class: "element-post_comment" do %>
           <i class="fas fa-trash-alt text-dark"></i>
           <% end %>
-        <% else %>
         <% end %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+      </div>
+    </div>
+  <% end %>
 </div>
