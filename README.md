@@ -86,6 +86,7 @@
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
+- gem："devise","image_processing","carrierwave","jquery-datetimepicker-rails", "kaminari","rails-i18n","enum_help","dotenv-rails"
 
 ***
 ## ◆使用素材

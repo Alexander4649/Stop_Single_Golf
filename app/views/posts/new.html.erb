@@ -50,7 +50,7 @@
   </div>
   
   <div class="form-group">
-    <div style="position:absolute; left:855px; bottom: 270px;"><%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]}, {}, {class: "custom-select"} %></div>
+    <div style="position:absolute; left:855px; bottom: 250px;"><%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]}, {}, {class: "custom-select"} %></div>
     <div style="position:absolute; left:880px; bottom: 180px;"><%= link_to "　戻る　", user_path(current_user), class: "btn btn-lg btn-secondary btn-outline-dark text-white" %></div>
     <div style="position:absolute; left:1080px; bottom: 180px;"><%= f.submit "投稿する" ,class: "button btn-lg" %></div>
   </div>

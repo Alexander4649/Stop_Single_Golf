@@ -77,7 +77,43 @@ appearance: none; /* 標準のスタイルを無効にする */
   margin-left: 450px;
 }
 
-// 画像が跳ねる
+.pagenation {
+  width: auto;
+  margin-left:550px;
+  margin-top:20px;
+}
+
+// swiperの設定、hover時に出現させる/show
+.mySwiper .swiper-button-prev, 
+.mySwiper .swiper-button-next {
+  opacity: 0;
+  transition: opacity 1s;
+}
+.mySwiper .swiper-button-prev.hover, 
+.mySwiper .swiper-button-next.hover {
+  opacity: 2;
+}
+.mySwiper .swiper-button-prev.swiper-button-disabled.hover, 
+.mySwiper .swiper-button-next.swiper-button-disabled.hover {
+  opacity: 0.35;
+}
+
+.image-box_stand {
+  pointer-events: auto;
+}
+
+// イイねボタンにhoverした時にelementが動作する設定/index
+.change-element-style {
+  pointer-events: none;
+}
+.change-element-style:hover .element-name {
+  color: #136FFF;
+}
+.change-element-style:hover .element-title {
+  color: #FF33CC;
+}
+
+// 画像が跳ねる/index
 .image-box_stand:hover {
     animation:bounce 0.8s ease-out;
 }
@@ -93,23 +129,18 @@ appearance: none; /* 標準のスタイルを無効にする */
     100%  { transform:translate(0, 0); }
 }
 
-.pagenation {
-  width: auto;
-  margin-left:550px;
-  margin-top:20px;
+// 画像が円形から四角形に/cofirm
+.img_wrap{
+  margin: 0 auto;
+  overflow: hidden;
 }
-
-// swiperの設定、hover時に出現させる
-.mySwiper .swiper-button-prev, 
-.mySwiper .swiper-button-next {
-  opacity: 0;
-  transition: opacity 1s;
+.img_wrap img{
+  width: 100%;
+  cursor: pointer;
+  border-radius: 50%;
+  transition-duration: 0.3s;
 }
-.mySwiper .swiper-button-prev.hover, 
-.mySwiper .swiper-button-next.hover {
-  opacity: 2;
-}
-.mySwiper .swiper-button-prev.swiper-button-disabled.hover, 
-.mySwiper .swiper-button-next.swiper-button-disabled.hover {
-  opacity: 0.35;
+.img_wrap img:hover{
+  border-radius: 0;
+  transition-duration: 0.3s;
 }
