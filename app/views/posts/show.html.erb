@@ -31,8 +31,7 @@
                 <i class="fas fa-edit fa-2x text-dark" style="position:absolute; margin-top:15px; margin-right:3px;"></i>
                 <% end %>
               <% end %>
-              <% if current_user.admin? %>
-              <% else %>
+              <% if !current_user.admin? %>
                 <% if @post.published? %>
               <span id="favorites-remote" style="position:absolute; margin-top:15px; margin-left:45px;"><%= render "favorites/favorite", post: @post %></span>
               <span id="bookmarks-remote" style="position:absolute; margin-top:17px; margin-left:145px;"><%= render "bookmarks/bookmark", post: @post %></span>
@@ -51,7 +50,7 @@
       </div>
       <div class='post-box col-4 mt-4 ml-4 mb-2'>
         <p class='p-title col mt-3'>Ψ　<%= @post.title %>　Ψ</p>
-        <p class='p-body mt-4 ml-3'><%= @post.body %></p>
+        <p class='p-body mt-4 ml-3'><%= simple_format(@post.body) %></p>
       </div>
       
        <div class="col-3 mt-4">

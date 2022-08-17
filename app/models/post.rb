@@ -1,4 +1,7 @@
 class Post < ApplicationRecord
+  
+  IMAGES_FILE_LIMIT = 5
+  
   belongs_to :user
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
@@ -7,21 +10,32 @@ class Post < ApplicationRecord
   accepts_nested_attributes_for :rounds, allow_destroy: true
   has_many :notifications, dependent: :destroy
   
-  validates :title, presence: true, length: { minimum: 2, maximum: 50 }
+  validates :title, presence: true, length: { minimum: 2, maximum: 20 }
   validates :body, presence: true, length: { minimum: 2, maximum: 200 }
   validates :round_day, presence: true
-  validates :round_place, presence: true, length: { minimum: 2, maximum: 30 }
+  validates :round_place, presence: true, length: { minimum: 2, maximum: 20 }
+  validate :images_amount
   # validates :post_image, presence: true
-  
-  
-  scope :latest, -> {order(created_at: :desc)}
-  scope :old, -> {order(created_at: :asc)}
   
   # has_one_attached :post_image
   # has_many_attached :post_images
   mount_uploaders :images, ImageUploader
   
+  scope :latest, -> {order(created_at: :desc)}
+  scope :old, -> {order(created_at: :asc)}
+  
   enum status: { published: 0, draft: 1 }
+  
+  # 添付ファイル数制限設定
+  def images_amount
+    if images.length > IMAGES_FILE_LIMIT
+      errors.add(:images, "は5枚以内にしてください")
+    end
+  end
+  
+  def post_errors
+    
+  end
   
   def score_result
     score = self.rounds
@@ -54,6 +68,7 @@ class Post < ApplicationRecord
     bookmarks.where(user_id: user).exists?
   end
   
+  # Like通知機能
   def create_notification_by(current_user)
 	    notification = current_user.active_notifications.new(
 	      post_id: id,
@@ -67,7 +82,8 @@ class Post < ApplicationRecord
 	    notification.save if notification.valid? #valid? => バリデーションが実行された結果、エラーが無い場合trueを返し，エラーが発生した場合falseを返す
 	    
   end
-
+  
+  # 投稿コメント通知機能
   def create_notification_post_comment!(current_user, post_comment_id)
 	    post_comment = PostComment.find(post_comment_id)
 	    post = post_comment.post
@@ -78,7 +94,7 @@ class Post < ApplicationRecord
 	   #コメントをされた投稿を取得し、postに代入
 	   #もし、コメントをしたユーザーが本人ではない場合は、saveメソッドを実行する。
   end
-
+  
   def save_notification_post_comment!(current_user, post_comment_id, visited_id)
       # コメントは複数回することが考えられるため、１つの投稿に複数回通知する
       notification = current_user.active_notifications.new(

@@ -58,7 +58,7 @@
     <table class='search_table table-borderless mt-3'>
       <tbody>
         <% @posts.each do |post| %>
-          <tr>
+          <tr class="change-element-style">
             <% if post.published? %>
               <td class="image-box_stand">
                 <%= link_to post_path(post.id) do %>
@@ -66,9 +66,9 @@
                 <% end %>
               </td>
               <td nowrap>
-                名前&emsp;&emsp;：<strong><%= post.user.name %></strong><br>
+                名前&emsp;&emsp;：<strong class="element-name"><%= post.user.name %></strong><br>
                 日付&emsp;&emsp;：<strong><%= post.round_day %></strong><br>
-                タイトル：<strong><%= post.title %></strong><br>
+                タイトル：<strong class="element-title"><%= post.title %></strong><br>
                 ラウンド：<strong><%= post.round_place %></strong><br>
                 スコア&emsp;：<strong><%= post.score_result[:score_total] %></strong><br>
                 コメント：<strong><%= post.post_comments.count %>件</strong><br>

@@ -42,7 +42,7 @@ ja:
       updated: 'アカウント情報を変更しました。'
     sessions:
       signed_in: 'ログインしました。'
-      signed_out: 'ログアウトしました。'
+      signed_out: ''
       already_signed_out: '既にログアウト済みです。'
     unlocks:
       send_instructions: 'アカウントの凍結解除方法を数分以内にメールでご連絡します。'
@@ -56,8 +56,8 @@ ja:
       not_found: 'は見つかりませんでした。'
       not_locked: 'は凍結されていません。'
       not_saved:
-        one: "エラーが発生したため %{resource} は保存されませんでした:"
-        other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした:"
+        one: "エラーが発生したため保存されませんでした:"
+        other: "%{count} 件のエラーが発生したため保存されませんでした:"
       taken: "は既に使用されています。"
       blank: "が入力されていません。"
       too_short: "は%{count}文字以上に設定して下さい。"

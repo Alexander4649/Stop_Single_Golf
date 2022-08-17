@@ -9,6 +9,10 @@ class BookmarksController < ApplicationController
     else
       @bookmarks = current_user.bookmarks.all.page(params[:page]).per(3)
     end
+    
+    if current_user.admin?
+      redirect_to user_path(current_user)
+    end
   end
 
   def create

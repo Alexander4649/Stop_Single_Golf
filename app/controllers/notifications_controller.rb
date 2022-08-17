@@ -8,6 +8,10 @@ class NotificationsController < ApplicationController
       #current_userの投稿に紐づいた通知全てを取得
       #@notificationの中でまだ確認していない(indexに一度も遷移していない)通知のみ表示される
       #中身を確認するとcheckがtrueになり、通知表示が消える
+      
+    if current_user.admin?
+      redirect_to user_path(current_user)
+    end
   end
   
       #通知を全削除

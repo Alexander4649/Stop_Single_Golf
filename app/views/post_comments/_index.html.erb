@@ -5,7 +5,7 @@
           <%= image_tag post_comment.user.get_profile_image, size: "50x50" %><br>
           <span class="text-dark" style="font-size:11px;"><%= post_comment.user.name %></span>
         <% end %>
-      <div class="col-8 ml-2 mt-2"><u><%= post_comment.comment %></u></div>
+      <div class="col-8 ml-2 mt-2"><u><%= simple_format(post_comment.comment) %></u></div>
       <div class="ml-2 mt-2">
         <% if post_comment.user == current_user %>
           <%= link_to post_post_comment_path(post, post_comment), method: :delete, remote:true, class: "element-post_comment" do %>

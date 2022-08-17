@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     if @post.save
        redirect_to post_path(@post.id)
     else
-      redirect_to new_post_path, alert: '未入力があります。'
+      redirect_to new_post_path, alert: "投稿を保存できませんでした。『文字数』『画像添付数』をご確認下さい。"
       # @score_result = {}
       # @score_result[:score_in] = params[:post][:f_score_in]
       # @score_result[:score_out] = params[:post][:f_score_in]
@@ -33,15 +33,13 @@ class PostsController < ApplicationController
   end
   
   def index
-    posts = Post.all
-    @posts = Post.published.page(params[:page]).reverse_order.per(3) #投稿するタグを選択した場合のみ取得する
     
     if params[:latest]
-      posts = Post.latest
+      @posts = Post.published.latest.page(params[:page]).per(3).reverse_order
     elsif params[:old]
-      posts = Post.old
+      @posts = Post.published.old.page(params[:page]).per(3).reverse_order
     else
-      posts = Post.all
+      @posts = Post.published.all.page(params[:page]).per(3).reverse_order #投稿するタグを選択した場合のみ取得する
     end
     
   end
@@ -62,7 +60,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
        redirect_to post_path(@post.id)
     else
-       redirect_to edit_post_path(@post), alert: '未入力があります。'
+       redirect_to edit_post_path(@post), alert: "投稿を更新できませんでした。『文字数』『画像添付数』をご確認下さい。"
     end
   end
   
