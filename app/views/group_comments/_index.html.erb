@@ -12,7 +12,7 @@
     </div>
   <% else %>
     <div class="row">
-      <div class="col-10 text-right mt-3 pr-1"><u><%= group_comment.comment %></u></div>
+      <div class="col-10 text-right mt-3 pr-1"><u><%= simple_format(group_comment.comment) %></u></div>
       <div class="col mt-2"><%= image_tag group_comment.user.get_profile_image, size: "40x40" %></div>
     </div>
   <% end %>
