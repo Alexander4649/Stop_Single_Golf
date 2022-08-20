@@ -1,11 +1,19 @@
 <%= render "layouts/header" %>
-<div>
-  <h2>本当に退会しますか？</h2>
-  <div>
-    <p>退会する場合は、『退会する』をクリックしてください。</p>
+<div class="container mt-5">
+  <h2 class="text-center">本当に退会しますか？</h2>
+  <div class="mt-5 text-center">
+    <p>
+      退会処理後は登録されたメールアドレス・パスワードが無効になります。<br>
+      退会処理後120時間以内であれば、Topページの『お問合せフォーム』よりアカウントの復元申請が可能です。<br>
+      ※復元処理に最大24時間かかることがあります。<br>
+      退会する場合は、『退会する』をクリックしてください。</p>
   </div>
-  <div>
-    <%= link_to '退会しない', user_path(current_user) %>
-    <%= link_to "退会する", withdraw_path(current_user), method: :patch %>
+  <div class="row mt-5">
+    <div class="col-5" align="right">
+      <%= link_to '退会しない', user_path(current_user), class: "btn btn-primary" %>
+    </div>
+    <div class="col-3" align="right">
+      <%= link_to "退会する", withdraw_path(current_user), method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger text-dark"  %>
+    </div>
   </div>
 </div>

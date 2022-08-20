@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   # }
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
-    post 'users/user_state', to: 'users/sessions#user_state'
   end
   
   root :to => "homes#top"
@@ -26,6 +25,8 @@ Rails.application.routes.draw do
     delete  "destroy_all" => "notifications#destroy_all"
     end
   end
+  
+  resources :contacts, only:[:new, :create, :show]
   
   resources :users,only:[:show, :index, :edit, :update, :destroy] do
     get "search_form" => "users#search_form"

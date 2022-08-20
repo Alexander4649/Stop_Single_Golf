@@ -1,0 +1,27 @@
+<%= render "homes/logo" %>
+
+<div style="font-size: 20px; font-weight:bold; color: red; position:absolute; left:110px;"><%= alert %></div>
+  
+<div class="container">
+  <div class="contact-form">アカウント復元申請フォーム</div>
+    
+  <%= form_with model:Contact.new do |f| %>
+  
+    <div class="contact-name-field">
+      <%= f.label :退会時ユーザーネーム %>&emsp;
+      <%= f.text_field :name, autocomplete: "name", :size=>"30x10" %>
+    </div>
+    
+    <div class="contact-email-field">
+      <%= f.label :退会時メールアドレス %>&emsp;
+      <%= f.email_field :email, autocomplete: "email" ,:size=>"30x10" %>
+    </div>
+
+    <div class="contact_actions col-7"><%= f.submit "　申請　", class: "button" %></div>
+ <% end %>
+ <div class="mt-5 text-center">
+    原則、退会処理後120時間以内でのアカウント復元申請が可能です。<br>
+    120時間を超過している場合は、復元申請を承れません。<br>
+    ※復元処理に最大24時間かかることがあります。<br>
+    </div>
+</div>

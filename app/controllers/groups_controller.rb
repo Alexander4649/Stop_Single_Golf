@@ -58,7 +58,6 @@ class GroupsController < ApplicationController
   end
   
   def destroy
-    #byebug
     @group = Group.find(params[:id])
     @group.destroy
     redirect_to groups_path

@@ -1,0 +1,37 @@
+// Place all the styles related to the contacts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.contact-form {
+  text-align: center;
+  font-size: 48px;
+  font-weight: 800;
+}
+
+.contact-name-field {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  padding-top: 60px;
+  padding-right: 53px;
+}
+
+.contact-email-field {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  padding-top: 60px;
+  padding-right: 50px;
+}
+
+.contact_actions {
+  padding-top: 30px;
+  margin-left: 30px;
+  text-align: end;
+}
+
+.contact-result {
+  text-align: center;
+  font-size: 24px;
+}

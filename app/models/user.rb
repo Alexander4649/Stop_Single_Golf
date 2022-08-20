@@ -12,8 +12,8 @@ class User < ApplicationRecord
   has_many :follows, through: :relationships, source: :follower
   has_many :followers, through: :reverse_of_relationships, source: :follow
   has_many :bookmarks, dependent: :destroy
-  has_many :groups, through: :group_users
   has_many :group_users, dependent: :destroy
+  has_many :groups, through: :group_users, dependent: :destroy
   has_many :group_comments, dependent: :destroy
   has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
@@ -50,9 +50,9 @@ class User < ApplicationRecord
  end
  
   # is_deletedがfalseならtrueを返すようにしている
-  def active_for_authentication?
-    super && (is_deleted == false)
-  end
+  # def active_for_authentication?
+  #   super && (is_deleted == false)
+  # end
  
  #ゲストユーザー情報
  def self.guest

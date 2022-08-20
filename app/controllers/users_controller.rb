@@ -63,10 +63,15 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
   
+  # 復元機能(管理者専用)
   def restoration
-    @user = User.find(params[:id])
-    @user.update(is_deleted: false)
-    redirect_to users_path
+    if current_user.name == "管理者"
+      @user = User.find(params[:id])
+      @user.update(is_deleted: false)
+      redirect_to users_path
+    else
+      redirect_to request.referer
+    end
   end
   
   private

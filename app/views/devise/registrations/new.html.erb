@@ -1,10 +1,11 @@
 <div class= "backgroud_image_signup">
   
   <%= render "homes/logo" %>
-  <%= notice %>
+  <div style="font-size: 20px; color: red; position:absolute;left:110px;">
+    <%= render "devise/shared/error_messages", resource: resource %><%= notice %>
+  </div>
   
   <div class="signup-text">Sign up</div>
-  <%= render "devise/shared/error_messages", resource: resource %>
   
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   
