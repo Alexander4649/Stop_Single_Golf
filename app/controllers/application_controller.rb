@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :user_state, only: [:create]
   # before_action :authenticate_user
 
   private
@@ -22,4 +23,18 @@ class ApplicationController < ActionController::Base
   #     redirect_to("/users/sign_in")
   #   end
   # end
+  protected
+  
+   # 会員の論理削除のための記述。退会後は、同じアカウントでは利用できない。
+  def user_state
+    @user = User.find_by(name: params[:user][:name])
+    if @user 
+      if @user.valid_password?(params[:user][:password]) && (@user.is_deleted == true)
+        flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
+        redirect_to new_user_registration_path
+      else
+        flash[:notice] = "項目を入力してください"
+      end
+    end
+  end
 end

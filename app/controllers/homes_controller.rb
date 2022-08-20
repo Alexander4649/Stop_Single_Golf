@@ -7,4 +7,5 @@ class HomesController < ApplicationController
   
   def logout
   end
+  
 end

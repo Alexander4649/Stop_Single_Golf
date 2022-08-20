@@ -7,7 +7,7 @@ class SearchesController < ApplicationController
     @word = params[:word]
 
     if @range == "Name"
-      @users = User.looks(params[:search], params[:word]).page(params[:page]).per(6)
+      @users = User.looks(params[:search], params[:word]).page(params[:page]).per(7) # ゲストユーザー・管理者が含まれているので、1ページ目は5名となる 
     elsif @range == "Place"
       @posts = Post.published.looks(params[:search], params[:word]).page(params[:page]).per(3)
     else

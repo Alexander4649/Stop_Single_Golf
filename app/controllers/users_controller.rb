@@ -19,6 +19,8 @@ class UsersController < ApplicationController
     else
       redirect_to user_path(current_user)
     end
+    
+    @users = @users.page(params[:page]).per(7)
   end
   
   #管理者はeditに遷移できない
@@ -47,10 +49,30 @@ class UsersController < ApplicationController
     end
   end
   
+   # 退会確認画面
+  def unsubscribe
+    @user = User.find(params[:id])
+  end
+  
+  # 退会機能
+  def withdraw
+     @user = User.find(params[:id])
+    # is_deletedカラムをtrueに変更することにより削除フラグを立てる
+    @user.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
+  end
+  
+  def restoration
+    @user = User.find(params[:id])
+    @user.update(is_deleted: false)
+    redirect_to users_path
+  end
+  
   private
   
   def user_params
-    params.require(:user).permit(:name, :profile_image, :round_area, :average_score, :experience)
+    params.require(:user).permit(:name, :profile_image, :round_area, :average_score, :experience, :is_deleted)
   end
   
   def ensure_correct_user

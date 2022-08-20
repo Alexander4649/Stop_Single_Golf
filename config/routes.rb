@@ -7,13 +7,9 @@ Rails.application.routes.draw do
   # }
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+    post 'users/user_state', to: 'users/sessions#user_state'
   end
   
-  #管理者機能が少ない為、今回は使用しないこととする。
-  #仕様変更できる様に、コメントアウトとする。
-  # devise_for :admins, controllers: {
-  # sessions: "admin/sessions"
-  # }
   root :to => "homes#top"
   get "home/about" => "homes#about"
   get "home/logout" => "homes#logout"
@@ -21,6 +17,9 @@ Rails.application.routes.draw do
   get 'chat/:user_id' => 'chats#show', as: 'chat'
   delete 'rooms/:room_id/chat_destroy/:id' => 'chats#destroy', as: 'chat_destroy'
   post 'rooms/:room_id/chats' => 'chats#create', as: 'chat_create'
+  get '/users/:id/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
+  patch '/users/:id/withdraw' => 'users#withdraw', as: 'withdraw'
+  patch '/users/:id/restoration' => 'users#restoration', as: 'restoration'
   
   resources :notifications, only: :index do
     collection do
@@ -52,4 +51,5 @@ Rails.application.routes.draw do
     delete "out" => "groups#out"
     resources :group_comments,only:[:create, :destroy]
   end
+  
 end

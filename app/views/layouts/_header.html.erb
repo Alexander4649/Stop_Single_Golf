@@ -77,6 +77,14 @@
               <% end %>
             </li>
             
+            <% if !current_user.admin? %>
+            <li class="nav-item">
+              <%= link_to unsubscribe_path(current_user), class: 'nav-link text-dark' do %> 
+                <i class="fas fa-sign-out-alt"></i> withdrawal
+              <% end %>
+            </li>
+            <% end %>
+            
           <% end %>
         </ul>
       </div>
