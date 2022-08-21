@@ -26,7 +26,8 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :contacts, only:[:new, :create, :show]
+  resources :contacts, only:[:new, :create, :index, :destroy]
+  get '/contact/:token' => 'contacts#show', as: 'contact_show' #URL直打ち防止する => 乱数を指定する為に:idではなく:tokenを使用する
   
   resources :users,only:[:show, :index, :edit, :update, :destroy] do
     get "search_form" => "users#search_form"

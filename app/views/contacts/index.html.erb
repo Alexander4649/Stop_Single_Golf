@@ -1,0 +1,61 @@
+<%= render "layouts/header" %>
+<div class='container px-5 px-sm-0 mt-5'>
+  <div class='row'>
+    <div class='col-md-8'>
+      <h2>Request for Restorations</h2>
+      <table class="table table-borderless ml-4 mt-4" style="text-align: center;">
+        <thead>
+          <tr>
+            <th nowrap colspan="4">申請時刻</th>
+            <th nowrap colspan="4">ユーザーネーム</th>
+            <th nowrap colspan="4">メールアドレス</th>
+            <th nowrap colspan="4">対応残り時間</th>
+             <th nowrap colspan="4"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @contacts.each do |contact| %>
+           <% if contact.name != "管理者" && contact.name != "ゲストユーザー" %>
+          <tr>
+            <td nowrap colspan="4" style="vertical-align:middle;"><%= contact.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+            <td nowrap colspan="4" style="vertical-align:middle;"><%= contact.name %></td>
+            <td nowrap colspan="4" style="vertical-align:middle;"><%= contact.email %></td>
+            <td id="coutdown_time_<%= contact.id %>" style="vertical-align:middle;"></td>
+            <td nowrap colspan="5" style="vertical-align:middle;"><%= link_to "完了", contact_path(contact.id), method: :delete, "data-confirm" => "完了更新します。よろしいですか？", class: "btn btn-primary" %></td>
+          </tr>
+           <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="pagenation"><%= paginate @contacts %></div>
+
+<script>
+  function countdown(){
+  <% @contacts.each do |contact| %>
+  {
+  const now = new Date();//今の時間
+  const d1 = new Date(<%= contact.created_at.tomorrow.to_f * 1000 %>) //ruby => javascriptへ変換する。=> 1000をかけるとR=>J 1000を割るとJ=>R
+  const differ = d1.getTime()-now.getTime();//あと何秒か計算
+  
+  const sec=Math.floor(differ/1000)%60;//ミリ秒を秒に直してから
+  const min=Math.floor(differ/1000/60)%60;//1時間=60分だからね
+  const hour=Math.floor(differ/1000/60/60);
+  
+  // ruby "#{hennsuu}"
+  
+  // javascript `${hennsuu}`
+  
+  // document.getElementById("hour").textContent=String(hour).padStart(2,"0"); //一桁になった時0がつくように
+  // document.getElementById("min").textContent=String(min).padStart(2,"0")
+  // document.getElementById("sec").textContent=String(sec).padStart(2,"0")
+  $('#coutdown_time_<%= contact.id %>').text(`${String(hour).padStart(2,"0")}:${String(min).padStart(2,"0")}:${String(sec).padStart(2,"0")}`);
+  }
+  <% end %>
+  setTimeout(countdown,1000);//1秒毎に繰り返す
+  }
+  countdown();
+</script>

@@ -11,7 +11,7 @@
   
     <div class="container signup-form">
       
-      <div class="row signup-form_for mt-5">
+      <div class="row signup-form_for mt-3">
         <span class="col-7 signup-lavel"><%= f.label :ユーザーネーム %></span>
         <span class="col-5 signup-field"><%= f.text_field :name ,:size=>"30x10" %></span>
       </div>
@@ -33,7 +33,7 @@
         </div>
         <div class="col">
         <div class="signup-button col-11 ml-4"><%= f.submit "登録" , class: "button"%></div>
-        <div class="login-link col-11 ml-4"><%= render "devise/shared/links" %></div>
+        <div class="login-link col-11 ml-4" style="font-size:15px; font-weight: normal;"><%= render "devise/shared/links" %></div>
         </div>
       </div>
  <% end %>

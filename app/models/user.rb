@@ -12,9 +12,9 @@ class User < ApplicationRecord
   has_many :follows, through: :relationships, source: :follower
   has_many :followers, through: :reverse_of_relationships, source: :follow
   has_many :bookmarks, dependent: :destroy
-  has_many :group_users, dependent: :destroy
-  has_many :groups, through: :group_users, dependent: :destroy
+  has_many :group_users, dependent: :delete_all
   has_many :group_comments, dependent: :destroy
+  has_many :groups, through: :group_users
   has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
   has_many :user_rooms, dependent: :destroy

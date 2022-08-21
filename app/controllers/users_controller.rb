@@ -43,6 +43,7 @@ class UsersController < ApplicationController
     if current_user.name == "管理者"
        @user = User.find(params[:id])
        @user.destroy
+       Group.where(user_id: @user.id).destroy_all #groupのdependent: :destroyが反応しない為、直接記述しています。中間テーブルを使用しているとdestroyが反応しない模様・・・
        redirect_to users_path
     else
        redirect_to request.referer

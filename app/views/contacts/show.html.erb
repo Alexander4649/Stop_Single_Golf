@@ -1,6 +1,13 @@
 <%= render "homes/logo" %>
-
-<div class="contact-result">
-  <%= @contact.name %>
-  <%= @contact.email %>
+<div class="container">
+  <div class="contact-result-message">
+    復元申請が完了しました。<br>
+    復元処理に<u>最大24時間</u>かかることがあります。<br>
+    復元処理後はメールアドレス・パスワードにてログイン頂けます。<br>
+  </div>
+  <div class="contact-result">
+    <div>申請ユーザーネーム：<strong><%= @contact.name %></strong></div>
+    <div class="result-email">申請メールアドレス：<strong><%= @contact.email %></strong></div>
+  </div>
+  <%= link_to "　Topへ　", root_path, class: "btn btn-lg btn-warning btn-outline-dark text-body back_button" %>
 </div>
