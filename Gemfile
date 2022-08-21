@@ -60,6 +60,7 @@ gem 'jquery-datetimepicker-rails'
 gem 'kaminari','~> 1.2.1'
 gem 'rails-i18n'
 gem 'enum_help'
+gem 'whenever', require: false
 
 gem 'dotenv-rails'
 group :production do

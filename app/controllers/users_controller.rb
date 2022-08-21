@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user! #ログイン中か確認
   before_action :ensure_correct_user, only: [:edit, :update] #機能制限
-  #before_action :ensure_guest_user, only: [:edit] #ゲストユーザーに機能制限
+  #before_action :ensure_guest_user, only: [:edit] #ゲストユーザーに機能制限、今回はユーザーネームのみ変更できない
   
   def show
     @user = User.find(params[:id])
@@ -88,7 +88,7 @@ class UsersController < ApplicationController
     end
   end
   
-  # ポートフォリオ提出時はOFFにしておく
+  # 今回はユーザーネームのみ変更できないようにしてます。
   # def ensure_guest_user
   #   @user = User.find(params[:id])
   #   if @user.name == "ゲストユーザー"
