@@ -49,10 +49,10 @@ class User < ApplicationRecord
     end
  end
  
-  # is_deletedがfalseならtrueを返すようにしている
-  # def active_for_authentication?
-  #   super && (is_deleted == false)
-  # end
+  # 退会したアカウントが使用できないようにする。=> is_deletedがfalseならtrueを返すようにしている
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
  
  #ゲストユーザー情報
  def self.guest
