@@ -47,3 +47,17 @@
 .card-wrapper {
   display:flex;
 }
+
+// 退会確認文
+.unsubscribe_info_message {
+  margin-top: 30px;
+  margin-left: 200px;
+}
+
+// 退会最終確認文
+.unsubscribe_message {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+}

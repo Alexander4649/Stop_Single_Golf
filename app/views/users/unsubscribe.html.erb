@@ -1,14 +1,15 @@
 <%= render "layouts/header" %>
 <div class="container mt-5">
   <h2 class="text-center">本当に退会しますか？</h2>
-  <div class="mt-5 text-center">
-    <p>
-      退会処理後は登録されたメールアドレス・パスワードが無効になります。<br>
-      退会処理後120時間以内は、アカウントのログは削除されません。<br>
-      退会処理後120時間以内であれば、Topページの『お問合せフォーム』よりアカウントの復元申請が可能です。<br>
-      ※復元処理に最大24時間かかることがあります。<br>
-      退会する場合は、『退会する』をクリックしてください。</p>
+  <div class="unsubscribe_info_message">
+    <li>退会処理後は登録されたメールアドレス・パスワードが無効になります。</li>
+    <li>退会処理後一定期間内は、アカウントのログは削除されません。</li>
+    <li>退会処理後一定期間内であれば、Topページの『お問合せフォーム』よりアカウントの復元申請が可能です。</li>
+    <span class="ml-4">※復元処理に最大24時間かかることがあります。</span>
+    <li>退会されたアカウントは毎週日曜日24時に完全削除されます。</li>
+    <span class="ml-4">※金曜日24時01分以降〜日曜日23時59分までに退会処理したアカウントは削除対象が翌週扱いとなります。<br></span>
   </div>
+  <div class="unsubscribe_message">退会処理を行う場合は、『退会する』をクリックしてください。</div>
   <div class="row mt-5">
     <div class="col-5" align="right">
       <%= link_to '退会しない', user_path(current_user), class: "btn btn-primary" %>
