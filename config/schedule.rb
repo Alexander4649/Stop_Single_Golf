@@ -7,45 +7,42 @@ set :environment, rails_env
 # cronのログの吐き出し場所
 set :output, "#{Rails.root}/log/cron.log"
 
-
 # stagingのみで実行
-if rails_env.to_sym != :development
   # clear cache
-  every 1.minute do
-    begin
-      rake 'hoge:huga', :environment_variable => "RAILS_ENV", :environment => "development"
-    rescue => e #例外処理とは、プログラムが想定していないデータが入力された場合、プログラムを異常で中断させることなく利用者や管理者に通知する処理に切り替える仕組み(レスキュー)
-      Rails.logger.error("aborted rake task")
-      raise e #エラーが起きた時はlogで教えてね的な感じ(レイズ)
-    end
+every 1.minute do
+  begin
+    rake 'hoge:huga', :environment_variable => "RAILS_ENV", :environment => "development"
+  rescue => e #例外処理とは、プログラムが想定していないデータが入力された場合、プログラムを異常で中断させることなく利用者や管理者に通知する処理に切り替える仕組み(レスキュー)
+    Rails.logger.error("aborted rake task")
+    raise e #エラーが起きた時はlogで教えてね的な感じ(レイズ)
   end
 end
 
 
 
-#毎週金曜日24時に会員ステータスが退会のUser.idを抽出
-if rails_env.to_sym != :development
-  every :friday, :at => '12pm' do
-    begin
-      rake 'is_delited_users:find', :environment_variable => "RAILS_ENV", :environment => "development"
-    rescue => e
-      Rails.logger.error("aborted rake task")
-      raise e
-    end
-  end
-end
+# #毎週金曜日24時に会員ステータスが退会のUser.idを抽出
+# if rails_env.to_sym != :development
+#   every :friday, :at => '12pm' do
+#     begin
+#       rake 'is_delited_users:find', :environment_variable => "RAILS_ENV", :environment => "development"
+#     rescue => e
+#       Rails.logger.error("aborted rake task")
+#       raise e
+#     end
+#   end
+# end
 
-#毎週日曜日24時に抽出したUser.idを全削除
-if rails_env.to_sym != :development
-  every :sunday, :at => '12pm' do 
-    begin
-      rake 'destroy_users:destroy', :environment_variable => "RAILS_ENV", :environment => "development"
-    rescue => e
-      Rails.logger.error("aborted rake task")
-      raise e
-    end
-  end
-end
+# #毎週日曜日24時に抽出したUser.idを全削除
+# if rails_env.to_sym != :development
+#   every :sunday, :at => '12pm' do 
+#     begin
+#       rake 'destroy_users:destroy', :environment_variable => "RAILS_ENV", :environment => "development"
+#     rescue => e
+#       Rails.logger.error("aborted rake task")
+#       raise e
+#     end
+#   end
+# end
 
 
 #begin～rescue～endの基本構文
