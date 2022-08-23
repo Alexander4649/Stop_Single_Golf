@@ -9,9 +9,18 @@ set :output, "#{Rails.root}/log/cron.log"
 
 # stagingのみで実行
   # clear cache
-every 1.minute do
+every 3.minute do
   begin
-    rake 'hoge:huga', :environment_variable => "RAILS_ENV", :environment => "development"
+    rake 'is_deleted_users:find', :environment_variable => "RAILS_ENV", :environment => "development"
+  rescue => e #例外処理とは、プログラムが想定していないデータが入力された場合、プログラムを異常で中断させることなく利用者や管理者に通知する処理に切り替える仕組み(レスキュー)
+    Rails.logger.error("aborted rake task")
+    raise e #エラーが起きた時はlogで教えてね的な感じ(レイズ)
+  end
+end
+
+every 5.minute do
+  begin
+    rake 'destroy_users:destroy', :environment_variable => "RAILS_ENV", :environment => "development"
   rescue => e #例外処理とは、プログラムが想定していないデータが入力された場合、プログラムを異常で中断させることなく利用者や管理者に通知する処理に切り替える仕組み(レスキュー)
     Rails.logger.error("aborted rake task")
     raise e #エラーが起きた時はlogで教えてね的な感じ(レイズ)
@@ -19,12 +28,11 @@ every 1.minute do
 end
 
 
-
 # #毎週金曜日24時に会員ステータスが退会のUser.idを抽出
 # if rails_env.to_sym != :development
 #   every :friday, :at => '12pm' do
 #     begin
-#       rake 'is_delited_users:find', :environment_variable => "RAILS_ENV", :environment => "development"
+#       rake 'is_deleted_users:find', :environment_variable => "RAILS_ENV", :environment => "development"
 #     rescue => e
 #       Rails.logger.error("aborted rake task")
 #       raise e
