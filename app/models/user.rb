@@ -19,7 +19,7 @@ class User < ApplicationRecord
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
   has_many :user_rooms, dependent: :destroy
   has_many :chats, dependent: :destroy
-  has_one :remove_reserve_user
+  # has_one :remove_reserve_user
   
   validates :name, presence: true, uniqueness: true
   
