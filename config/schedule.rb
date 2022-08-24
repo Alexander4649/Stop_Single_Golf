@@ -13,7 +13,7 @@ every :Friday, at: '24:00' do
   begin
     rake 'is_deleted_users:find'
   rescue => e #例外処理とは、プログラムが想定していないデータが入力された場合、プログラムを異常で中断させることなく利用者や管理者に通知する処理に切り替える仕組み(レスキュー)
-    Rails.logger.error("aborted rake task")
+    Rails.logger.error("aborted rake task") #aborted rake task(タスクを中止する)ってエラーlogに出してね〜
     raise e #エラーが起きた時はlogで教えてね的な感じ(レイズ)
   end
 end
@@ -22,9 +22,9 @@ end
 every :sunday, at: '24:00' do
   begin
     rake 'destroy_users:destroy'
-  rescue => e #例外処理とは、プログラムが想定していないデータが入力された場合、プログラムを異常で中断させることなく利用者や管理者に通知する処理に切り替える仕組み(レスキュー)
+  rescue => e
     Rails.logger.error("aborted rake task")
-    raise e #エラーが起きた時はlogで教えてね的な感じ(レイズ)
+    raise e
   end
 end
 
