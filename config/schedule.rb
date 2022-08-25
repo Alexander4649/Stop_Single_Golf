@@ -1,15 +1,15 @@
 # Rails.rootを使用するために必要
 require File.expand_path(File.dirname(__FILE__) + "/environment")
 # cronを実行する環境変数
-rails_env = ENV['RAILS_ENV'] || :production
+rails_env = ENV['RAILS_ENV'] || :development
 # cronを実行する環境変数をセット
-set :production, rails_env
+set :environment, :productio, rails_env
 # cronのログの吐き出し場所
 set :output, "#{Rails.root}/log/cron.log"
 
   
 #毎週金曜日24時に会員ステータスが退会のUser.idを抽出
-every :Thursday, at: '20:24' do
+every :Thursday, at: '20:30' do
 # every :Friday, at: '24:00' do
   begin
     rake 'is_deleted_users:find'
@@ -20,7 +20,7 @@ every :Thursday, at: '20:24' do
 end
 
 #毎週日曜日24時に抽出したUser.idを全削除
-every :Thursday, at: '20:25' do
+every :Thursday, at: '20:31' do
 # every :sunday, at: '24:00' do
   begin
     rake 'destroy_users:destroy'
