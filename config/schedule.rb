@@ -9,7 +9,8 @@ set :output, "#{Rails.root}/log/cron.log"
 
   
 #毎週金曜日24時に会員ステータスが退会のUser.idを抽出
-every :Friday, at: '24:00' do 
+every :Thursday, at: '20:15' do
+# every :Friday, at: '24:00' do
   begin
     rake 'is_deleted_users:find'
   rescue => e #例外処理とは、プログラムが想定していないデータが入力された場合、プログラムを異常で中断させることなく利用者や管理者に通知する処理に切り替える仕組み(レスキュー)
@@ -19,7 +20,8 @@ every :Friday, at: '24:00' do
 end
 
 #毎週日曜日24時に抽出したUser.idを全削除
-every :sunday, at: '24:00' do
+every :Thursday, at: '20:16' do
+# every :sunday, at: '24:00' do
   begin
     rake 'destroy_users:destroy'
   rescue => e
