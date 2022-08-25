@@ -6,12 +6,6 @@ rails_env = ENV['RAILS_ENV'] || :development
 set :environment, rails_env
 # cronのログの吐き出し場所
 set :output, "#{Rails.root}/log/cron.log"
-
-# require File.expand_path(File.dirname(__FILE__) + "/environment")
-# set :environment, :production  # 本番環境に変更
-# set :output, "#{Rails.root}/log/cron.log"
-# set :runner_command, "rails runner"
-
   
 #毎週金曜日24時に会員ステータスが退会のUser.idを抽出
 every :Thursday, at: '21:12' do
