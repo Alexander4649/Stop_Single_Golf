@@ -2,7 +2,7 @@
 <div style="font-size: 20px; color: red; position:absolute; margin-top:10px; left:110px;"><%= alert %></div>
 
 <div class="container">
-  <div class="mt-4" style="text-align:center; font-size:48px; font-weight:bold;">Posting Do!</div>
+  <div class="mt-5" style="text-align:center; font-size:48px; font-weight:bold;">Posting Do!</div>
 </div>
 
 <%= form_with model: @post, local:true do |f| %>
@@ -33,14 +33,14 @@
       <label for="col-3" style="font-size:24px;">ラウンド場所</label>
       <div class=""><%= f.text_field :round_place ,size: "40×20" %></div>
 
-      <div class='col-md-3' style="position:absolute; bottom:-50px; right:110px;">
+      <div class='col-md-3' style="position:absolute; bottom:-70px; right:110px;">
         <label style="font-size:24px;">本文</lavel>
         <div style="text-align:end; font-size:16px;"><%= f.text_area :body, cols: 40, rows:6 %></div>
       </div>
     </div>
   </div>
   <div class="form-group">
-    <div class="row" style="position:absolute; left:260px; bottom: 270px;">
+    <div class="row" style="position:absolute; left:260px; bottom: 300px;">
       <div class=""style="font-size:24px;">
         OUT：<span id="score_out"><%= @post.score_result[:score_out] %></span>&emsp;&emsp;
         In：<span id="score_in"><%= @post.score_result[:score_in] %></span>&emsp;&emsp;&emsp;
@@ -50,12 +50,12 @@
   </div>
   
   <div class="form-group">
-    <div style="position:absolute; left:855px; bottom: 260px;"><%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]}, {}, {class: "custom-select"} %></div>
+    <div style="position:absolute; left:855px; bottom: 280px;"><%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]}, {}, {class: "custom-select"} %></div>
     <div style="position:absolute; left:880px; bottom: 180px;"><%= link_to "　戻る　", user_path(current_user), class: "btn btn-lg btn-secondary btn-outline-dark text-white" %></div>
     <div style="position:absolute; left:1080px; bottom: 180px;"><%= f.submit "投稿する" ,class: "button btn-lg" %></div>
   </div>
 
-      <table class="posting_table " style="background-color:gainsboro; position:absolute; bottom:180px;">
+      <table class="posting_table " style="background-color:gainsboro; position:absolute; bottom:200px;">
         <tr>
           <th>No.</th>
           <% (1..18).each do |n| %>

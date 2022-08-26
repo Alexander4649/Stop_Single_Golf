@@ -1,8 +1,8 @@
 <%= render "layouts/header" %>
-<div class="cotainer mt-5">
+<div class="cotainer mt-4">
       <div class="reorder-index">
-       <%= link_to '新しい投稿順', posts_path(latest: "true"), class: "text-dark"%>&ensp; |&ensp;
-       <%= link_to '古い投稿順', posts_path(old: "true"), class: "text-dark" %>
+       <%= link_to '古い投稿順', posts_path(latest: "true"), class: "text-dark"%>&ensp; |&ensp;
+       <%= link_to '新しい投稿順', posts_path(old: "true"), class: "text-dark" %>
        </div>
   <table class='post_table table-borderless mt-3'>
     <tbody>

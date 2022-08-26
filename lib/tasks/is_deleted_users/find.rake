@@ -12,7 +12,6 @@ namespace :is_deleted_users do
   end
 end
 
-
 # 同じテーブルでis_deletedをinteger型にする場合
 # @is_delited_users = User.where(is_deleted: 1)
 # @is_deleted_users.each do |user|

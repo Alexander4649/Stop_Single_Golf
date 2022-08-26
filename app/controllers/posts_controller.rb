@@ -35,11 +35,11 @@ class PostsController < ApplicationController
   def index
     
     if params[:latest]
-      @posts = Post.published.latest.page(params[:page]).per(3).reverse_order
+      @posts = Post.published.latest.page(params[:page]).per(4).reverse_order
     elsif params[:old]
-      @posts = Post.published.old.page(params[:page]).per(3).reverse_order
+      @posts = Post.published.old.page(params[:page]).per(4).reverse_order
     else
-      @posts = Post.published.all.page(params[:page]).per(3).reverse_order #投稿するタグを選択した場合のみ取得する
+      @posts = Post.published.all.page(params[:page]).per(4).reverse_order #投稿するタグを選択した場合のみ取得する
     end
     
   end

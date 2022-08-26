@@ -3,11 +3,11 @@ class BookmarksController < ApplicationController
   
   def index
     if params[:latest]
-      @bookmarks = current_user.bookmarks.latest.page(params[:page]).per(3)
+      @bookmarks = current_user.bookmarks.latest.page(params[:page]).per(4)
     elsif params[:old]
-      @bookmarks = current_user.bookmarks.old.page(params[:page]).per(3)
+      @bookmarks = current_user.bookmarks.old.page(params[:page]).per(4)
     else
-      @bookmarks = current_user.bookmarks.all.page(params[:page]).per(3)
+      @bookmarks = current_user.bookmarks.all.page(params[:page]).per(4)
     end
     
     if current_user.admin?
