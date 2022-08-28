@@ -55,7 +55,7 @@
 
 - 機能一覧
 
-<img width="1367" alt="スクリーンショット 2022-08-28 19 48 57" src="https://user-images.githubusercontent.com/105344687/187070523-ec425b7f-a63c-42be-bb40-3b16ed745b96.png">
+<img width="1361" alt="スクリーンショット 2022-08-28 20 11 51" src="https://user-images.githubusercontent.com/105344687/187071192-1a4225aa-43cb-4b4c-a671-f34ddf11991a.png">
 
 * ER図
 ![GOLF-ER図](https://user-images.githubusercontent.com/105344687/187071086-5ea7cda9-21e8-4cb2-8eae-cbc93081c922.jpg)
