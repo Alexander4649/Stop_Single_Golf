@@ -34,7 +34,7 @@
         <div class="row mt-3">
             <div class="col-4 mt-4 ml-5" align="end"><%= link_to "戻る" , user_path(current_user), class: "btn btn-lg btn-secondary" %></div>
             <div class="col-2 mt-4 ml-5" align="center"><%= f.submit "変更する", class: "button"  %></div>
-            <% if !current_user.admin? %>
+            <% if !current_user.admin? && @user.name != "ゲストユーザー" %>
               <div class="col-3 mt-4" align="center"><%=  link_to "退会する", unsubscribe_path(current_user), class: 'btn btn-lg btn-danger'%></div>
             <% end %>
         </div>
