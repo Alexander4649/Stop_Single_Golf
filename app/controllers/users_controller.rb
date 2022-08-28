@@ -50,9 +50,12 @@ class UsersController < ApplicationController
     end
   end
   
-   # 退会確認画面
+   # 退会確認画面(管理者とゲストユーザーは退会画面に遷移禁止)
   def unsubscribe
     @user = User.find(params[:id])
+    if @user.name == "ゲストユーザー" || @user.name == "管理者"
+      redirect_to user_path(current_user)
+    end
   end
   
   # 退会機能
