@@ -13,22 +13,20 @@ User.create!(
   password: 'admin1',
   password_confirmation: 'admin1',
   admin: true
-  # state_id: 45,
 )
 
 # テストユーザー
 User.create!(
-  name: 'TestUser1',
+  name: 'TestUser1', #メインユーザー
   email: 'testuser1@example.com',
   password: '111111',
   password_confirmation: '111111',
   round_area: '沖縄県',
   average_score: '88',
   experience: '8年8ヶ月',
-  # profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}./app/images/about.jpeg"), filename:"about"),
-  # profile_image: "./app/images/about.jpeg"
 )
 
+# サブユーザー
 User.create!(
   name: 'TestUser2',
   email: 'testuser2@example.com',
