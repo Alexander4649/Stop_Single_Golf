@@ -58,7 +58,7 @@
 <img width="1367" alt="スクリーンショット 2022-08-28 19 48 57" src="https://user-images.githubusercontent.com/105344687/187070523-ec425b7f-a63c-42be-bb40-3b16ed745b96.png">
 
 * ER図
-![GOLF-ER図](https://user-images.githubusercontent.com/105344687/184579460-a19f9cc4-7ad2-4bd4-a117-db673f012480.jpg)
+![GOLF-ER図](https://user-images.githubusercontent.com/105344687/187071086-5ea7cda9-21e8-4cb2-8eae-cbc93081c922.jpg)
 
 * ワイヤーフレーム(User)
 ![Golf-UI Forws(ユーザー側)](https://user-images.githubusercontent.com/105344687/180429441-f5c54968-5a09-4460-b592-9ae41a1c4f70.jpg)
@@ -90,4 +90,3 @@
 
 ***
 ## ◆使用素材
-> 使用が決まったら追記
