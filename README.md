@@ -69,7 +69,7 @@
 
 - テーブル定義書
 
-[テーブル提議書_Stop!_Single_golf.pdf](https://github.com/Alexander4649/Stop_Single_Golf/files/9167350/_Stop._Single_golf.pdf)
+[テーブル提議書_Stop!_Single_golf.pdf](https://github.com/Alexander4649/Stop_Single_Golf/files/9459697/_Stop._Single_golf.pdf)
 
 - アプリケーション詳細設計
 
