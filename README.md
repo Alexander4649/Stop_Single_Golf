@@ -73,7 +73,7 @@
 
 - アプリケーション詳細設計
 
-[Stop! Single Golf詳細設計.pdf](https://github.com/Alexander4649/Stop_Single_Golf/files/9335021/Stop.Single.Golf.pdf)
+[Stop! Single Golf_WBS - 詳細設計.pdf](https://github.com/Alexander4649/Stop_Single_Golf/files/9457692/Stop.Single.Golf_WBS.-.pdf)
 
 - テスト仕様書
 
