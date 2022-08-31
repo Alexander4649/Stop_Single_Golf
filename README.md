@@ -60,12 +60,14 @@
 * ER図
 ![GOLF-ER図](https://user-images.githubusercontent.com/105344687/187071086-5ea7cda9-21e8-4cb2-8eae-cbc93081c922.jpg)
 
-* ワイヤーフレーム(User)
+* UI FROWS(User)
 ![Golf-UI Forws(ユーザー側)](https://user-images.githubusercontent.com/105344687/180429441-f5c54968-5a09-4460-b592-9ae41a1c4f70.jpg)
 
-* ワイヤーフレーム(admin)
+* UI FROWS(admin)
 ![Golf-UI Frows(管理側)](https://user-images.githubusercontent.com/105344687/180429524-b49087a1-a17a-4f83-a054-486d5d043a63.jpg)
 
+- ワイヤーフレーム(実装前構想)
+[Stop! Single Golf.pdf](https://github.com/Alexander4649/Stop_Single_Golf/files/9459752/Stop.Single.Golf.pdf)
 
 - テーブル定義書
 
@@ -77,7 +79,7 @@
 
 - テスト仕様書
 
-[Stop!Single Golf_テスト仕様書.xlsx.pdf](https://github.com/Alexander4649/Stop_Single_Golf/files/9336402/Stop.Single.Golf_.xlsx.pdf)
+[Stop!Single Golf_テスト仕様書.xlsx.pdf](https://github.com/Alexander4649/Stop_Single_Golf/files/9459821/Stop.Single.Golf_.xlsx.pdf)
 
 ***
 ## ◆開発環境
