@@ -66,7 +66,7 @@
 * UI FROWS(admin)
 ![Golf-UI Frows(管理側)](https://user-images.githubusercontent.com/105344687/180429524-b49087a1-a17a-4f83-a054-486d5d043a63.jpg)
 
-* ワイヤーフレーム(実装前構想)
+* ワイヤーフレーム
 
 [Stop! Single Golf.pdf](https://github.com/Alexander4649/Stop_Single_Golf/files/9459752/Stop.Single.Golf.pdf)
 
