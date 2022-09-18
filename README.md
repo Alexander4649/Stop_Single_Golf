@@ -91,17 +91,17 @@
 - gem："devise","image_processing","carrierwave","jquery-datetimepicker-rails", "kaminari","rails-i18n","enum_help","dotenv-rails"
 
 ***
-
 ## ◆取り入れた技術
 - ユーザー認証(devise)
 - いいね・フォロー・コメント・DM機能の非同期通信(Ajax)
-- 通知機能(module)
-- 乱数機能
+- 通知機能(module,helper)
+- 乱数機能(securerandom)
 - 複数画像アップロード機能(carrierwave,imageuploader)
 - メッセージ画像添付機能(rightbox)
 - スライド機能(swiper)
 - 自動スクロール機能(JavaScript,scroll)
-- カウントダウンタイマー機能・ドロップダウンメニュー機能(JavaScript)
+- カウントダウンタイマー機能(JavaScript)
+- ドロップダウンメニュー機能(CSS)
 - バッチ処理機能(自動会員完全削除)(whenever/cron)
 - スコア入力・自動計算機能(JavaScript,enum,json)
 
