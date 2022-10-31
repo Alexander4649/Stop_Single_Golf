@@ -57,7 +57,7 @@
 <img width="1361" alt="スクリーンショット 2022-08-28 20 11 51" src="https://user-images.githubusercontent.com/105344687/187071192-1a4225aa-43cb-4b4c-a671-f34ddf11991a.png">
 
 * ER図
-![GOLF-ER図](https://user-images.githubusercontent.com/105344687/187071086-5ea7cda9-21e8-4cb2-8eae-cbc93081c922.jpg)
+<img width="735" alt="スクリーンショット 2022-10-31 15 10 20" src="https://user-images.githubusercontent.com/105344687/198942800-7c2dd50d-8f8b-4d60-957a-835f862163b0.png">
 
 * UI FROWS(User)
 ![Golf-UI Forws(ユーザー側)](https://user-images.githubusercontent.com/105344687/180429441-f5c54968-5a09-4460-b592-9ae41a1c4f70.jpg)
